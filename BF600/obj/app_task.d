@@ -40,8 +40,7 @@
 .\obj\app_task.o: ..\..\src\plf\rwip\api\rwip.h
 .\obj\app_task.o: ..\..\src\plf\prf\prf.h
 .\obj\app_task.o: ..\..\src\modules\ke\api\ke_timer.h
-.\obj\app_task.o: .\app\api\app_fee0.h
-.\obj\app_task.o: .\app\api\app_fcc0.h
+.\obj\app_task.o: .\work\f000\app_f000.h
 .\obj\app_task.o: .\app\api\app_oads.h
 .\obj\app_task.o: ..\..\Src\profiles\oad\api\oads.h
 .\obj\app_task.o: ..\..\Src\profiles\oad\api\oads_task.h

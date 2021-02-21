@@ -42,6 +42,32 @@
 #include "app_fee0.h"              //  Module Definition
 #endif //(BLE_APP_FEE0S)
 
+//zoujq_1_add
+#if (BLE_APP_F000S)
+#include "app_f000.h"              //  Module Definition
+#endif //(BLE_APP_F000S)
+
+//zoujq_1_add
+#if (BLE_APP_F010S)
+#include "app_f010.h"              //  Module Definition
+#endif //(BLE_APP_F010S)
+
+//zoujq_1_add
+#if (BLE_APP_F020S)
+#include "app_f020.h"              //  Module Definition
+#endif //(BLE_APP_F020S)
+
+//zoujq_1_add
+#if (BLE_APP_F030S)
+#include "app_f030.h"              //  Module Definition
+#endif //(BLE_APP_F030S)
+
+//zoujq_1_add
+#if (BLE_APP_F040S)
+#include "app_f040.h"              //  Module Definition
+#endif //(BLE_APP_F040S)
+
+
 #if (BLE_APP_FCC0S)
 #include "app_fcc0.h"              //  Module Definition
 #endif //(BLE_APP_FCC0S)
@@ -911,6 +937,46 @@ static int appm_msg_handler(ke_msg_id_t const msgid,
         {
             // Call the app fee0s Module
             msg_pol = app_get_handler(&app_fee0_handler, msgid, param, src_id);
+        } break;
+        #endif //(BLE_APP_FEE0S)
+        
+        #if (BLE_APP_F000S)//zoujq_1_add
+        case (TASK_ID_F000S):
+        {
+            // Call the app fee0s Module
+            msg_pol = app_get_handler(&app_f000_handler, msgid, param, src_id);
+        } break;
+        #endif //(BLE_APP_F010S)
+        
+        #if (BLE_APP_F010S)//zoujq_1_add
+        case (TASK_ID_F010S):
+        {
+            // Call the app f010s Module
+            msg_pol = app_get_handler(&app_f010_handler, msgid, param, src_id);
+        } break;
+        #endif //(BLE_APP_FEE0S)
+        
+        #if (BLE_APP_F020S)//zoujq_1_add
+        case (TASK_ID_F020S):
+        {
+            // Call the app fee0s Module
+            msg_pol = app_get_handler(&app_f020_handler, msgid, param, src_id);
+        } break;
+        #endif //(BLE_APP_FEE0S)
+        
+        #if (BLE_APP_F030S)//zoujq_1_add
+        case (TASK_ID_F030S):
+        {
+            // Call the app fee0s Module
+            msg_pol = app_get_handler(&app_f030_handler, msgid, param, src_id);
+        } break;
+        #endif //(BLE_APP_FEE0S)
+        
+        #if (BLE_APP_F040S)//zoujq_1_add
+        case (TASK_ID_F040S):
+        {
+            // Call the app fee0s Module
+            msg_pol = app_get_handler(&app_f040_handler, msgid, param, src_id);
         } break;
         #endif //(BLE_APP_FEE0S)
         

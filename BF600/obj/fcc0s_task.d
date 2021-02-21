@@ -43,7 +43,7 @@
 .\obj\fcc0s_task.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\fcc0s_task.o: ..\..\Src\profiles\FCC0_128\api\fcc0s.h
 .\obj\fcc0s_task.o: ..\..\Src\profiles\FCC0_128\api\fcc0s_task.h
-.\obj\fcc0s_task.o: ..\..\src\plf\prf\prf_types.h
 .\obj\fcc0s_task.o: ..\..\src\plf\prf\prf_utils.h
+.\obj\fcc0s_task.o: ..\..\src\plf\prf\prf_types.h
 .\obj\fcc0s_task.o: ..\..\Src\ip\ble\hl\inc\gapc.h
 .\obj\fcc0s_task.o: ..\..\Src\ip\ble\hl\api\gapc_task.h

@@ -43,9 +43,4 @@
 .\obj\app_fee0.o: ..\..\src\plf\prf\prf_types.h
 .\obj\app_fee0.o: ..\..\Src\ip\ble\hl\api\att.h
 .\obj\app_fee0.o: ..\..\Src\profiles\FEE0\api\fee0s.h
-.\obj\app_fee0.o: ..\..\Src\ip\ble\hl\src\gatt\atts\atts.h
-.\obj\app_fee0.o: ..\..\Src\ip\ble\hl\api\gattc_task.h
-.\obj\app_fee0.o: ..\..\Src\ip\ble\hl\inc\l2cc.h
-.\obj\app_fee0.o: ..\..\Src\ip\ble\hl\api\l2cc_task.h
-.\obj\app_fee0.o: ..\..\Src\ip\ble\hl\inc\l2cc_pdu.h
 .\obj\app_fee0.o: ..\..\src\modules\ke\api\ke_timer.h

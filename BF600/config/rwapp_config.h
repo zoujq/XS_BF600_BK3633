@@ -38,12 +38,16 @@
 #define CFG_APP_BATT
 #define CFG_APP_SEC
 
-#define CFG_APP_FEE0S
-#define CFG_APP_FCC0S
+//#define CFG_APP_FEE0S
+//#define CFG_APP_FCC0S
 //#define CFG_APP_ANCS
 #define CFG_APP_OADS
 
-
+#define CFG_APP_F000S //zoujq_1_add
+// #define CFG_APP_F010S //zoujq_1_add
+// #define CFG_APP_F020S //zoujq_1_add
+// #define CFG_APP_F030S //zoujq_1_add
+// #define CFG_APP_F040S //zoujq_1_add
 
 
 /******************************************************************************************/
@@ -56,6 +60,41 @@
 #else // defined(CFG_APP_FEE0S)
 #define BLE_APP_FEE0S           0
 #endif // defined(CFG_APP_FEE0S)
+
+/// User define Application //zoujq_1_add
+#if defined(CFG_APP_F000S)
+#define BLE_APP_F000S           1
+#else // defined(CFG_APP_F000S)
+#define BLE_APP_F000S           0
+#endif // defined(CFG_APP_F000S)
+
+/// User define Application//zoujq_1_add
+#if defined(CFG_APP_F010S)
+#define BLE_APP_F010S           1
+#else // defined(CFG_APP_F010S)
+#define BLE_APP_F010S           0
+#endif // defined(CFG_APP_F010S)
+
+/// User define Application//zoujq_1_add
+#if defined(CFG_APP_F020S)
+#define BLE_APP_F020S           1
+#else // defined(CFG_APP_F020S)
+#define BLE_APP_F020S           0
+#endif // defined(CFG_APP_F020S)
+
+/// User define Application//zoujq_1_add
+#if defined(CFG_APP_F030S)
+#define BLE_APP_F030S           1
+#else // defined(CFG_APP_F030S)
+#define BLE_APP_F030S           0
+#endif // defined(CFG_APP_F030S)
+
+/// User define Application//zoujq_1_add
+#if defined(CFG_APP_F040S)
+#define BLE_APP_F040S           1
+#else // defined(CFG_APP_F040S)
+#define BLE_APP_F040S           0
+#endif // defined(CFG_APP_F040S)
 
 /// User define Application
 #if defined(CFG_APP_FCC0S)

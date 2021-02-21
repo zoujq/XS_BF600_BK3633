@@ -48,6 +48,27 @@
 #include "app_fee0.h"                  // USER define FEE0S Application Definitions
 #endif //(BLE_APP_FEE0S)
 
+#if (BLE_APP_F000S)
+#include "app_f000.h"                  // USER define FEE0S Application Definitions
+#endif //(BLE_APP_F000S)
+
+#if (BLE_APP_F010S)
+#include "app_f010.h"                  // USER define FEE0S Application Definitions
+#endif //(BLE_APP_F010S)
+
+#if (BLE_APP_F020S)
+#include "app_f020.h"                  // USER define FEE0S Application Definitions
+#endif //(BLE_APP_F020S)
+
+#if (BLE_APP_F030S)
+#include "app_f030.h"                  // USER define FEE0S Application Definitions
+#endif //(BLE_APP_F030S)
+
+#if (BLE_APP_F040S)
+#include "app_f040.h"                  // USER define FEE0S Application Definitions
+#endif //(BLE_APP_F040S)
+
+
 #if (BLE_APP_FCC0S)
 #include "app_fcc0.h"                  // USER define FCC0S Application Definitions
 #endif //(BLE_APP_FCC0S)
@@ -162,6 +183,26 @@ enum appm_svc_list
     APPM_SVC_FEE0S,
     #endif //(BLE_APP_FEE0S)
     
+    #if (BLE_APP_F000S)
+    APPM_SVC_F000S,
+    #endif //(BLE_APP_F000S)
+    
+    #if (BLE_APP_F010S)
+    APPM_SVC_F010S,
+    #endif //(BLE_APP_F010S)
+    
+    #if (BLE_APP_F020S)
+    APPM_SVC_F020S,
+    #endif //(BLE_APP_F020S)
+    
+    #if (BLE_APP_F030S)
+    APPM_SVC_F030S,
+    #endif //(BLE_APP_F030S)
+    
+    #if (BLE_APP_F040S)
+    APPM_SVC_F040S,
+    #endif //(BLE_APP_F040S)
+    
     #if (BLE_APP_FCC0S)
     APPM_SVC_FCC0S,
     #endif //(BLE_APP_FCC0S)
@@ -206,6 +247,26 @@ static const appm_add_svc_func_t appm_add_svc_func_list[APPM_SVC_LIST_STOP] =
     #if (BLE_APP_FEE0S)
     (appm_add_svc_func_t)app_fee0_add_fee0s,
     #endif //(BLE_APP_FEE0S)
+    
+    #if (BLE_APP_F000S)
+    (appm_add_svc_func_t)app_f000_add_f000s,
+    #endif //(BLE_APP_F000S)
+    
+    #if (BLE_APP_F010S)
+    (appm_add_svc_func_t)app_f010_add_f010s,
+    #endif //(BLE_APP_F010S)
+    
+    #if (BLE_APP_F020S)
+    (appm_add_svc_func_t)app_f020_add_f020s,
+    #endif //(BLE_APP_F000S)
+    
+    #if (BLE_APP_F030S)
+    (appm_add_svc_func_t)app_f030_add_f030s,
+    #endif //(BLE_APP_F000S)
+    
+    #if (BLE_APP_F040S)
+    (appm_add_svc_func_t)app_f040_add_f040s,
+    #endif //(BLE_APP_F000S)
     
     #if (BLE_APP_FCC0S)
     (appm_add_svc_func_t)app_fcc0_add_fcc0s,

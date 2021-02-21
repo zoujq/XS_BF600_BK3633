@@ -28,11 +28,20 @@
 
 #define CFG_PRF_DISS
 #define CFG_PRF_BASS
-#define CFG_PRF_FEE0S
-#define CFG_PRF_FCC0S
+//#define CFG_PRF_FEE0S
+//#define CFG_PRF_FCC0S
 #define CFG_PRF_OADS
 #define CFG_PRF_ANCSC
 
+#define CFG_PRF_F000S
+
+// #define CFG_PRF_F010S
+
+// #define CFG_PRF_F020S
+
+// #define CFG_PRF_F030S
+
+// #define CFG_PRF_F040S
 
 
 //ATT DB,Testing and Qualification related flags
@@ -47,6 +56,41 @@
 #else
 #define BLE_FEE0_SERVER        0
 #endif // defined(CFG_PRF_FEE0S)
+
+/// F000S Profile Monitor Role
+#if defined(CFG_PRF_F000S)
+#define BLE_F000_SERVER        1
+#else
+#define BLE_F000_SERVER        0
+#endif // defined(CFG_PRF_F000S)
+
+/// F010S Profile Monitor Role
+#if defined(CFG_PRF_F010S)
+#define BLE_F010_SERVER        1
+#else
+#define BLE_F010_SERVER        0
+#endif // defined(CFG_PRF_F010S)
+
+/// F020S Profile Monitor Role
+#if defined(CFG_PRF_F020S)
+#define BLE_F020_SERVER        1
+#else
+#define BLE_F020_SERVER        0
+#endif // defined(CFG_PRF_F020S)
+
+/// F030S Profile Monitor Role
+#if defined(CFG_PRF_F030S)
+#define BLE_F030_SERVER        1
+#else
+#define BLE_F030_SERVER        0
+#endif // defined(CFG_PRF_F030S)
+
+/// F040S Profile Monitor Role
+#if defined(CFG_PRF_F040S)
+#define BLE_F040_SERVER        1
+#else
+#define BLE_F040_SERVER        0
+#endif // defined(CFG_PRF_F040S)
 
 /// FCC0S Profile Monitor Role
 #if defined(CFG_PRF_FCC0S)
@@ -454,7 +498,7 @@
         || BLE_CSC_SENSOR || BLE_CP_SENSOR || BLE_LN_SENSOR || BLE_AN_SERVER \
         || BLE_PAS_SERVER || BLE_IPS_SERVER || BLE_ENV_SERVER || BLE_WSC_SERVER \
         || BLE_UDS_SERVER || BLE_BCS_SERVER || BLE_WPT_SERVER || BLE_PLX_SERVER \
-        || BLE_CGM_SERVER || BLE_DBG_THPP||BLE_OADS_SERVER)
+        || BLE_CGM_SERVER || BLE_DBG_THPP||BLE_OADS_SERVER )
 #define BLE_SERVER_PRF          1
 #else
 #define BLE_SERVER_PRF          0
