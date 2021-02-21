@@ -1,0 +1,11 @@
+.\obj\aon_rtc.o: ..\..\src\driver\aon_rtc\aon_rtc.c
+.\obj\aon_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\aon_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\aon_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\obj\aon_rtc.o: ..\..\src\driver\aon_rtc\aon_rtc.h
+.\obj\aon_rtc.o: .\config\user_config.h
+.\obj\aon_rtc.o: ..\..\src\driver\uart2\uart2.h
+.\obj\aon_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\aon_rtc.o: ..\..\src\driver\uart\uart.h
+.\obj\aon_rtc.o: .\config\user_config.h
+.\obj\aon_rtc.o: ..\..\Src\header\bk3633_reglist.h

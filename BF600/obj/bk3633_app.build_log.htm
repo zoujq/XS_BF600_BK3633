@@ -1,0 +1,72 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: μVision V5.30.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: zou DELL, Microsoft, LIC=03C6R-KMQTU-HLRCL-0B5ZW-N80H2-QZFLS
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.30.0.0
+Toolchain Path:  D:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARM.DLL V5.30.0.0
+Dialog DLL:      DARMP3.DLL 
+<h2>Project:</h2>
+E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\SDK\projects\BF600\prj3633.uvproj
+Project File Date:  02/02/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'Target1'
+Before Build - User command #1: del.bat
+E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\SDK\projects\BF600>if exist ..\..\..\..\delete_me.config (echo delete exit  )  else (
+del ..\..\..\readme.docx  /s/q  
+ rd ..\..\projects\stack /s /q  
+ rd ..\..\projects\controller_lib /s /q  
+ rd ..\..\projects\all_code_compile /s /q  
+ del ..\..\src\ip\*.c /s /q  
+ del ..\..\src\modules\*.c /s /q  
+ del ..\..\..\..\bk3633_V*.rar  /s/q 
+) 
+找不到 E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\readme.docx
+系统找不到指定的文件。
+系统找不到指定的文件。
+系统找不到指定的文件。
+找不到 E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\SDK\src\ip\*.c
+找不到 E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\SDK\src\modules\*.c
+找不到 E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\bk3633_V*.rar
+compiling app_dis.c...
+compiling app.c...
+compiling app_task.c...
+linking...
+Program Size: Code=41824 RO-data=3856 RW-data=104 ZI-data=22900  
+After Build - User command #1: fromelf --bin --output .\output\app\bk3633_app.bin .\obj\bk3633_app.axf
+After Build - User command #2: .\output\translate.bat
+E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V03_0C02\BK3633_DesignKit_V03_0C02\SDK\projects\BF600>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x1F00 -l 0x25b00 -v 0x0010 -rom_v 0x0002 -e 00000000 00000000 00000000 00000000 
+cmd_bin_oad.stack_file_addr :0x1f00
+binary version hex:0x10; dec:16
+Arm Image Binary will be converted to OAD format binary file.....
+cmd_bin_oad.stack_file_addr=1f00
+boot_bin_len=1444
+add stack bin start
+        Encrypt Seccessfully!
+        File Size: 0x33f46
+oad_stack_app_bin_len=31f00
+oad_app_bin_len=bf40
+27 a0 df ad 10 00 d0 2f 42 42 42 42 ff ff 02 00 /**< @CREATE_FILE_SUCCESS */
+/**< @Download flash file:.\output\app\bk3633_app_merge_crc.bin
+/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0x69c6627d
+/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0xaddfa027
+/**< @author <gang.cheng@bekencorp.com> */
+/**< @version v0.3 */
+".\obj\bk3633_app.axf" - 0 Error(s), 0 Warning(s).
+Build Time Elapsed:  00:00:04
+</pre>
+</body>
+</html>

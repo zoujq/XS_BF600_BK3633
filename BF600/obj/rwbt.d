@@ -1,0 +1,17 @@
+.\obj\rwbt.o: ..\..\Src\plf\rwip\src\rwbt.c
+.\obj\rwbt.o: .\config\rwip_config.h
+.\obj\rwbt.o: ..\..\src\driver\uart2\uart2.h
+.\obj\rwbt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\obj\rwbt.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\obj\rwbt.o: ..\..\src\driver\uart\uart.h
+.\obj\rwbt.o: .\config\user_config.h
+.\obj\rwbt.o: ..\..\src\driver\uart2\uart2.h
+.\obj\rwbt.o: ..\..\src\driver\uart\uart.h
+.\obj\rwbt.o: ..\..\src\plf\refip\src\arch\arch.h
+.\obj\rwbt.o: .\config\rwip_config.h
+.\obj\rwbt.o: ..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h
+.\obj\rwbt.o: ..\..\src\plf\refip\src\arch\ll\rvds\ll.h
+.\obj\rwbt.o: ..\..\src\ip\ble\ll\api\rwble_config.h
+.\obj\rwbt.o: ..\..\Src\ip\ble\hl\inc\rwble_hl_config.h
+.\obj\rwbt.o: ..\..\Src\ip\ble\hl\api\rwble_hl_error.h
+.\obj\rwbt.o: .\config\rwprf_config.h
