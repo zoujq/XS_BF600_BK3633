@@ -52,13 +52,6 @@
 .\obj\app_task.o: ..\..\Src\ip\ble\hl\inc\l2cc.h
 .\obj\app_task.o: ..\..\Src\ip\ble\hl\api\l2cc_task.h
 .\obj\app_task.o: ..\..\Src\ip\ble\hl\inc\l2cc_pdu.h
-.\obj\app_task.o: .\app\api\app_ancsc.h
-.\obj\app_task.o: ..\..\Src\profiles\ancs\ancsc\api\ancsc_task.h
-.\obj\app_task.o: ..\..\Src\profiles\ancs\ancsc\api\ancsc.h
-.\obj\app_task.o: ..\..\src\plf\prf\prf_utils.h
-.\obj\app_task.o: ..\..\Src\ip\ble\hl\inc\gapc.h
-.\obj\app_task.o: ..\..\Src\ip\ble\hl\inc\attm.h
-.\obj\app_task.o: ..\..\Src\profiles\ancs\ancsc\ancs_common.h
 .\obj\app_task.o: .\app\api\app_sec.h
 .\obj\app_task.o: .\app\api\app_dis.h
 .\obj\app_task.o: ..\..\Src\profiles\dis\diss\api\diss_task.h

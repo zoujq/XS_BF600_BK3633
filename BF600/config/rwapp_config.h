@@ -40,7 +40,7 @@
 
 #define CFG_APP_FEE0S
 #define CFG_APP_FCC0S
-#define CFG_APP_ANCS
+//#define CFG_APP_ANCS
 #define CFG_APP_OADS
 
 

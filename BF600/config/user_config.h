@@ -23,7 +23,7 @@
 #define UART0_DRIVER			1
 #define UART2_DRIVER			1
 
-#define GPIO_DRIVER				0
+#define GPIO_DRIVER				1
 #define AUDIO_DRIVER            0
 #define RTC_DRIVER				0
 #define ADC_DRIVER				0
@@ -34,7 +34,7 @@
 #define AON_RTC_DRIVER          1
 
 
-#define uart_printf              uart2_printf
+#define uart_printf              uart0_printf
 
 
 

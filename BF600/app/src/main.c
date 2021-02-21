@@ -193,7 +193,7 @@ int main(void)
 
     intc_init();
     uart_init(115200);
-    uart2_init(1000000);
+    uart2_init(115200);
 
     gpio_init(); 
 

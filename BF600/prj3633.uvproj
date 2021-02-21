@@ -453,11 +453,6 @@
               <FilePath>.\app\src\app.c</FilePath>
             </File>
             <File>
-              <FileName>app_ancsc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\app\src\app_ancsc.c</FilePath>
-            </File>
-            <File>
               <FileName>app_batt.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\app\src\app_batt.c</FilePath>
@@ -491,6 +486,11 @@
               <FileName>app_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\app\src\app_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_ancsc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\app\src\app_ancsc.c</FilePath>
             </File>
           </Files>
         </Group>
