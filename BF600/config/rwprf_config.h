@@ -37,7 +37,7 @@
 
 // #define CFG_PRF_F010S
 
-// #define CFG_PRF_F020S
+#define CFG_PRF_F020S
 
 // #define CFG_PRF_F030S
 
