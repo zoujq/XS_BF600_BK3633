@@ -1195,8 +1195,11 @@ static int app_send_security_req_handler(ke_msg_id_t const msgid,
 static int app_ancs_req_handler(ke_msg_id_t const msgid, void const *param,
         ke_task_id_t const dest_id, ke_task_id_t const src_id)
 {
-    app_ancsc_enable_prf(app_env.conhdl);
-    return KE_MSG_CONSUMED;
+	#if (BLE_APP_ANCS)
+	app_ancsc_enable_prf(app_env.conhdl);
+	#endif 
+   
+  return KE_MSG_CONSUMED;
 }
 /*******************************************************************************
  * Function: app_period_timer_handler

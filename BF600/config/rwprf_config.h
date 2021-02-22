@@ -27,11 +27,11 @@
 #include "rwip_config.h"
 
 #define CFG_PRF_DISS
-#define CFG_PRF_BASS
+// #define CFG_PRF_BASS
 //#define CFG_PRF_FEE0S
 //#define CFG_PRF_FCC0S
 #define CFG_PRF_OADS
-#define CFG_PRF_ANCSC
+// #define CFG_PRF_ANCSC
 
 #define CFG_PRF_F000S
 
@@ -39,7 +39,7 @@
 
 #define CFG_PRF_F020S
 
-// #define CFG_PRF_F030S
+#define CFG_PRF_F030S
 
 // #define CFG_PRF_F040S
 

@@ -29,7 +29,7 @@
 #define F000S_IDX_MAX     0x01
 ///Maximal number of F000 that can be added in the DB
 
-#define  F000_CHAR_DATA_LEN  628
+#define  F000_CHAR_DATA_LEN  30
 
 /*
  * TYPE DEFINITIONS

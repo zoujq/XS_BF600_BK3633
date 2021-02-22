@@ -46,7 +46,7 @@
 #define CFG_APP_F000S //zoujq_1_add
 // #define CFG_APP_F010S //zoujq_1_add
 #define CFG_APP_F020S //zoujq_1_add
-// #define CFG_APP_F030S //zoujq_1_add
+#define CFG_APP_F030S //zoujq_1_add
 // #define CFG_APP_F040S //zoujq_1_add
 
 

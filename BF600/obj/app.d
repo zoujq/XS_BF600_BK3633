@@ -40,6 +40,7 @@
 .\obj\app.o: .\app\api\app_sec.h
 .\obj\app.o: .\work\f000\app_f000.h
 .\obj\app.o: .\work\f020\app_f020.h
+.\obj\app.o: .\work\f030\app_f030.h
 .\obj\app.o: .\app\api\app_oads.h
 .\obj\app.o: ..\..\Src\profiles\oad\api\oads.h
 .\obj\app.o: ..\..\Src\profiles\oad\api\oads_task.h

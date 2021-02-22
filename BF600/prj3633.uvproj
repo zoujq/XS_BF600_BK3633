@@ -477,11 +477,6 @@
               <FileType>1</FileType>
               <FilePath>.\app\src\app_task.c</FilePath>
             </File>
-            <File>
-              <FileName>app_ancsc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\app\src\app_ancsc.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -706,6 +701,21 @@
               <FileName>f020s_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\work\f020\f020s_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_f030.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f030\app_f030.c</FilePath>
+            </File>
+            <File>
+              <FileName>f030s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f030\f030s.c</FilePath>
+            </File>
+            <File>
+              <FileName>f030s_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f030\f030s_task.c</FilePath>
             </File>
           </Files>
         </Group>

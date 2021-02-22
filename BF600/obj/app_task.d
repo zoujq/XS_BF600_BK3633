@@ -42,6 +42,7 @@
 .\obj\app_task.o: ..\..\src\modules\ke\api\ke_timer.h
 .\obj\app_task.o: .\work\f000\app_f000.h
 .\obj\app_task.o: .\work\f020\app_f020.h
+.\obj\app_task.o: .\work\f030\app_f030.h
 .\obj\app_task.o: .\app\api\app_oads.h
 .\obj\app_task.o: ..\..\Src\profiles\oad\api\oads.h
 .\obj\app_task.o: ..\..\Src\profiles\oad\api\oads_task.h

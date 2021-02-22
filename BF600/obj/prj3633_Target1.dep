@@ -4,7 +4,7 @@ F (..\..\src\system\peripheral_stack_symbol.txt)(0x5EEC1F76)()
 F (..\..\src\system\boot_handlers.s)(0x5ECE2A74)(--cpu ARM9E --apcs=interwork -ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 530"-o .\obj\boot_handlers.o --depend .\obj\boot_handlers.d)
 F (..\..\src\system\boot_vectors.s)(0x5ECDCA34)(--cpu ARM9E --apcs=interwork -ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 530"-o .\obj\boot_vectors.o --depend .\obj\boot_vectors.d)
 F (.\app\src\main.c)(0x6031CF07)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\main.o --depend .\obj\main.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -16,7 +16,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
@@ -74,21 +74,21 @@ I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\inc\l2cc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
-F (.\app\src\app.c)(0x6031F9CA)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app.o --depend .\obj\app.d)
+F (.\app\src\app.c)(0x60322DAF)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app.o --depend .\obj\app.d)
 I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\config\rwapp_config.h)(0x6032176A)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (.\config\rwapp_config.h)(0x6032229B)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
@@ -113,6 +113,7 @@ I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
 I (.\app\api\app_sec.h)(0x5E96C1EF)
 I (.\work\f000\app_f000.h)(0x6031F39F)
 I (.\work\f020\app_f020.h)(0x6032157D)
+I (.\work\f030\app_f030.h)(0x6032157D)
 I (.\app\api\app_oads.h)(0x5E9682D5)
 I (..\..\Src\profiles\oad\api\oads.h)(0x5ED62A9B)
 I (..\..\Src\profiles\oad\api\oads_task.h)(0x5E9681D1)
@@ -127,7 +128,7 @@ I (.\app\api\app_dis.h)(0x6031BFE1)
 I (.\app\api\app_batt.h)(0x5E7461ED)
 I (..\..\src\driver\flash\flash.h)(0x5EEC13C0)
 F (.\app\src\app_batt.c)(0x5E7461ED)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_batt.o --depend .\obj\app_batt.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -139,8 +140,8 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\config\rwapp_config.h)(0x6032176A)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (.\config\rwapp_config.h)(0x6032229B)
 I (.\app\api\app_batt.h)(0x5E7461ED)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
@@ -168,7 +169,7 @@ I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 F (.\app\src\app_dis.c)(0x5E7461ED)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_dis.o --depend .\obj\app_dis.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -180,8 +181,8 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\config\rwapp_config.h)(0x6032176A)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (.\config\rwapp_config.h)(0x6032229B)
 I (.\app\api\app.h)(0x5E7461EC)
 I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -208,7 +209,7 @@ I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
 F (.\app\src\app_oads.c)(0x5E96821D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_oads.o --depend .\obj\app_oads.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -220,7 +221,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (.\app\api\app_oads.h)(0x5E9682D5)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
@@ -254,7 +255,7 @@ I (.\app\api\app_task.h)(0x5E96C1AC)
 I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 F (.\app\src\app_sec.c)(0x5EA683B1)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_sec.o --depend .\obj\app_sec.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -266,8 +267,8 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\config\rwapp_config.h)(0x6032176A)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (.\config\rwapp_config.h)(0x6032229B)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -295,8 +296,8 @@ I (.\app\api\app.h)(0x5E7461EC)
 I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
 I (.\app\api\app_sec.h)(0x5E96C1EF)
 I (.\app\api\app_task.h)(0x5E96C1AC)
-F (.\app\src\app_task.c)(0x6031F8E4)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_task.o --depend .\obj\app_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+F (.\app\src\app_task.c)(0x60321CC1)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_task.o --depend .\obj\app_task.d)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -308,8 +309,8 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\config\rwapp_config.h)(0x6032176A)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (.\config\rwapp_config.h)(0x6032229B)
 I (.\app\api\app_task.h)(0x5E96C1AC)
 I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
@@ -335,6 +336,7 @@ I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
 I (..\..\src\modules\ke\api\ke_timer.h)(0x5E7461F4)
 I (.\work\f000\app_f000.h)(0x6031F39F)
 I (.\work\f020\app_f020.h)(0x6032157D)
+I (.\work\f030\app_f030.h)(0x6032157D)
 I (.\app\api\app_oads.h)(0x5E9682D5)
 I (..\..\Src\profiles\oad\api\oads.h)(0x5ED62A9B)
 I (..\..\Src\profiles\oad\api\oads_task.h)(0x5E9681D1)
@@ -350,54 +352,8 @@ I (.\app\api\app_dis.h)(0x6031BFE1)
 I (..\..\Src\profiles\dis\diss\api\diss_task.h)(0x5E7461F0)
 I (.\app\api\app_batt.h)(0x5E7461ED)
 I (..\..\Src\profiles\bas\bass\api\bass_task.h)(0x5E7461EF)
-F (.\app\src\app_ancsc.c)(0x5EA6A018)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_ancsc.o --depend .\obj\app_ancsc.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
-I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
-I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
-I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
-I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
-I (.\config\user_config.h)(0x6031D09A)
-I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
-I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
-I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
-I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
-I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (.\app\api\app_ancsc.h)(0x5E958EBF)
-I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
-I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
-I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
-I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
-I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
-I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
-I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
-I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
-I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
-I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
-I (.\app\api\app.h)(0x5E7461EC)
-I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
-I (.\app\api\app_task.h)(0x5E96C1AC)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc_task.h)(0x5E98198E)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc.h)(0x5E981A7D)
-I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
-I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
-I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
-I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
-I (..\..\Src\profiles\ancs\ancsc\ancs_common.h)(0x5A41BCC9)
 F (..\..\Src\plf\rwip\src\\rwbt.c)(0x5EA2AEF4)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\rwbt.o --depend .\obj\rwbt.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -409,9 +365,9 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 F (..\..\Src\plf\rwip\src\rwble.c)(0x5EA8E5ED)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\rwble.o --depend .\obj\rwble.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -423,7 +379,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_version.h)(0x5E7461F4)
 I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
@@ -468,7 +424,7 @@ I (..\..\src\ip\ble\ll\import\reg\_reg_em_ble_rx_cte_desc.h)(0x5E7461EE)
 I (..\..\src\ip\ble\ll\import\reg\_reg_em_ble_wpal.h)(0x5E7461EE)
 I (..\..\src\ip\ble\ll\import\reg\_reg_em_ble_ral.h)(0x5E7461EE)
 F (..\..\Src\plf\rwip\src\rwip.c)(0x5EE49C49)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\rwip.o --depend .\obj\rwip.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -480,7 +436,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_version.h)(0x5E7461F4)
@@ -555,21 +511,21 @@ I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
 I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
 I (..\..\src\driver\flash\flash.h)(0x5EEC13C0)
 F (..\..\src\plf\prf\prf_utils.c)(0x5E980599)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\prf_utils.o --depend .\obj\prf_utils.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -581,7 +537,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -609,7 +565,7 @@ I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
 I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 F (..\..\src\plf\prf\prf.c)(0x6031FB85)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\prf.o --depend .\obj\prf.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -621,7 +577,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
@@ -644,14 +600,14 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
@@ -668,7 +624,7 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
 I (..\..\src\plf\rwip\import\reg\_reg_ipcore.h)(0x5E7461F5)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
@@ -676,7 +632,7 @@ I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\driver\reg\reg_access.h)(0x5E7461EC)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
@@ -742,7 +698,7 @@ I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\Src\header\BK3633_RegList.h)(0x5EEB4E02)
 F (..\..\Src\driver\icu\icu.c)(0x5EDF663C)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\icu.o --depend .\obj\icu.d)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -754,7 +710,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
@@ -833,14 +789,14 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
 I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
@@ -865,7 +821,7 @@ I (..\..\Src\header\bk3633_reglist.h)(0x5EEB4E02)
 F (..\..\src\driver\intc\intc.c)(0x5EE48F29)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\intc.o --depend .\obj\intc.d)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -874,7 +830,7 @@ I (.\config\user_config.h)(0x6031D09A)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
@@ -945,7 +901,7 @@ I (..\..\Src\driver\intc\intc.h)(0x5ECCDC7C)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 I (..\..\Src\header\BK3633_RegList.h)(0x5EEB4E02)
 F (..\..\Src\profiles\dis\diss\src\diss.c)(0x5E7461F0)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\diss.o --depend .\obj\diss.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -957,7 +913,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
@@ -981,7 +937,7 @@ I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
 I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
 F (..\..\Src\profiles\dis\diss\src\diss_task.c)(0x5E7461F0)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\diss_task.o --depend .\obj\diss_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -993,7 +949,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
@@ -1023,7 +979,7 @@ I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
 F (..\..\Src\profiles\bas\bass\src\bass.c)(0x5E7461EF)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\bass.o --depend .\obj\bass.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1035,31 +991,9 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (..\..\Src\profiles\bas\bass\src\bass.h)(0x5E7461EF)
-I (..\..\Src\profiles\bas\bass\api\bass_task.h)(0x5E7461EF)
-I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
-I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
-I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
-I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
-I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
-I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
-I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
-I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
-I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
-I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
-I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
-I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
-I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
+I (.\config\rwprf_config.h)(0x6032F455)
 F (..\..\Src\profiles\bas\bass\src\bass_task.c)(0x5E7461EF)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\bass_task.o --depend .\obj\bass_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1071,36 +1005,9 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
-I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
-I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
-I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
-I (..\..\Src\profiles\bas\bass\src\bass.h)(0x5E7461EF)
-I (..\..\Src\profiles\bas\bass\api\bass_task.h)(0x5E7461EF)
-I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
-I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
-I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
-I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
-I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
-I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
-I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
-I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
-I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
-I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
-I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
+I (.\config\rwprf_config.h)(0x6032F455)
 F (..\..\Src\profiles\ancs\ancsc\src\ancsc.c)(0x5E96818B)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\ancsc.o --depend .\obj\ancsc.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1112,32 +1019,9 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc.h)(0x5E981A7D)
-I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
-I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
-I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
-I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
-I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
-I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
-I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
-I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
-I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
-I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
-I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
-I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc_task.h)(0x5E98198E)
-I (..\..\Src\profiles\ancs\ancsc\ancs_common.h)(0x5A41BCC9)
-I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
+I (.\config\rwprf_config.h)(0x6032F455)
 F (..\..\Src\profiles\ancs\ancsc\src\ancsc_task.c)(0x5E982456)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\ancsc_task.o --depend .\obj\ancsc_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1149,41 +1033,9 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
-I (..\..\Src\profiles\ancs\ancsc\ancs_common.h)(0x5A41BCC9)
-I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc.h)(0x5E981A7D)
-I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
-I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
-I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
-I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
-I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
-I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
-I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
-I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
-I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
-I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
-I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
-I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
-I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
-I (..\..\Src\profiles\ancs\ancsc\api\ancsc_task.h)(0x5E98198E)
-I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
-I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
-I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
-I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
-I (.\app\api\app_sec.h)(0x5E96C1EF)
-I (..\..\src\modules\ke\api\ke_timer.h)(0x5E7461F4)
-I (.\app\api\app_task.h)(0x5E96C1AC)
+I (.\config\rwprf_config.h)(0x6032F455)
 F (..\..\Src\profiles\oad\src\oads.c)(0x5ED63182)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\oads.o --depend .\obj\oads.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1195,7 +1047,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
@@ -1234,7 +1086,7 @@ I (..\..\Src\driver\icu\icu.h)(0x5EEB50AC)
 I (..\..\Src\driver\wdt\wdt.h)(0x5E904AFA)
 I (..\..\Src\header\BK3633_Reglist.h)(0x5EEB4E02)
 F (..\..\Src\profiles\oad\src\oads_task.c)(0x5ED1D9CB)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\oads_task.o --depend .\obj\oads_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1246,7 +1098,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
@@ -1278,10 +1130,10 @@ I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
 I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
 I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
-F (.\config\rwapp_config.h)(0x6032176A)()
+F (.\config\rwapp_config.h)(0x6032229B)()
 F (.\config\user_config.h)(0x6031D09A)()
-F (.\config\rwip_config.h)(0x5EC38CB0)()
-F (.\config\rwprf_config.h)(0x60321771)()
+F (.\config\rwip_config.h)(0x60323096)()
+F (.\config\rwprf_config.h)(0x6032F455)()
 F (..\..\src\device\spi_flash\w25x40c.c)(0x5ED20F62)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\w25x40c.o --depend .\obj\w25x40c.d)
 I (..\..\src\device\spi_flash\w25x40c.h)(0x5E9EC572)
 I (..\..\Src\driver\gpio\gpio.h)(0x5EEB4F71)
@@ -1309,7 +1161,7 @@ I (D:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5E53505C)
 I (..\..\Src\driver\intc\intc.h)(0x5ECCDC7C)
 I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
 F (.\work\f000\app_f000.c)(0x60320146)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_f000.o --depend .\obj\app_f000.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1321,7 +1173,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
@@ -1339,7 +1191,7 @@ I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
 I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
 I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
 I (.\app\api\app_task.h)(0x5E96C1AC)
-I (work\f000\f000s_task.h)(0x6031F32C)
+I (work\f000\f000s_task.h)(0x60321AE2)
 I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
@@ -1356,7 +1208,7 @@ I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
 I (..\..\src\modules\ke\api\ke_timer.h)(0x5E7461F4)
 F (.\work\f000\f000s.c)(0x6031F38D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f000s.o --depend .\obj\f000s.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1368,7 +1220,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
@@ -1378,7 +1230,7 @@ I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
 I (work\f000\f000s.h)(0x6031F380)
-I (work\f000\f000s_task.h)(0x6031F32C)
+I (work\f000\f000s_task.h)(0x60321AE2)
 I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
 I (..\..\Src\ip\ble\hl\src\gatt\atts\atts.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
@@ -1400,7 +1252,7 @@ I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
 I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
 F (.\work\f000\f000s_task.c)(0x6031F34C)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f000s_task.o --depend .\obj\f000s_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1412,7 +1264,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
@@ -1439,13 +1291,13 @@ I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
 I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
 I (work\f000\f000s.h)(0x6031F380)
-I (work\f000\f000s_task.h)(0x6031F32C)
+I (work\f000\f000s_task.h)(0x60321AE2)
 I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
 I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
 I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
 F (.\work\f020\app_f020.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_f020.o --depend .\obj\app_f020.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1457,7 +1309,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
 I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
@@ -1475,7 +1327,7 @@ I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
 I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
 I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
 I (.\app\api\app_task.h)(0x5E96C1AC)
-I (work\f020\f020s_task.h)(0x6032157D)
+I (work\f020\f020s_task.h)(0x60321AEE)
 I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
 I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
 I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
@@ -1492,7 +1344,7 @@ I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
 I (..\..\src\modules\ke\api\ke_timer.h)(0x5E7461F4)
 F (.\work\f020\f020s.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f020s.o --depend .\obj\f020s.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1504,7 +1356,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
 I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
@@ -1514,7 +1366,7 @@ I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
 I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
 I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
 I (work\f020\f020s.h)(0x6032157D)
-I (work\f020\f020s_task.h)(0x6032157D)
+I (work\f020\f020s_task.h)(0x60321AEE)
 I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
 I (..\..\Src\ip\ble\hl\src\gatt\atts\atts.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
@@ -1536,7 +1388,7 @@ I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
 I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
 F (.\work\f020\f020s_task.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f020s_task.o --depend .\obj\f020s_task.d)
-I (.\config\rwip_config.h)(0x5EC38CB0)
+I (.\config\rwip_config.h)(0x60323096)
 I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
 I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
 I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
@@ -1548,7 +1400,7 @@ I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
 I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
 I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
-I (.\config\rwprf_config.h)(0x60321771)
+I (.\config\rwprf_config.h)(0x6032F455)
 I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
 I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
@@ -1575,7 +1427,143 @@ I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
 I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
 I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
 I (work\f020\f020s.h)(0x6032157D)
-I (work\f020\f020s_task.h)(0x6032157D)
+I (work\f020\f020s_task.h)(0x60321AEE)
+I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
+I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
+I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
+F (.\work\f030\app_f030.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\app_f030.o --depend .\obj\app_f030.d)
+I (.\config\rwip_config.h)(0x60323096)
+I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
+I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
+I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
+I (.\config\user_config.h)(0x6031D09A)
+I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
+I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
+I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
+I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
+I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
+I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
+I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
+I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
+I (work\f030\app_f030.h)(0x6032157D)
+I (.\app\api\app.h)(0x5E7461EC)
+I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
+I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
+I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
+I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
+I (..\..\src\plf\nvds\api\nvds.h)(0x5E9960BE)
+I (.\app\api\app_task.h)(0x5E96C1AC)
+I (work\f030\f030s_task.h)(0x6032157D)
+I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
+I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
+I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
+I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
+I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
+I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
+I (work\f030\f030s.h)(0x6032157D)
+I (..\..\Src\ip\ble\hl\src\gatt\atts\atts.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\inc\l2cc.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
+I (..\..\src\modules\ke\api\ke_timer.h)(0x5E7461F4)
+F (.\work\f030\f030s.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f030s.o --depend .\obj\f030s.d)
+I (.\config\rwip_config.h)(0x60323096)
+I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
+I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
+I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
+I (.\config\user_config.h)(0x6031D09A)
+I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
+I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
+I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
+I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
+I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
+I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
+I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
+I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
+I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
+I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
+I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
+I (work\f030\f030s.h)(0x6032157D)
+I (work\f030\f030s_task.h)(0x6032157D)
+I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
+I (..\..\Src\ip\ble\hl\src\gatt\atts\atts.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\inc\l2cc.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
+I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
+I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
+I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
+I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
+I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
+I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
+I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gapc_task.h)(0x5ED746A8)
+I (..\..\src\modules\ke\api\ke_mem.h)(0x5E7461F4)
+F (.\work\f030\f030s_task.c)(0x6032157D)(--c99 --thumb -c --cpu ARM9E -O3 --apcs=interwork -I ..\..\src\ip\ble\ll\api -I ..\..\src\ip\ble\ll\import\reg -I ..\..\src\ip\ble\ll\src -I ..\..\src\ip\bt\api -I ..\..\src\ip\bt\import\reg -I ..\..\src\ip\bt\src -I ..\..\src\ip\em\api -I ..\..\src\ip\hci\api -I ..\..\src\ip\sch\api -I ..\..\src\ip\sch\import -I ..\..\src\modules\aes\api -I ..\..\src\modules\common\api -I ..\..\src\modules\dbg\api -I ..\..\src\modules\ecc_p256\api -I ..\..\src\modules\h4tl\api -I ..\..\src\modules\ke\api -I ..\..\src\plf\nvds\api -I ..\..\src\driver\rf -I ..\..\src\plf\rwip\api -I ..\..\src\plf\rwip\import\reg -I ..\..\src\plf\refip\import\reg -I ..\..\src\plf\refip\src\arch -I ..\..\src\plf\refip\src\arch\boot\rvds -I ..\..\src\plf\refip\src\arch\compiler\rvds -I ..\..\src\plf\refip\src\arch\ll\rvds -I ..\..\src\driver\flash -I ..\..\src\driver\led -I ..\..\src\driver\reg -I ..\..\src\driver\syscntl -I ..\..\src\driver\timer -I ..\..\src\driver\uart -I ..\..\src\driver\uart2 -I ..\..\Src\header -I ..\..\Src\header\header_file -I ..\..\Src\plf\refip\src\driver -I ..\..\Src\ip\ble\hl\api -I ..\..\Src\ip\ble\hl\inc -I ..\..\Src\ip\ble\hl\src\gap\gapc -I ..\..\Src\ip\ble\hl\src\gap\gapm -I ..\..\Src\ip\ble\hl\src\gatt -I ..\..\Src\ip\ble\hl\src\gatt\attc -I ..\..\Src\ip\ble\hl\src\gatt\attm -I ..\..\Src\ip\ble\hl\src\gatt\atts -I ..\..\Src\ip\ble\hl\src\gatt\gattc -I ..\..\Src\ip\ble\hl\src\gatt\gattm -I ..\..\Src\ip\ble\hl\src\l2c\l2cc -I ..\..\Src\ip\ble\hl\src\l2c\l2cm -I ..\..\Src\app\api -I ..\..\Src\profiles\dis\diss\api -I ..\..\Src\profiles\FEE0\api -I ..\..\Src\profiles\bas\bass\api -I ..\..\Src\profiles\FCC0_128\api -I ..\..\Src\driver\gpio -I ..\..\Src\driver\spi -I ..\..\Src\driver\icu -I ..\..\Src\driver\wdt -I ..\..\Src\driver\adc -I ..\..\Src\profiles\ancs\ancsc\api -I ..\..\Src\profiles\oad\api -I ..\..\Src\profiles\ancs\ancsc -I .\config -I .\app\api -I ..\..\src\driver\uart2 -I ..\..\src\driver\aon_rtc -I ..\..\src\plf\prf -I ..\..\Src\driver\intc -I ..\..\src\driver\dma -I ..\..\src\driver\i2c -I ..\..\src\device\lcd -I ..\..\src\device\spi_flash -I .\work\f000 -I .\work\f010 -I .\work\f020 -I .\work\f030 -I .\work\f040 --gnu-ID:\Keil_v5\ARM\RV31\INC-ID:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="530" -DCFG_CPU_BK3633-o .\obj\f030s_task.o --depend .\obj\f030s_task.d)
+I (.\config\rwip_config.h)(0x60323096)
+I (..\..\src\driver\uart2\uart2.h)(0x5EC78D34)
+I (D:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x5E53505C)
+I (D:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E53505C)
+I (..\..\src\driver\uart\uart.h)(0x5EEB23CC)
+I (.\config\user_config.h)(0x6031D09A)
+I (..\..\src\plf\refip\src\arch\arch.h)(0x5EAFE070)
+I (..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h)(0x5ECF9014)
+I (..\..\src\plf\refip\src\arch\ll\rvds\ll.h)(0x5ECDFDCD)
+I (..\..\src\ip\ble\ll\api\rwble_config.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\inc\rwble_hl_config.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\rwble_hl_error.h)(0x5E7461ED)
+I (.\config\rwprf_config.h)(0x6032F455)
+I (..\..\Src\ip\ble\hl\api\gap.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gattc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\att.h)(0x5E9685FF)
+I (..\..\src\plf\rwip\api\rwip_task.h)(0x6031FFB8)
+I (..\..\src\modules\ke\api\ke_msg.h)(0x5E7461F4)
+I (D:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5E53505C)
+I (..\..\src\modules\common\api\co_list.h)(0x5E7461F4)
+I (..\..\Src\ip\ble\hl\inc\attm.h)(0x5E9684B5)
+I (D:\Keil_v5\ARM\ARMCC\include\string.h)(0x5E53505C)
+I (..\..\src\modules\common\api\co_error.h)(0x5E7461F4)
+I (..\..\src\modules\ke\api\ke_task.h)(0x5E7461F4)
+I (..\..\Src\ip\ble\hl\src\gatt\atts\atts.h)(0x5E7461EE)
+I (..\..\Src\ip\ble\hl\inc\l2cc.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\l2cc_task.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\inc\l2cc_pdu.h)(0x5E7461ED)
+I (..\..\src\modules\common\api\co_bt.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_bt_defines.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_lmp.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_hci.h)(0x5E7461F4)
+I (..\..\src\modules\common\api\co_utils.h)(0x5EA67C66)
+I (..\..\src\plf\rwip\api\rwip.h)(0x5EE48FA7)
+I (..\..\src\plf\prf\prf.h)(0x5E7461ED)
+I (..\..\Src\ip\ble\hl\api\gapm_task.h)(0x5E7461ED)
+I (..\..\src\modules\common\api\co_math.h)(0x5ECF9004)
+I (D:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5E53505C)
+I (work\f030\f030s.h)(0x6032157D)
+I (work\f030\f030s_task.h)(0x6032157D)
 I (..\..\src\plf\prf\prf_types.h)(0x5E7461ED)
 I (..\..\src\plf\prf\prf_utils.h)(0x5E967A89)
 I (..\..\Src\ip\ble\hl\inc\gapc.h)(0x5E7461ED)

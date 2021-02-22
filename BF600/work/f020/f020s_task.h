@@ -29,7 +29,7 @@
 #define F020S_IDX_MAX     0x01
 ///Maximal number of F020 that can be added in the DB
 
-#define  F020_CHAR_DATA_LEN  628
+#define  F020_CHAR_DATA_LEN  30
 
 /*
  * TYPE DEFINITIONS
