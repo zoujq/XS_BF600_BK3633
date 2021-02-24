@@ -30,4 +30,4 @@
 .\obj\uart.o: ..\..\src\modules\common\api\co_math.h
 .\obj\uart.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\uart.o: ..\..\Src\driver\gpio\gpio.h
-.\obj\uart.o: ..\..\Src\header\BK3633_reglist.h
+.\obj\uart.o: ..\..\Src\header\BK3633_RegList.h

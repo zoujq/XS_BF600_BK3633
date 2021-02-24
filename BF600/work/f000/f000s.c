@@ -40,31 +40,10 @@ const struct attm_desc f000_att_db[F000S_IDX_NB] =
     //  Characteristic Value
     [F000S_IDX_F001_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F001,PERM(RD, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN *sizeof(uint8_t)},
 
-    [F000S_IDX_F001_USER_DESC] =   {ATT_DESC_CHAR_USER_DESCRIPTION,PERM(RD, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN *sizeof(uint8_t)},
-
-    
-	// f002 value Characteristic Declaration
-	[F000S_IDX_F002_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f001 Level Characteristic Value
-    [F000S_IDX_F002_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F002, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN * sizeof(uint8_t)},
-
-    	// f002 value Characteristic Declaration
-	[F000S_IDX_F003_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f001 Level Characteristic Value
-    [F000S_IDX_F003_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F003, PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN * sizeof(uint8_t)},
-	
-	// f001 Level Characteristic Declaration
-	[F000S_IDX_F004_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f001 Level Characteristic Value
-    [F000S_IDX_F004_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F004, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN * sizeof(uint8_t)},
-
-	// f001 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F000S_IDX_F004_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
-    
-    	// f001 Level Characteristic Declaration
+    // f001 Level Characteristic Declaration
 	[F000S_IDX_F005_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f001 Level Characteristic Value
-    [F000S_IDX_F005_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F005, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F000S_IDX_F005_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F005, PERM(IND, ENABLE), PERM(RI, ENABLE), F000_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f001 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F000S_IDX_F005_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
@@ -101,23 +80,23 @@ static uint8_t f000s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
             (sec_lvl & (PERM_MASK_SVC_DIS | PERM_MASK_SVC_AUTH | PERM_MASK_SVC_EKS)));
 
 	//Set optional permissions
-    if (status == GAP_ERR_NO_ERROR)
-    {
-        //Set optional permissions
-       // if((params->features & 0x01) == F000_F004_VAL_NTF_SUP)
-        {
-            // Battery Level characteristic value permissions
-            uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
+  //   if (status == GAP_ERR_NO_ERROR)
+  //   {
+  //       //Set optional permissions
+  //      // if((params->features & 0x01) == F000_F004_VAL_NTF_SUP)
+  //       {
+  //           // Battery Level characteristic value permissions
+  //           uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F000S_IDX_F004_VAL_VAL, perm, 0);
-        }
-		//if((params->features & 0x02) == F000_F003_LVL_NTF_SUP)
-		{
-			uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
+  //           attm_att_set_permission(shdl + F000S_IDX_F004_VAL_VAL, perm, 0);
+  //       }
+		// //if((params->features & 0x02) == F000_F003_LVL_NTF_SUP)
+		// {
+		// 	uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F000S_IDX_F005_VAL_VAL, perm, 0);
-		}
-    }
+  //           attm_att_set_permission(shdl + F000S_IDX_F005_VAL_VAL, perm, 0);
+		// }
+  //   }
 	
     //-------------------- Update profile task information  ---------------------
     if (status == ATT_ERR_NO_ERROR)
@@ -196,7 +175,7 @@ void f000s_notify_f004_val(uint8_t conidx,struct f000s_env_tag* f000s_env, struc
 
     // Fill in the parameter structure
     val->operation = GATTC_NOTIFY;
-    val->handle = f000s_get_att_handle(F000S_IDX_F004_VAL_VAL);
+    // val->handle = f000s_get_att_handle(F000S_IDX_F004_VAL_VAL);
 
     // pack measured value in database
     val->length = param->length;

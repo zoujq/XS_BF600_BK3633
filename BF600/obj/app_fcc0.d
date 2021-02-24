@@ -42,5 +42,13 @@
 .\obj\app_fcc0.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
 .\obj\app_fcc0.o: ..\..\src\plf\prf\prf_types.h
 .\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\api\att.h
-.\obj\app_fcc0.o: ..\..\Src\profiles\FEE0\api\fee0s.h
+.\obj\app_fcc0.o: ..\..\Src\profiles\FCC0_128\api\fcc0s.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\src\gatt\atts\atts.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\api\gattc_task.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\inc\l2cc.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\api\l2cc_task.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\inc\l2cc_pdu.h
 .\obj\app_fcc0.o: ..\..\src\modules\ke\api\ke_timer.h
+.\obj\app_fcc0.o: ..\..\src\plf\prf\prf_utils.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\inc\gapc.h
+.\obj\app_fcc0.o: ..\..\Src\ip\ble\hl\inc\attm.h

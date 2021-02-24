@@ -58,12 +58,10 @@
 .\obj\main.o: ..\..\Src\driver\icu\icu.h
 .\obj\main.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\main.o: ..\..\Src\driver\wdt\wdt.h
-.\obj\main.o: ..\..\Src\header\BK3633_Reglist.h
+.\obj\main.o: ..\..\Src\header\BK3633_RegList.h
 .\obj\main.o: ..\..\Src\driver\spi\spi.h
 .\obj\main.o: ..\..\Src\driver\adc\adc.h
 .\obj\main.o: ..\..\src\driver\aon_rtc\aon_rtc.h
-.\obj\main.o: ..\..\src\device\lcd\lcd360g.h
-.\obj\main.o: ..\..\src\device\spi_flash\w25x40c.h
 .\obj\main.o: ..\..\Src\profiles\oad\api\oads.h
 .\obj\main.o: ..\..\Src\profiles\oad\api\oads_task.h
 .\obj\main.o: ..\..\src\plf\prf\prf_types.h
@@ -73,3 +71,4 @@
 .\obj\main.o: ..\..\Src\ip\ble\hl\inc\l2cc.h
 .\obj\main.o: ..\..\Src\ip\ble\hl\api\l2cc_task.h
 .\obj\main.o: ..\..\Src\ip\ble\hl\inc\l2cc_pdu.h
+.\obj\main.o: ..\..\src\driver\rf\rf.h

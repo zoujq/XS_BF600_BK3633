@@ -68,7 +68,6 @@
 #include "app_f040.h"                  // USER define FEE0S Application Definitions
 #endif //(BLE_APP_F040S)
 
-
 #if (BLE_APP_FCC0S)
 #include "app_fcc0.h"                  // USER define FCC0S Application Definitions
 #endif //(BLE_APP_FCC0S)
@@ -181,8 +180,8 @@ enum appm_svc_list
 {
     #if (BLE_APP_FEE0S)
     APPM_SVC_FEE0S,
-    #endif //(BLE_APP_FEE0S)
-    
+    #endif //(BLE_APP_FEE0S)    
+
     #if (BLE_APP_F000S)
     APPM_SVC_F000S,
     #endif //(BLE_APP_F000S)
@@ -201,8 +200,8 @@ enum appm_svc_list
     
     #if (BLE_APP_F040S)
     APPM_SVC_F040S,
-    #endif //(BLE_APP_F040S)
-    
+    #endif //(BLE_APP_F040S)    
+
     #if (BLE_APP_FCC0S)
     APPM_SVC_FCC0S,
     #endif //(BLE_APP_FCC0S)
@@ -267,7 +266,7 @@ static const appm_add_svc_func_t appm_add_svc_func_list[APPM_SVC_LIST_STOP] =
     #if (BLE_APP_F040S)
     (appm_add_svc_func_t)app_f040_add_f040s,
     #endif //(BLE_APP_F000S)
-    
+
     #if (BLE_APP_FCC0S)
     (appm_add_svc_func_t)app_fcc0_add_fcc0s,
     #endif //(BLE_APP_FCC0S)
@@ -314,6 +313,13 @@ static void appm_build_adv_data(uint16_t max_length, uint16_t *p_length, uint8_t
     // Remaining Length
     uint8_t rem_len = max_length;
 
+    //adv type flag
+    p_buf[0]=0x02;
+    p_buf[1]=0x01;
+    p_buf[2]=0x06;
+    p_buf += 3;
+    *p_length += 3;
+    
     #if (BLE_APP_HT)
     // Set list of UUIDs
     memcpy(p_buf, APP_HT_ADV_DATA_UUID, APP_HT_ADV_DATA_UUID_LEN);
@@ -362,8 +368,9 @@ static void appm_build_adv_data(uint16_t max_length, uint16_t *p_length, uint8_t
 }
 #endif //(!BLE_APP_AM0)
 
-static void appm_start_advertising(void)
+void appm_start_advertising(void)
 {
+    uart_printf("%s adv_state:%x\r\n",__func__,app_env.adv_state);
     // Prepare the GAPM_ACTIVITY_START_CMD message
     struct gapm_activity_start_cmd *p_cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_START_CMD,
                                                          TASK_GAPM, TASK_APP,
@@ -387,8 +394,7 @@ static void appm_start_advertising(void)
     app_env.adv_op = GAPM_START_ACTIVITY;
 }
 
-
-static void appm_stop_advertising(void)
+void appm_stop_advertising(void)
 {
     // Prepare the GAPM_ACTIVITY_STOP_CMD message
     struct gapm_activity_stop_cmd *cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_STOP_CMD,
@@ -409,7 +415,7 @@ static void appm_stop_advertising(void)
 }
 
 
-static void appm_set_adv_data(void)
+void appm_set_adv_data(void)
 {
     // Prepare the GAPM_SET_ADV_DATA_CMD message
     struct gapm_set_adv_data_cmd *p_cmd = KE_MSG_ALLOC_DYN(GAPM_SET_ADV_DATA_CMD,
@@ -423,8 +429,11 @@ static void appm_set_adv_data(void)
 
     p_cmd->length = 0;
     // GAP will use 3 bytes for the AD Type
-    appm_build_adv_data(ADV_DATA_LEN - 3, &p_cmd->length, &p_cmd->data[0]);
-   
+    #if ENABLE_EXT_ADV
+    appm_build_adv_data(EXT_ADV_DATA_MAX_LEN, &p_cmd->length, &p_cmd->data[0]);
+    #else
+    appm_build_adv_data(ADV_DATA_LEN, &p_cmd->length, &p_cmd->data[0]);
+    #endif
     // Send the message
     ke_msg_send(p_cmd);
 
@@ -434,7 +443,7 @@ static void appm_set_adv_data(void)
     app_env.adv_op = GAPM_SET_ADV_DATA;
 }
 
-static void appm_set_scan_rsp_data(void)
+void appm_set_scan_rsp_data(void)
 {
     // Prepare the GAPM_SET_ADV_DATA_CMD message
     struct gapm_set_adv_data_cmd *p_cmd = KE_MSG_ALLOC_DYN(GAPM_SET_ADV_DATA_CMD,
@@ -509,6 +518,7 @@ void appm_init()
         // Get default Device Name (No name if not enough space)
         memcpy(app_env.dev_name, APP_DFLT_DEVICE_NAME, APP_DFLT_DEVICE_NAME_LEN);
         app_env.dev_name_len = APP_DFLT_DEVICE_NAME_LEN;
+
         // TODO update this value per profiles
     }
 
@@ -599,9 +609,9 @@ void appm_disconnect(void)
 }
 void rw_ip_sleep_test(uint32_t time);
 void rw_ip_deep_sleep_test(void);
-static void appm_create_advertising(void)
+void appm_create_advertising(void)
 {
-
+    uart_printf("%s adv_state:%x\r\n",__func__,app_env.adv_state);
     if (app_env.adv_state == APP_ADV_STATE_IDLE)
     {
         // Prepare the GAPM_ACTIVITY_CREATE_CMD message
@@ -672,6 +682,41 @@ static void appm_create_advertising(void)
     }
 }
 
+void appm_create_ext_advertising(void)
+{
+    uart_printf("%s adv_state:%x\r\n",__func__,app_env.adv_state);
+    if (app_env.adv_state == APP_ADV_STATE_IDLE)
+    {
+        // Prepare the GAPM_ACTIVITY_CREATE_CMD message
+        struct gapm_activity_create_adv_cmd *p_cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_CREATE_CMD,TASK_GAPM, TASK_APP,gapm_activity_create_adv_cmd);
+
+        // Set operation code
+        p_cmd->operation = GAPM_CREATE_ADV_ACTIVITY;
+
+        // see spec version 5.1 | Vol 6,PartB Table 2.3:Adv phy channel PDU header's PDU Type field encoding
+        // Fill the allocated kernel message
+        p_cmd->own_addr_type = GAPM_STATIC_ADDR;
+        p_cmd->adv_param.type = GAPM_ADV_TYPE_EXTENDED;
+        p_cmd->adv_param.prop = GAPM_EXT_ADV_PROP_UNDIR_CONN_MASK;//GAPM_ADV_PROP_UNDIR_CONN_MASK;
+        p_cmd->adv_param.filter_pol = ADV_ALLOW_SCAN_ANY_CON_ANY;
+        p_cmd->adv_param.prim_cfg.chnl_map = APP_ADV_CHMAP;
+        p_cmd->adv_param.prim_cfg.phy = GAP_PHY_125KBPS;
+        p_cmd->adv_param.second_cfg.phy = GAP_PHY_2MBPS;//GAP_PHY_2MBPS;;
+
+        p_cmd->adv_param.disc_mode = GAPM_ADV_MODE_GEN_DISC;
+        p_cmd->adv_param.prim_cfg.adv_intv_min = APP_ADV_INT_MIN;
+        p_cmd->adv_param.prim_cfg.adv_intv_max = APP_ADV_INT_MAX;
+
+        // Send the message
+        ke_msg_send(p_cmd);
+
+        // Keep the current operation
+        app_env.adv_state = APP_ADV_STATE_CREATING;
+        // And the next expected operation code for the command completed event
+        app_env.adv_op = GAPM_CREATE_ADV_ACTIVITY;
+    }
+}
+
 
 void appm_delete_advertising(void)
 {
@@ -690,7 +735,7 @@ void appm_delete_advertising(void)
     // And the next expected operation code for the command completed event
     app_env.adv_op = GAPM_DELETE_ALL_ACTIVITIES;
 }
-
+/*
 void appm_adv_fsm_next(void)
 {
     uart_printf("%s adv_state:%x\r\n",__func__,app_env.adv_state);
@@ -757,9 +802,10 @@ void appm_adv_fsm_next(void)
         } break;
     }
 }
-
+*/
 void appm_update_param(struct gapc_conn_param *conn_param)
 {
+    uart_printf("%s adv_state:%x\r\n",__func__,app_env.adv_state);
     // Prepare the GAPC_PARAM_UPDATE_CMD message
     struct gapc_param_update_cmd *cmd = KE_MSG_ALLOC(GAPC_PARAM_UPDATE_CMD,
                                                      KE_BUILD_ID(TASK_GAPC, app_env.conidx), TASK_APP,
@@ -778,7 +824,29 @@ void appm_update_param(struct gapc_conn_param *conn_param)
     // Send the message
     ke_msg_send(cmd);
 }
+void appm_update_phy_param(uint8_t tx_phy,uint8_t rx_phy,uint8_t phy_opt)      
+{
+    /// Supported LE PHY for data reception (@see enum gap_phy) 
+    /// PHY options (@see enum gapc_phy_option)
+    #if(ENABLE_PHY_2M_LE_CODE) 
+    uart_printf("%s \r\n",__func__);
+    // Prepare the GAPC_PARAM_UPDATE_CMD message
+    struct gapc_set_phy_cmd *cmd = KE_MSG_ALLOC(GAPC_SET_PHY_CMD,
+                                                     KE_BUILD_ID(TASK_GAPC, app_env.conidx), TASK_APP,
+                                                     gapc_set_phy_cmd);
 
+    cmd->operation  = GAPC_SET_PHY;
+    /// Supported LE PHY for data transmission (@see enum gap_phy)
+    cmd->tx_phy = tx_phy;//GAP_PHY_LE_CODED;//GAP_PHY_LE_1MBPS;//GAP_PHY_LE_2MBPS;
+    /// Supported LE PHY for data reception (@see enum gap_phy)
+    cmd->rx_phy = rx_phy;//GAP_PHY_LE_CODED;//GAP_PHY_LE_1MBPS;//GAP_PHY_LE_2MBPS;
+    /// PHY options (@see enum gapc_phy_option)
+    cmd->phy_opt = phy_opt;//GAPC_PHY_OPT_LE_CODED_125K_RATE;//GAPC_PHY_OPT_LE_CODED_500K_RATE;//GAPC_PHY_OPT_LE_CODED_ALL_RATES;//conn_param->phy_opt;
+   
+    // Send the message
+    ke_msg_send(cmd);
+    #endif
+}
 uint8_t appm_get_dev_name(uint8_t* name)
 {
     // copy name to provided pointer
@@ -787,14 +855,315 @@ uint8_t appm_get_dev_name(uint8_t* name)
     return app_env.dev_name_len;
 }
 
-void appm_update_adv_state(bool start)
+#if (BLE_CENTRAL || BLE_OBSERVER)
+
+/// Scan interval 
+#define APP_SCAN_INTV         (100)
+/// Scan window 
+#define APP_SCAN_WD         (20)
+
+
+#define APPM_SCAN_TIME_10MS   400
+
+uint16_t BLE_SCAN_INTVALUE = 88;
+uint16_t BLE_SCAN_WINDOW = 88;
+
+uint8_t gapm_scan_type = 0;///GAPM_SCAN_
+
+
+static void appm_create_scaning(void)
+{
+    uart_printf("func %s,scan_state:%d\r\n",__func__,app_env.scan_state);
+    if (app_env.scan_state == APP_SCAN_STATE_IDLE)
+    {
+        // Prepare the GAPM_ACTIVITY_CREATE_CMD message
+        struct gapm_activity_create_cmd *p_cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_CREATE_CMD,
+                                                                  TASK_GAPM, TASK_APP,
+                                                                  gapm_activity_create_cmd);
+
+        // Set operation code
+        p_cmd->operation = GAPM_CREATE_SCAN_ACTIVITY;
+
+        // Fill the allocated kernel message
+        p_cmd->own_addr_type = GAPM_STATIC_ADDR;
+         
+        // Send the message
+        ke_msg_send(p_cmd);
+
+        // Keep the current operation
+        app_env.scan_state = APP_SCAN_STATE_CREATING;
+        // And the next expected operation code for the command completed event
+        app_env.scan_op = GAPM_CREATE_SCAN_ACTIVITY;
+        
+        app_env.scan_intv = APP_SCAN_INTV;
+        app_env.scan_wd = APP_SCAN_WD;
+    }
+}
+
+static void appm_start_scaning(void)
+{
+    uart_printf("func %s,scan_state:%d\r\n",__func__,app_env.scan_state);
+    if (app_env.scan_state == APP_SCAN_STATE_CREATED)
+    {
+        // Prepare the GAPM_ACTIVITY_START_CMD message
+        struct gapm_activity_start_cmd *p_cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_START_CMD,
+                                                             TASK_GAPM, TASK_APP,
+                                                             gapm_activity_start_cmd);
+
+        p_cmd->operation = GAPM_START_ACTIVITY;
+        p_cmd->actv_idx = app_env.scan_actv_idx;
+        
+        p_cmd->u_param.scan_param.type = GAPM_SCAN_TYPE_GEN_DISC;//GAPM_SCAN_TYPE_OBSERVER;//;
+        
+        p_cmd->u_param.scan_param.prop = GAPM_SCAN_PROP_PHY_1M_BIT ;//| GAPM_SCAN_PROP_ACTIVE_1M_BIT;
+        
+        uint8_t scan_param_len = 2;
+        if(rwip_param.get(NVDS_TAG_SCAN_INTV, &scan_param_len, (uint8_t*) &app_env.scan_intv) != PARAM_OK)
+        {
+            uart_printf("not found:NVDS_TAG_SCAN_WD err\r\n");
+        }
+        if(rwip_param.get(NVDS_TAG_SCAN_WD, &scan_param_len, (uint8_t*) &app_env.scan_wd) != PARAM_OK)
+        {
+            uart_printf("not found:NVDS_TAG_SCAN_WD err\r\n");
+        }
+        uart_printf("scan_intv:%d,scan_wd:%d\r\n",app_env.scan_intv,app_env.scan_wd);
+        p_cmd->u_param.scan_param.scan_param_1m.scan_intv = app_env.scan_intv;
+        p_cmd->u_param.scan_param.scan_param_1m.scan_wd = app_env.scan_wd;
+        
+        p_cmd->u_param.scan_param.scan_param_1m.scan_intv = 4;//app_env.scan_intv;
+        p_cmd->u_param.scan_param.scan_param_1m.scan_wd = 4;//app_env.scan_wd;
+        
+        p_cmd->u_param.scan_param.dup_filt_pol = 0;
+        
+        p_cmd->u_param.scan_param.duration = 0;
+        
+        p_cmd->u_param.scan_param.period = 10;
+
+        // Send the message
+        ke_msg_send(p_cmd);
+
+        // Keep the current operation
+        app_env.scan_state = APP_SCAN_STATE_STARTING;
+        // And the next expected operation code for the command completed event
+        app_env.scan_op = GAPM_START_ACTIVITY;
+    }
+}
+
+
+static void appm_stop_scaning(void)
+{
+    // Prepare the GAPM_ACTIVITY_STOP_CMD message
+    struct gapm_activity_stop_cmd *cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_STOP_CMD,
+                                                      TASK_GAPM, TASK_APP,
+                                                      gapm_activity_stop_cmd);
+
+    // Fill the allocated kernel message
+    cmd->operation = GAPM_STOP_ACTIVITY;
+    cmd->actv_idx = app_env.scan_actv_idx;
+
+    // Send the message
+    ke_msg_send(cmd);
+
+    // Update advertising state
+    app_env.scan_state = APP_SCAN_STATE_STOPPING;
+    // And the next expected operation code for the command completed event
+    app_env.scan_op = GAPM_STOP_ACTIVITY;
+}
+
+void appm_delete_scaning(void)
+{
+    // Prepare the GAPM_ACTIVITY_CREATE_CMD message
+    struct gapm_activity_delete_cmd *p_cmd = KE_MSG_ALLOC(GAPM_ACTIVITY_DELETE_CMD,
+                                                              TASK_GAPM, TASK_APP,
+                                                              gapm_activity_delete_cmd);
+
+    // Set operation code
+    p_cmd->operation = GAPM_DELETE_ACTIVITY;
+    
+    p_cmd->actv_idx = app_env.scan_actv_idx;
+
+    // Send the message
+    ke_msg_send(p_cmd);
+
+    // Keep the current operation
+    // And the next expected operation code for the command completed event
+    app_env.scan_op = GAPM_DELETE_ACTIVITY;
+}
+
+void appm_scan_fsm_next(void)
+{
+  //  return;
+    uart_printf("%s scan_state:%x\r\n",__func__,app_env.scan_state);
+    switch (app_env.scan_state)
+    {
+        case (APP_SCAN_STATE_IDLE)://0
+        {
+            // Create advertising
+            appm_create_scaning();
+        } break;
+
+        case (APP_SCAN_STATE_CREATING):  //1      
+        case (APP_SCAN_STATE_CREATED):   //2    
+        {
+            // Start scaning activity
+            appm_start_scaning();
+        } break;
+
+        case (APP_SCAN_STATE_STARTING)://3
+        {
+            // Go to started state
+            app_env.scan_state = APP_SCAN_STATE_STARTED;
+        } break;
+
+        case (APP_SCAN_STATE_STARTED)://4
+        {
+            // Stop scaning activity  
+             appm_stop_scaning();
+        } break;
+
+        case (APP_SCAN_STATE_STOPPING)://5
+        {
+            
+            // Go created state
+            app_env.scan_state = APP_SCAN_STATE_CREATED;
+        } break;
+
+        default:
+        {
+            ASSERT_ERR(0);
+        } break;
+    }
+    uart_printf("end scan_state:%x\r\n",app_env.scan_state);
+}
+
+void appm_update_scan_state(bool start)
 {
     // TODO [LT] - Check current advertising state
 
     // Start or stop advertising
-    appm_adv_fsm_next();
+    appm_scan_fsm_next();
 }
 
+uint8_t appm_adv_data_decode_name(uint8_t len,const uint8_t *data,uint8_t *name_str)
+{
+    uint8_t find = 0;
+    uint8_t index;
+    for(index = 0; index < len;)
+    {
+        switch(data[index + 1])
+        {
+        case GAP_AD_TYPE_FLAGS:
+        {
+//            UART_PRINTF("AD_TYPE : ");
+//            for(uint8_t len = 0; len < data[index] - 1; len++)
+//            {
+//                UART_PRINTF("%02x ",data[index + 2 + len]);
+//            }
+//            UART_PRINTF("\r\n");
+            index +=(data[index] + 1);
+        }
+        break;
+        case GAP_AD_TYPE_SHORTENED_NAME:
+        case GAP_AD_TYPE_COMPLETE_NAME:
+        {
+//            if(strncmp((char*)&data[index + 2],find_str,str_len) == 0 )
+//            {
+//                find = 1;
+//            }
+//            UART_PRINTF("ADV_NAME : ");
+            for(uint8_t len = 0; len < data[index] - 1; len++)
+            {
+               // UART_PRINTF("%c",data[index + 2 + len]);
+                *name_str++ = data[index + 2 + len];
+            }
+//            UART_PRINTF("\r\n");
+            index +=(data[index] + 1);
+            
+            find = 1;
+        }
+        break;
+        case GAP_AD_TYPE_MORE_16_BIT_UUID:
+        {
+//            UART_PRINTF("UUID : ");
+//            for(uint8_t len = 0; len < data[index] - 1;)
+//            {
+//                UART_PRINTF("%02x%02x  ",data[index + 2 + len],data[index + 3 + len]);
+//                len+=2;
+//            }
+//            UART_PRINTF("\r\n");
+            index +=(data[index] + 1);
+        }
+        break;
+        default:
+        {
+            index +=(data[index] + 1);
+        }
+        break;
+        }
+    }
+    return find;
+}
+
+uint8_t appm_adv_data_decode(uint8_t len,const uint8_t *data,uint8_t *find_str,uint8_t str_len)
+{
+    uint8_t find = 0;
+    uint8_t index;
+    for(index = 0; index < len;)
+    {
+        switch(data[index + 1])
+        {
+        case GAP_AD_TYPE_FLAGS:
+        {
+            uart_printf("AD_TYPE : ");
+            
+            uint8_t type_data = data[index + 2];
+
+            uart_printf("%02x ",type_data);
+            
+            
+            index +=(data[index] + 1);
+        }
+        break;
+        case GAP_AD_TYPE_SHORTENED_NAME:
+        case GAP_AD_TYPE_COMPLETE_NAME:
+        {
+          //  if(strncmp((char*)&data[index + 2],(const char *)find_str,str_len) == 0 )
+          //  {
+                find = 1;
+          //  }
+            uart_printf("ADV_NAME : ");
+            for(uint8_t len = 0; len < data[index] - 1; len++)
+            {
+                uart_printf("%c",data[index + 2 + len]);
+            }
+            uart_printf("\r\n");
+            index +=(data[index] + 1);
+        }
+        break;
+        case GAP_AD_TYPE_MORE_16_BIT_UUID:
+        {
+            uart_printf("UUID : ");
+            for(uint8_t len = 0; len < data[index] - 1;)
+            {
+                uart_printf("%02x%02x  ",data[index + 2 + len],data[index + 3 + len]);
+                len+=2;
+            }
+            uart_printf("\r\n");
+            index +=(data[index] + 1);
+        }
+        break;
+        default:
+        {
+            index +=(data[index] + 1);
+        }
+        break;
+        }
+    }
+    return find;
+}
+
+
+#endif // (#if (BLE_CENTRAL || BLE_OBSERVER))
 
 #endif //(BLE_APP_PRESENT)
 

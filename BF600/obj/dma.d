@@ -13,3 +13,4 @@
 .\obj\dma.o: ..\..\src\plf\refip\src\arch\compiler\rvds\compiler.h
 .\obj\dma.o: ..\..\src\driver\dma\dma.h
 .\obj\dma.o: ..\..\Src\header\BK3633_RegList.h
+.\obj\dma.o: ..\..\Src\driver\spi\spi.h

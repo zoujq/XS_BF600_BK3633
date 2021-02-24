@@ -50,7 +50,9 @@
 .\obj\intc.o: ..\..\src\ip\ble\ll\import\reg\_reg_em_ble_rx_cte_desc.h
 .\obj\intc.o: ..\..\src\ip\ble\ll\import\reg\_reg_em_ble_wpal.h
 .\obj\intc.o: ..\..\src\ip\ble\ll\import\reg\_reg_em_ble_ral.h
-.\obj\intc.o: ..\..\Src\header\BK3633_Reglist.h
+.\obj\intc.o: ..\..\src\ip\ble\ll\import\reg\reg_blecore.h
+.\obj\intc.o: ..\..\src\ip\ble\ll\import\reg\_reg_blecore.h
+.\obj\intc.o: ..\..\Src\header\BK3633_RegList.h
 .\obj\intc.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\intc.o: ..\..\Src\driver\spi\spi.h
 .\obj\intc.o: ..\..\src\driver\i2c\i2c.h
@@ -60,4 +62,3 @@
 .\obj\intc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\obj\intc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\obj\intc.o: ..\..\src\driver\dma\dma.h
-.\obj\intc.o: ..\..\src\driver\aon_rtc\aon_rtc.h

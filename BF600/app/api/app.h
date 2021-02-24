@@ -262,14 +262,6 @@ void appm_disconnect(void);
  */
 uint8_t appm_get_dev_name(uint8_t* name);
 
-/**
- ****************************************************************************************
- * @brief Start/stop advertising
- *
- * @param[in] start     True if advertising has to be started, else false
- ****************************************************************************************
- */
-void appm_update_adv_state(bool start);
 
 /**
  ****************************************************************************************
@@ -280,6 +272,46 @@ void appm_update_adv_state(bool start);
  */
 
 void appm_delete_advertising(void);
+
+ 
+/**
+ ****************************************************************************************
+ * @brief create a advertising
+ ****************************************************************************************
+ */
+void appm_create_advertising(void);
+
+void appm_create_ext_advertising(void);
+/**
+ ****************************************************************************************
+ * @brief set  advertising data
+ ****************************************************************************************
+ */
+void appm_set_adv_data(void);
+
+/**
+ ****************************************************************************************
+ * @brief set scan rsp data
+ ****************************************************************************************
+ */
+void appm_set_scan_rsp_data(void);
+
+/**
+ ****************************************************************************************
+ * @brief start_advertising
+ ****************************************************************************************
+ */
+void appm_start_advertising(void);
+
+
+/**
+ ****************************************************************************************
+ * @brief stop_advertising
+ ****************************************************************************************
+ */
+void appm_stop_advertising(void);
+
+
 /**
  ****************************************************************************************
  * @brief Return if the device is currently bonded
@@ -287,6 +319,7 @@ void appm_delete_advertising(void);
  */
 bool app_sec_get_bond_status(void);
 
+void appm_update_phy_param(uint8_t tx_phy,uint8_t rx_phy,uint8_t phy_opt);
 /// @} APP
 
 #endif //(BLE_APP_PRESENT)

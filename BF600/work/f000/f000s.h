@@ -42,16 +42,13 @@
  ****************************************************************************************
  */
 
-#define F000S_CFG_FLAG_MANDATORY_MASK       (0x3FFF)
+#define F000S_CFG_FLAG_MANDATORY_MASK       (0x3F)
 
 enum
 {		
-	ATT_USER_SERVER_F000 						= ATT_UUID_16(0xF000),	// service 
-	ATT_USER_SERVER_CHAR_F001                   = ATT_UUID_16(0xF001), // read		
-	ATT_USER_SERVER_CHAR_F002					= ATT_UUID_16(0xF002),// write cmd
-	ATT_USER_SERVER_CHAR_F003					= ATT_UUID_16(0xF003),// write req
-    ATT_USER_SERVER_CHAR_F004					= ATT_UUID_16(0xF004), // ntf
-    ATT_USER_SERVER_CHAR_F005					= ATT_UUID_16(0xF005), // ind		
+	ATT_USER_SERVER_F000 						= ATT_UUID_16(0x181D),	// service 
+    ATT_USER_SERVER_CHAR_F001                   = ATT_UUID_16(0x2a9e), // ind   
+    ATT_USER_SERVER_CHAR_F005					= ATT_UUID_16(0x2a9d), // ind		
 };
 
 /// F000S Service Attributes Indexes
@@ -61,17 +58,6 @@ enum
 
     F000S_IDX_F001_VAL_CHAR,
 	F000S_IDX_F001_VAL_VAL,
-    F000S_IDX_F001_USER_DESC,
-    
-	F000S_IDX_F002_VAL_CHAR,
-	F000S_IDX_F002_VAL_VAL,
-
-    F000S_IDX_F003_VAL_CHAR,
-	F000S_IDX_F003_VAL_VAL,
-    
-	F000S_IDX_F004_VAL_CHAR,
-	F000S_IDX_F004_VAL_VAL,
-	F000S_IDX_F004_VAL_NTF_CFG,
 
 	F000S_IDX_F005_VAL_CHAR,
 	F000S_IDX_F005_VAL_VAL,

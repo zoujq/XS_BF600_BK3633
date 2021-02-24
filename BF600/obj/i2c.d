@@ -12,3 +12,4 @@
 .\obj\i2c.o: ..\..\src\driver\uart\uart.h
 .\obj\i2c.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\i2c.o: ..\..\Src\header\BK3633_RegList.h
+.\obj\i2c.o: ..\..\Src\driver\icu\icu.h

@@ -39,10 +39,11 @@
 #include "prf_types.h"             // Profile common types definition
 #include "arch.h"                  // Platform Definitions
 #include "prf.h"
-#include "fee0s.h"
+#include "fcc0s.h"
 #include "ke_timer.h"
 #include "uart.h"
-
+#include "prf_utils.h"
+#include "user_config.h"
 
 
 /*
@@ -100,17 +101,25 @@ void app_fcc0_add_fcc0s(void)
 
 void app_fcc2_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
-    // Allocate the message
-    struct fcc0s_fcc2_val_upd_req * req = KE_MSG_ALLOC(FCC0S_FCC2_VALUE_UPD_REQ,
-                                                        prf_get_task_from_id(TASK_ID_FCC0S),
-                                                        KE_BUILD_ID(TASK_APP, conidx),
-                                                        fcc0s_fcc2_val_upd_req);
-    // Fill in the parameter structure	
-    req->length = len;
-	memcpy(req->value, buf, len);
+    if( ke_state_get(prf_get_task_from_id(TASK_ID_FCC0S))==FCC0S_IDLE )
+    {
+        struct fcc0s_env_tag* fcc0s_env = PRF_ENV_GET(FCC0S, fcc0s);
 
-    // Send the message
-    ke_msg_send(req);
+        if(fcc0s_env->ntf_cfg[conidx] == PRF_CLI_START_NTF)
+        {
+            // Allocate the message
+            struct fcc0s_fcc2_val_upd_req * req = KE_MSG_ALLOC(FCC0S_FCC2_VALUE_UPD_REQ,
+                                                                prf_get_task_from_id(TASK_ID_FCC0S),
+                                                                KE_BUILD_ID(TASK_APP, conidx),
+                                                                fcc0s_fcc2_val_upd_req);
+            // Fill in the parameter structure	
+            req->length = len;
+        	memcpy(req->value, buf, len);
+
+            // Send the message
+            ke_msg_send(req);
+        }
+    }
 }
 
 
@@ -141,7 +150,7 @@ static int fcc2_val_upd_rsp_handler(ke_msg_id_t const msgid,
 	
 	if(param->status == GAP_ERR_NO_ERROR)
 	{
-		
+	    ke_state_set(dest_id, FCC0S_IDLE);	
 	}
 	
     return (KE_MSG_CONSUMED);
@@ -187,13 +196,14 @@ static int fcc1_writer_cmd_handler(ke_msg_id_t const msgid,
 	}
     
 	uart_printf("\r\n");
-    for(uint8_t i = 0;i < 20;i++)
-	{
-		buf[i] = i;
-	}
+    
     
     if(param->value[0] == 0x55)
     {
+        for(uint8_t i = 0;i < 20;i++)
+    	{
+    		buf[i] = i;
+    	}
         app_fcc2_send_ntf(param->conidx,20,buf);
     }
     		

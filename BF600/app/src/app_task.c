@@ -67,7 +67,6 @@
 #include "app_f040.h"              //  Module Definition
 #endif //(BLE_APP_F040S)
 
-
 #if (BLE_APP_FCC0S)
 #include "app_fcc0.h"              //  Module Definition
 #endif //(BLE_APP_FCC0S)
@@ -114,6 +113,8 @@
 #include "app_display.h"          // Application Display Definition
 #endif //(DISPLAY_SUPPORT)
 #include "user_config.h" 
+
+static uint8_t phy_change_state=0;
 /*
  * LOCAL FUNCTION DEFINITIONS
  ****************************************************************************************
@@ -131,7 +132,7 @@ static uint8_t app_get_handler(const struct app_subtask_handlers *handler_list_d
     for (counter = handler_list_desc->msg_cnt; 0 < counter; counter--)
     {
         struct ke_msg_handler handler
-                = (struct ke_msg_handler)(*(handler_list_desc->p_msg_handler_tab + counter - 1));
+                = /*(struct ke_msg_handler)*/(*(handler_list_desc->p_msg_handler_tab + counter - 1));
 
         if ((handler.id == msgid) ||
             (handler.id == KE_MSG_DEFAULT_HANDLER))
@@ -198,9 +199,8 @@ static int gapm_activity_stopped_ind_handler(ke_msg_id_t const msgid,
     if (app_env.adv_state == APP_ADV_STATE_STARTED)
     {
         // Act as if activity had been stopped by the application
-        app_env.adv_state = APP_ADV_STATE_STOPPING;
-        // Perform next operation
-        appm_adv_fsm_next();
+        // Go created state
+        app_env.adv_state = APP_ADV_STATE_CREATED;     
     }
 
     return (KE_MSG_CONSUMED);
@@ -329,6 +329,15 @@ static int gapm_cmp_evt_handler(ke_msg_id_t const msgid,
                         cmd->privacy_cfg |= GAPM_PRIV_CFG_PRIV_ADDR_BIT;
                     }
                 }
+                else
+                {
+                    memcpy(&cmd->addr.addr[0],&co_default_bdaddr.addr[0],BD_ADDR_LEN);
+                    if (cmd->addr.addr[5] & 0xC0)
+                    {
+                        // Host privacy enabled by default
+                        cmd->privacy_cfg |= GAPM_PRIV_CFG_PRIV_ADDR_BIT;
+                    }
+                }
                 #endif //(NVDS_SUPPORT)
 
                 #if (BLE_APP_AM0)
@@ -359,39 +368,26 @@ static int gapm_cmp_evt_handler(ke_msg_id_t const msgid,
 
         case (GAPM_PROFILE_TASK_ADD)://0x1b
         {
-            #if (BLE_APP_SEC)
-            if (app_sec_get_bond_status()==true) 
+            // Add the next requested service
+            if (!appm_add_svc())
             {
-                #if (NVDS_SUPPORT)
-                // If Bonded retrieve the local IRK from NVDS
-                if (nvds_get(NVDS_TAG_LOC_IRK, &key_len, app_env.loc_irk) == NVDS_OK)
+                // Go to the ready state
+                ke_state_set(TASK_APP, APPM_READY);
+
+                // No more service to add, start advertising
+                #if (BLE_PERIPHERAL)               
+                 // No more service to add, create advertising                
+                if(app_env.adv_state == APP_ADV_STATE_IDLE)
                 {
-                    // Set the IRK in the GAP
-                    struct gapm_set_irk_cmd *cmd = KE_MSG_ALLOC(GAPM_SET_IRK_CMD,
-                                                                TASK_GAPM, TASK_APP,
-                                                                gapm_set_irk_cmd);
-                    ///  - GAPM_SET_IRK: 
-                    cmd->operation = GAPM_SET_IRK;
-                    memcpy(&cmd->irk.key[0], &app_env.loc_irk[0], KEY_LEN);
-                    ke_msg_send(cmd);
+                    #if ENABLE_EXT_ADV
+                    appm_create_ext_advertising();
+                    #else
+                    appm_create_advertising();
+                    #endif
                 }
-                else
-                #endif //(NVDS_SUPPORT)
-               
-                {
-                     // If cannot read IRK from NVDS ASSERT
-                     ASSERT_ERR(0);
-                }
-            }
-            else // Need to start the generation of new IRK
-            #endif //(BLE_APP_SEC)
-            {
-                struct gapm_gen_rand_nb_cmd *cmd = KE_MSG_ALLOC(GAPM_GEN_RAND_NB_CMD,
-                                                                TASK_GAPM, TASK_APP,
-                                                                gapm_gen_rand_nb_cmd);
-                cmd->operation   = GAPM_GEN_RAND_NB;
-                app_env.rand_cnt = 1;
-                ke_msg_send(cmd);
+                #endif
+                
+				ke_timer_set(APP_PERIOD_TIMER,TASK_APP,100);
             }
         }
         break;
@@ -439,15 +435,15 @@ static int gapm_cmp_evt_handler(ke_msg_id_t const msgid,
             #endif 
             #endif //(BLE_APP_SEC)
             app_env.rand_cnt = 0;
-            // Add the next requested service
-            if (!appm_add_svc())
-            {
-                // Go to the ready state
-                ke_state_set(TASK_APP, APPM_READY);
 
-                // No more service to add, start advertising
-                appm_update_adv_state(true);
-            }
+
+             // Go to the create db state
+            ke_state_set(TASK_APP, APPM_CREATE_DB);
+
+            // Add the first required service in the database
+            // and wait for the PROFILE_ADDED_IND
+            appm_add_svc();
+            
         }
         break;
 
@@ -456,20 +452,70 @@ static int gapm_cmp_evt_handler(ke_msg_id_t const msgid,
         {
             ASSERT_INFO(param->status == GAP_ERR_NO_ERROR, param->operation, param->status);
 
-            // Go to the create db state
-            ke_state_set(TASK_APP, APPM_CREATE_DB);
-
-            // Add the first required service in the database
-            // and wait for the PROFILE_ADDED_IND
-            appm_add_svc();
+            #if (BLE_APP_SEC)
+            if (app_sec_get_bond_status()==true) 
+            {
+                #if (NVDS_SUPPORT)
+                // If Bonded retrieve the local IRK from NVDS
+                if (nvds_get(NVDS_TAG_LOC_IRK, &key_len, app_env.loc_irk) == NVDS_OK)
+                {
+                    // Set the IRK in the GAP
+                    struct gapm_set_irk_cmd *cmd = KE_MSG_ALLOC(GAPM_SET_IRK_CMD,
+                                                                TASK_GAPM, TASK_APP,
+                                                                gapm_set_irk_cmd);
+                    ///  - GAPM_SET_IRK: 
+                    cmd->operation = GAPM_SET_IRK;
+                    memcpy(&cmd->irk.key[0], &app_env.loc_irk[0], KEY_LEN);
+                    ke_msg_send(cmd);
+                }
+                else
+                #endif //(NVDS_SUPPORT)
+               
+                {
+                     // If cannot read IRK from NVDS ASSERT
+                     ASSERT_ERR(0);
+                }
+            }
+            else // Need to start the generation of new IRK
+            #endif //(BLE_APP_SEC)
+            {
+                struct gapm_gen_rand_nb_cmd *cmd = KE_MSG_ALLOC(GAPM_GEN_RAND_NB_CMD,
+                                                                TASK_GAPM, TASK_APP,
+                                                                gapm_gen_rand_nb_cmd);
+                cmd->operation   = GAPM_GEN_RAND_NB;
+                app_env.rand_cnt = 1;
+                ke_msg_send(cmd);
+            }
         }
         break;
 
         case (GAPM_CREATE_ADV_ACTIVITY):
+        {
+            appm_set_adv_data();  
+        }break;
         case (GAPM_STOP_ACTIVITY):
+        {   
+            // Go created state
+            app_env.adv_state = APP_ADV_STATE_CREATED;	
+        }break;
         case (GAPM_START_ACTIVITY):
+        {
+            // Go to started state
+            app_env.adv_state = APP_ADV_STATE_STARTED;
+        }break;
         case (GAPM_DELETE_ACTIVITY):
+        {
+             app_env.adv_state = APP_ADV_STATE_IDLE;
+        }break;
         case (GAPM_SET_ADV_DATA):
+        {
+            #if ENABLE_EXT_ADV
+            appm_start_advertising();
+            #else
+            appm_set_scan_rsp_data();
+            #endif
+            
+        }break;
         case (GAPM_SET_SCAN_RSP_DATA):
         {
             // Sanity checks
@@ -477,14 +523,15 @@ static int gapm_cmp_evt_handler(ke_msg_id_t const msgid,
             ASSERT_INFO(param->status == GAP_ERR_NO_ERROR, param->status, app_env.adv_op);
 
             // Perform next operation
-            appm_adv_fsm_next();
+           // Start advertising activity
+            appm_start_advertising();
+            
         } break;
 
         case (GAPM_DELETE_ALL_ACTIVITIES) :
         {
             // Re-Invoke Advertising
             app_env.adv_state = APP_ADV_STATE_IDLE;
-            appm_adv_fsm_next();
         } break;
 
 
@@ -623,9 +670,9 @@ static int gapc_connection_req_ind_handler(ke_msg_id_t const msgid,
         
         /// Connection handle
         uart_printf("conhdl:%d \r\n",param->conhdl);
-        uart_printf("con_interval:%f \r\n",param->con_interval * 1.25);
+        uart_printf("con_interval:%d \r\n",param->con_interval);
         uart_printf("con_latency:%d \r\n",param->con_latency );
-        uart_printf("sup_to:%d \r\n",param->sup_to * 10 );
+        uart_printf("sup_to:%d \r\n",param->sup_to );
         uart_printf("peer_addr_type:%d \r\n",param->peer_addr_type);
         {
             uart_printf("peer_addr:0x");
@@ -684,6 +731,7 @@ static int gapc_connection_req_ind_handler(ke_msg_id_t const msgid,
 		app_sec_env.bonded = false;
 		app_sec_env.peer_pairing = false;
 		app_sec_env.peer_encrypt = false;
+        phy_change_state=0;
 
         ke_timer_set(APP_GATTC_EXC_MTU_CMD,TASK_APP,20);
 		
@@ -691,13 +739,13 @@ static int gapc_connection_req_ind_handler(ke_msg_id_t const msgid,
 	    ke_timer_set(APP_ANCS_REQ_IND,TASK_APP,30); 
         #endif
         
-		ke_timer_set(APP_PARAM_UPDATE_REQ_IND,TASK_APP,250);	
+		ke_timer_set(APP_PARAM_UPDATE_REQ_IND,TASK_APP,350);	
         
     }
     else
     {
         // No connection has been established, restart advertising
-        appm_update_adv_state(true);
+        appm_start_advertising();
     }
 
     return (KE_MSG_CONSUMED);
@@ -743,7 +791,7 @@ static int gapc_param_update_req_ind_handler(ke_msg_id_t const msgid,
     else
     {
         // No connection has been established, restart advertising
-        appm_update_adv_state(true);
+        appm_start_advertising();
     }
 
     return (KE_MSG_CONSUMED);
@@ -885,7 +933,7 @@ static int gapc_disconnect_ind_handler(ke_msg_id_t const msgid,
 
     #if (!BLE_APP_HID)
     // Restart Advertising
-    appm_update_adv_state(true);
+    appm_start_advertising(); 
     #endif //(!BLE_APP_HID)
 
     return (KE_MSG_CONSUMED);
@@ -979,7 +1027,7 @@ static int appm_msg_handler(ke_msg_id_t const msgid,
             msg_pol = app_get_handler(&app_f040_handler, msgid, param, src_id);
         } break;
         #endif //(BLE_APP_FEE0S)
-        
+
         #if (BLE_APP_FCC0S)
         case (TASK_ID_FCC0S):
         {
@@ -1137,6 +1185,8 @@ static int gattc_mtu_changed_ind_handler(ke_msg_id_t const msgid,
 	uart_printf("%s \r\n",__func__);
 	uart_printf("ind->mtu = %d,seq = %d\r\n",ind->mtu,ind->seq_num);
 	ke_timer_clear(APP_GATTC_EXC_MTU_CMD,TASK_APP);
+    if(phy_change_state==0)
+        appm_update_phy_param(GAP_PHY_LE_2MBPS,GAP_PHY_LE_2MBPS,GAPC_PHY_OPT_LE_CODED_125K_RATE);
  	return (KE_MSG_CONSUMED);
 }
 
@@ -1195,11 +1245,10 @@ static int app_send_security_req_handler(ke_msg_id_t const msgid,
 static int app_ancs_req_handler(ke_msg_id_t const msgid, void const *param,
         ke_task_id_t const dest_id, ke_task_id_t const src_id)
 {
-	#if (BLE_APP_ANCS)
-	app_ancsc_enable_prf(app_env.conhdl);
-	#endif 
-   
-  return KE_MSG_CONSUMED;
+    #if (BLE_APP_ANCS)
+    app_ancsc_enable_prf(app_env.conhdl);
+    #endif
+    return KE_MSG_CONSUMED;
 }
 /*******************************************************************************
  * Function: app_period_timer_handler
@@ -1239,19 +1288,28 @@ static int app_mtu_exchange_req_handler(ke_msg_id_t const msgid,
         ke_task_id_t const src_id)
 {
 	uart_printf("%s \r\n", __func__);
+    
 	struct gattc_exc_mtu_cmd *cmd = KE_MSG_ALLOC(GATTC_EXC_MTU_CMD,
 	                                KE_BUILD_ID(TASK_GATTC, app_env.conidx),
 	                                TASK_APP,gattc_exc_mtu_cmd);
 	cmd->operation = GATTC_MTU_EXCH;
 	cmd->seq_num = 0;
 	ke_msg_send(cmd);
-
+    
 	return (KE_MSG_CONSUMED);
 }
 
+static int gapc_le_phy_ind_handler(ke_msg_id_t const msgid,
+                                     struct gapc_le_phy_ind const *ind,
+                                     ke_task_id_t const dest_id,
+                                     ke_task_id_t const src_id)
+{   
+    uart_printf("%s\r\n",__func__); 
 
-
-
+    uart_printf("tx_phy:%x,rx_phy:%x\r\n",ind->tx_phy,ind->rx_phy);     
+    phy_change_state=1;                         
+    return (KE_MSG_CONSUMED);
+}
 
 
 
@@ -1290,6 +1348,7 @@ KE_MSG_HANDLER_TAB(appm)
     {APP_ANCS_REQ_IND,			(ke_msg_func_t)app_ancs_req_handler},
     {APP_PERIOD_TIMER,			(ke_msg_func_t)app_period_timer_handler},
     {APP_GATTC_EXC_MTU_CMD,		(ke_msg_func_t)app_mtu_exchange_req_handler},
+    {GAPC_LE_PHY_IND,           (ke_msg_func_t)gapc_le_phy_ind_handler},
 };
 
 /* Defines the place holder for the states of all the task instances. */

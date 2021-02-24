@@ -8,3 +8,4 @@
 .\obj\gpio.o: ..\..\src\driver\uart2\uart2.h
 .\obj\gpio.o: ..\..\src\driver\uart\uart.h
 .\obj\gpio.o: .\config\user_config.h
+.\obj\gpio.o: ..\..\Src\header\BK3633_RegList.h

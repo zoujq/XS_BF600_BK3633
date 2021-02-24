@@ -37,18 +37,16 @@
 #define CFG_APP_DIS
 #define CFG_APP_BATT
 #define CFG_APP_SEC
-
-//#define CFG_APP_FEE0S
-//#define CFG_APP_FCC0S
+// #define CFG_APP_FEE0S
+// #define CFG_APP_FCC0S
 //#define CFG_APP_ANCS
 #define CFG_APP_OADS
 
 #define CFG_APP_F000S //zoujq_1_add
-// #define CFG_APP_F010S //zoujq_1_add
+#define CFG_APP_F010S //zoujq_1_add
 #define CFG_APP_F020S //zoujq_1_add
 #define CFG_APP_F030S //zoujq_1_add
-// #define CFG_APP_F040S //zoujq_1_add
-
+#define CFG_APP_F040S //zoujq_1_add
 
 /******************************************************************************************/
 /* -------------------------   BLE APPLICATION SETTINGS      -----------------------------*/

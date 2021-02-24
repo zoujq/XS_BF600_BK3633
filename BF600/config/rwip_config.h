@@ -617,7 +617,7 @@
 	#define BLE_STABLE_MOD_IDX_RX_SUPPORT               0
 #else // RIPPLE
 	#define BLE_PHY_1MBPS_SUPPORT                       1
-	#define BLE_PHY_2MBPS_SUPPORT                       0
+	#define BLE_PHY_2MBPS_SUPPORT                       1
 	#define BLE_PHY_CODED_SUPPORT                       1
 	#define BLE_STABLE_MOD_IDX_TX_SUPPORT               0
 	#define BLE_STABLE_MOD_IDX_RX_SUPPORT               0
@@ -976,7 +976,7 @@ enum KE_MEM_HEAP
 #define RWIP_HEAP_NON_RET_SIZE    ( ECC_HEAP_NON_RET_SIZE_ )
 
 /// Minimum sleep time to enter in deep sleep (in half slot).
-#define RWIP_MINIMUM_SLEEP_TIME                (6)
+#define RWIP_MINIMUM_SLEEP_TIME                (8)
 
 /******************************************************************************************/
 /* -------------------------     CONFIGURABLE PARAMETERS     -----------------------------*/

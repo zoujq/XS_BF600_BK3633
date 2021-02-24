@@ -52,7 +52,7 @@
           <CreateLib>0</CreateLib>
           <CreateHexFile>0</CreateHexFile>
           <DebugInformation>0</DebugInformation>
-          <BrowseInformation>0</BrowseInformation>
+          <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
           <HexFormatSelection>1</HexFormatSelection>
           <Merge32K>0</Merge32K>
@@ -60,7 +60,7 @@
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name>del.bat</UserProg1Name>
+            <UserProg1Name></UserProg1Name>
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
@@ -68,7 +68,7 @@
             <nStopU2X>0</nStopU2X>
           </BeforeCompile>
           <BeforeMake>
-            <RunUserProg1>1</RunUserProg1>
+            <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>del.bat</UserProg1Name>
             <UserProg2Name></UserProg2Name>
@@ -228,7 +228,7 @@
             <hadIRAM2>0</hadIRAM2>
             <hadIROM2>0</hadIROM2>
             <StupSel>1</StupSel>
-            <useUlib>0</useUlib>
+            <useUlib>1</useUlib>
             <EndSel>0</EndSel>
             <uLtcg>0</uLtcg>
             <nSecure>0</nSecure>
@@ -378,7 +378,7 @@
               <MiscControls>--gnu</MiscControls>
               <Define>CFG_CPU_BK3633</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\src\ip\ble\ll\api;..\..\src\ip\ble\ll\import\reg;..\..\src\ip\ble\ll\src;..\..\src\ip\bt\api;..\..\src\ip\bt\import\reg;..\..\src\ip\bt\src;..\..\src\ip\em\api;..\..\src\ip\hci\api;..\..\src\ip\sch\api;..\..\src\ip\sch\import;..\..\src\modules\aes\api;..\..\src\modules\common\api;..\..\src\modules\dbg\api;..\..\src\modules\ecc_p256\api;..\..\src\modules\h4tl\api;..\..\src\modules\ke\api;..\..\src\plf\nvds\api;..\..\src\driver\rf;..\..\src\plf\rwip\api;..\..\src\plf\rwip\import\reg;..\..\src\plf\refip\import\reg;..\..\src\plf\refip\src\arch;..\..\src\plf\refip\src\arch\boot\rvds;..\..\src\plf\refip\src\arch\compiler\rvds;..\..\src\plf\refip\src\arch\ll\rvds;..\..\src\driver\flash;..\..\src\driver\led;..\..\src\driver\reg;..\..\src\driver\syscntl;..\..\src\driver\timer;..\..\src\driver\uart;..\..\src\driver\uart2;..\..\Src\header;..\..\Src\header\header_file;..\..\Src\plf\refip\src\driver;..\..\Src\ip\ble\hl\api;..\..\Src\ip\ble\hl\inc;..\..\Src\ip\ble\hl\src\gap\gapc;..\..\Src\ip\ble\hl\src\gap\gapm;..\..\Src\ip\ble\hl\src\gatt;..\..\Src\ip\ble\hl\src\gatt\attc;..\..\Src\ip\ble\hl\src\gatt\attm;..\..\Src\ip\ble\hl\src\gatt\atts;..\..\Src\ip\ble\hl\src\gatt\gattc;..\..\Src\ip\ble\hl\src\gatt\gattm;..\..\Src\ip\ble\hl\src\l2c\l2cc;..\..\Src\ip\ble\hl\src\l2c\l2cm;..\..\Src\app\api;..\..\Src\profiles\dis\diss\api;..\..\Src\profiles\FEE0\api;..\..\Src\profiles\bas\bass\api;..\..\Src\profiles\FCC0_128\api;..\..\Src\driver\gpio;..\..\Src\driver\spi;..\..\Src\driver\icu;..\..\Src\driver\wdt;..\..\Src\driver\adc;..\..\Src\profiles\ancs\ancsc\api;..\..\Src\profiles\oad\api;..\..\Src\profiles\ancs\ancsc;.\config;.\app\api;..\..\src\driver\uart2;..\..\src\driver\aon_rtc;..\..\src\plf\prf;..\..\Src\driver\intc;..\..\src\driver\dma;..\..\src\driver\i2c;..\..\src\device\lcd;..\..\src\device\spi_flash;.\work\f000;.\work\f010;.\work\f020;.\work\f030;.\work\f040</IncludePath>
+              <IncludePath>..\..\src\ip\ble\ll\api;..\..\src\ip\ble\ll\import\reg;..\..\src\ip\ble\ll\src;..\..\src\ip\bt\api;..\..\src\ip\bt\import\reg;..\..\src\ip\bt\src;..\..\src\ip\em\api;..\..\src\ip\hci\api;..\..\src\ip\sch\api;..\..\src\ip\sch\import;..\..\src\modules\aes\api;..\..\src\modules\common\api;..\..\src\modules\dbg\api;..\..\src\modules\ecc_p256\api;..\..\src\modules\h4tl\api;..\..\src\modules\ke\api;..\..\src\plf\nvds\api;..\..\src\driver\rf;..\..\src\plf\rwip\api;..\..\src\plf\rwip\import\reg;..\..\src\plf\refip\import\reg;..\..\src\plf\refip\src\arch;..\..\src\plf\refip\src\arch\boot\rvds;..\..\src\plf\refip\src\arch\compiler\rvds;..\..\src\plf\refip\src\arch\ll\rvds;..\..\src\driver\flash;..\..\src\driver\led;..\..\src\driver\reg;..\..\src\driver\syscntl;..\..\src\driver\timer;..\..\src\driver\uart;..\..\src\driver\uart2;..\..\Src\header;..\..\Src\header\header_file;..\..\Src\plf\refip\src\driver;..\..\Src\ip\ble\hl\api;..\..\Src\ip\ble\hl\inc;..\..\Src\ip\ble\hl\src\gap\gapc;..\..\Src\ip\ble\hl\src\gap\gapm;..\..\Src\ip\ble\hl\src\gatt;..\..\Src\ip\ble\hl\src\gatt\attc;..\..\Src\ip\ble\hl\src\gatt\attm;..\..\Src\ip\ble\hl\src\gatt\atts;..\..\Src\ip\ble\hl\src\gatt\gattc;..\..\Src\ip\ble\hl\src\gatt\gattm;..\..\Src\ip\ble\hl\src\l2c\l2cc;..\..\Src\ip\ble\hl\src\l2c\l2cm;..\..\Src\app\api;..\..\Src\profiles\dis\diss\api;..\..\Src\profiles\FEE0\api;..\..\Src\profiles\bas\bass\api;..\..\Src\profiles\FCC0_128\api;..\..\Src\driver\gpio;..\..\Src\driver\spi;..\..\Src\driver\icu;..\..\Src\driver\wdt;..\..\Src\driver\adc;..\..\Src\profiles\ancs\ancsc\api;..\..\Src\profiles\oad\api;..\..\Src\profiles\ancs\ancsc;.\config;.\app\api;..\..\src\driver\aon_rtc;..\..\src\plf\prf;..\..\Src\driver\intc;..\..\src\driver\dma;..\..\src\driver\i2c;..\..\src\device\lcd;..\..\src\driver\pwm;.\work\f000;.\work\f010;.\work\f020;.\work\f030;.\work\f040</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -582,6 +582,11 @@
               <FileType>1</FileType>
               <FilePath>..\..\src\driver\dma\dma.c</FilePath>
             </File>
+            <File>
+              <FileName>pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\src\driver\pwm\pwm.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -606,16 +611,6 @@
               <FileName>bass_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Src\profiles\bas\bass\src\bass_task.c</FilePath>
-            </File>
-            <File>
-              <FileName>ancsc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Src\profiles\ancs\ancsc\src\ancsc.c</FilePath>
-            </File>
-            <File>
-              <FileName>ancsc_task.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Src\profiles\ancs\ancsc\src\ancsc_task.c</FilePath>
             </File>
             <File>
               <FileName>oads.c</FileName>
@@ -655,21 +650,6 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>device</GroupName>
-          <Files>
-            <File>
-              <FileName>w25x40c.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\src\device\spi_flash\w25x40c.c</FilePath>
-            </File>
-            <File>
-              <FileName>lcd360.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\src\device\lcd\lcd360.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>work</GroupName>
           <Files>
             <File>
@@ -688,6 +668,21 @@
               <FilePath>.\work\f000\f000s_task.c</FilePath>
             </File>
             <File>
+              <FileName>app_f010.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f010\app_f010.c</FilePath>
+            </File>
+            <File>
+              <FileName>f010s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f010\f010s.c</FilePath>
+            </File>
+            <File>
+              <FileName>f010s_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f010\f010s_task.c</FilePath>
+            </File>
+            <File>
               <FileName>app_f020.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\work\f020\app_f020.c</FilePath>
@@ -701,6 +696,21 @@
               <FileName>f020s_task.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\work\f020\f020s_task.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_f040.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f040\app_f040.c</FilePath>
+            </File>
+            <File>
+              <FileName>f040s.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f040\f040s.c</FilePath>
+            </File>
+            <File>
+              <FileName>f040s_task.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\work\f040\f040s_task.c</FilePath>
             </File>
             <File>
               <FileName>app_f030.c</FileName>

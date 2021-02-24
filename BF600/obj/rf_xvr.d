@@ -55,4 +55,4 @@
 .\obj\rf_xvr.o: ..\..\src\ip\ble\ll\import\reg\reg_em_ble_cs.h
 .\obj\rf_xvr.o: ..\..\src\ip\bt\import\reg\reg_btcore.h
 .\obj\rf_xvr.o: ..\..\src\ip\bt\import\reg\_reg_btcore.h
-.\obj\rf_xvr.o: ..\..\Src\header\bk3633_reglist.h
+.\obj\rf_xvr.o: ..\..\Src\header\BK3633_RegList.h

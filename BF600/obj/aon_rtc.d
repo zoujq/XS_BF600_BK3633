@@ -8,4 +8,4 @@
 .\obj\aon_rtc.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\aon_rtc.o: ..\..\src\driver\uart\uart.h
 .\obj\aon_rtc.o: .\config\user_config.h
-.\obj\aon_rtc.o: ..\..\Src\header\bk3633_reglist.h
+.\obj\aon_rtc.o: ..\..\Src\header\BK3633_RegList.h

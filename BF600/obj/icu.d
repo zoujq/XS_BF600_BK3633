@@ -50,4 +50,5 @@
 .\obj\icu.o: ..\..\Src\driver\icu\icu.h
 .\obj\icu.o: ..\..\src\driver\rf\rf.h
 .\obj\icu.o: ..\..\src\driver\flash\flash.h
-.\obj\icu.o: ..\..\Src\header\bk3633_reglist.h
+.\obj\icu.o: ..\..\Src\header\BK3633_RegList.h
+.\obj\icu.o: ..\..\Src\driver\gpio\gpio.h

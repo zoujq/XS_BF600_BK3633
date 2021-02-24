@@ -494,7 +494,7 @@ static int gapc_encrypt_req_ind_handler(ke_msg_id_t const msgid,
                                         ke_task_id_t const src_id)
 {
     uart_printf("encrypt_req_ind\r\n");
-	app_sec_env.peer_encrypt = true;
+		app_sec_env.peer_encrypt = true;
     #if (NVDS_SUPPORT)
     // LTK value
     struct gapc_ltk ltk;

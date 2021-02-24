@@ -8,4 +8,4 @@
 .\obj\wdt.o: ..\..\src\driver\uart\uart.h
 .\obj\wdt.o: .\config\user_config.h
 .\obj\wdt.o: ..\..\Src\driver\wdt\wdt.h
-.\obj\wdt.o: ..\..\Src\header\BK3633_Reglist.h
+.\obj\wdt.o: ..\..\Src\header\BK3633_RegList.h

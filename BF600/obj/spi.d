@@ -2,6 +2,7 @@
 .\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 .\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 .\obj\spi.o: ..\..\Src\driver\spi\spi.h
 .\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
 .\obj\spi.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h

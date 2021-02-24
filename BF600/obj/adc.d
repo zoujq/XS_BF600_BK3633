@@ -10,3 +10,4 @@
 .\obj\adc.o: ..\..\Src\driver\gpio\gpio.h
 .\obj\adc.o: ..\..\Src\driver\adc\adc.h
 .\obj\adc.o: ..\..\Src\driver\icu\icu.h
+.\obj\adc.o: ..\..\Src\header\BK3633_RegList.h

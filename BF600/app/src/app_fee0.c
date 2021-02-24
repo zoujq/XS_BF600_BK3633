@@ -42,7 +42,8 @@
 #include "fee0s.h"
 #include "ke_timer.h"
 #include "uart.h"
-
+#include "prf_utils.h"
+#include "user_config.h"
 
 
 /*
@@ -99,35 +100,49 @@ void app_fee0_add_fee0s(void)
     ke_msg_send(req);
 }
 
-
 void app_fee4_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
-    // Allocate the message
-    struct fee0s_fee45_val_upd_req * req = KE_MSG_ALLOC(FEE0S_FEE4_VALUE_UPD_REQ,
-                                                        prf_get_task_from_id(TASK_ID_FEE0S),
-                                                        KE_BUILD_ID(TASK_APP, conidx),
-                                                        fee0s_fee45_val_upd_req);
-    // Fill in the parameter structure	
-    req->length = len;
-	memcpy(req->value, buf, len);
+    if( ke_state_get(prf_get_task_from_id(TASK_ID_FEE0S))==FEE0S_IDLE )
+    {
+        struct fee0s_env_tag* fee0s_env = PRF_ENV_GET(FEE0S, fee0s);
+        if(fee0s_env->ntf_cfg[conidx] == PRF_CLI_START_NTF)
+        {
+            // Allocate the message
+            struct fee0s_fee45_val_upd_req * req = KE_MSG_ALLOC(FEE0S_FEE4_VALUE_UPD_REQ,
+                                                                prf_get_task_from_id(TASK_ID_FEE0S),
+                                                                KE_BUILD_ID(TASK_APP, conidx),
+                                                                fee0s_fee45_val_upd_req);
+            // Fill in the parameter structure	
+            req->length = len;
+        	memcpy(req->value, buf, len);
 
-    // Send the message
-    ke_msg_send(req);
+            // Send the message
+            ke_msg_send(req);
+        }
+    }
 }
 
 void app_fee5_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
-    // Allocate the message
-    struct fee0s_fee45_val_upd_req * req = KE_MSG_ALLOC(FEE0S_FEE5_VALUE_UPD_REQ,
-                                                        prf_get_task_from_id(TASK_ID_FEE0S),
-                                                        KE_BUILD_ID(TASK_APP, conidx),
-                                                        fee0s_fee45_val_upd_req);
-    // Fill in the parameter structure	
-    req->length = len;
-	memcpy(req->value, buf, len);
+    if( ke_state_get(prf_get_task_from_id(TASK_ID_FEE0S))==FEE0S_IDLE )
+    {
+        struct fee0s_env_tag* fee0s_env = PRF_ENV_GET(FEE0S, fee0s);
 
-    // Send the message
-    ke_msg_send(req);
+        if(fee0s_env->ind_cfg[conidx] == PRF_CLI_START_IND)
+        {
+            // Allocate the message
+            struct fee0s_fee45_val_upd_req * req = KE_MSG_ALLOC(FEE0S_FEE5_VALUE_UPD_REQ,
+                                                                prf_get_task_from_id(TASK_ID_FEE0S),
+                                                                KE_BUILD_ID(TASK_APP, conidx),
+                                                                fee0s_fee45_val_upd_req);
+            // Fill in the parameter structure	
+            req->length = len;
+        	memcpy(req->value, buf, len);
+
+            // Send the message
+            ke_msg_send(req);
+        }
+    }
 }
 
 
@@ -170,11 +185,11 @@ static int fee4_val_upd_rsp_handler(ke_msg_id_t const msgid,
                                       ke_task_id_t const dest_id,
                                       ke_task_id_t const src_id)
 {
-	uart_printf("%s,status:%x\r\n", __func__,param->status);
+	//uart_printf("%s,status:%x\r\n", __func__,param->status);
 	
 	if(param->status == GAP_ERR_NO_ERROR)
 	{
-		
+	    ke_state_set(dest_id, FEE0S_IDLE);	
 	}
 	
     return (KE_MSG_CONSUMED);
@@ -189,7 +204,7 @@ static int fee5_val_upd_rsp_handler(ke_msg_id_t const msgid,
 	
 	if(param->status == GAP_ERR_NO_ERROR)
 	{
-		
+	    ke_state_set(dest_id, FEE0S_IDLE);	
 	}
 	
     return (KE_MSG_CONSUMED);

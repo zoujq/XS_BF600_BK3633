@@ -65,7 +65,7 @@
 #define APP_DIS_HARD_REV_STR_LEN       (5)
 
 /// Software Revision String
-#define APP_DIS_SW_REV_STR              ("6.3.1")
+#define APP_DIS_SW_REV_STR              ("6.3.0")
 #define APP_DIS_SW_REV_STR_LEN          (5)
 
 /// IEEE

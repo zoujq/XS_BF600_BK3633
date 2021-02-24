@@ -52,4 +52,4 @@
 .\obj\oads.o: ..\..\src\modules\ke\api\ke.h
 .\obj\oads.o: ..\..\Src\driver\icu\icu.h
 .\obj\oads.o: ..\..\Src\driver\wdt\wdt.h
-.\obj\oads.o: ..\..\Src\header\BK3633_Reglist.h
+.\obj\oads.o: ..\..\Src\header\BK3633_RegList.h
