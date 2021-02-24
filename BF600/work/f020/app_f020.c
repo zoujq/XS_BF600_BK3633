@@ -115,10 +115,10 @@ void app_f024_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
     ke_msg_send(req);
 }
 
-void app_f025_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf)
+void app_f026_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
     // Allocate the message
-    struct f020s_f0245_val_upd_req * req = KE_MSG_ALLOC(F020S_F025_VALUE_UPD_REQ,
+    struct f020s_f0245_val_upd_req * req = KE_MSG_ALLOC(F020S_F026_VALUE_UPD_REQ,
                                                         prf_get_task_from_id(TASK_ID_F020S),
                                                         KE_BUILD_ID(TASK_APP, conidx),
                                                         f020s_f0245_val_upd_req);
@@ -149,12 +149,12 @@ static int f020s_f024_val_ntf_cfg_ind_handler(ke_msg_id_t const msgid,
     return (KE_MSG_CONSUMED);
 }
 
-static int f020s_f025_val_ind_cfg_ind_handler(ke_msg_id_t const msgid,
-                                               struct f020s_f025_val_ind_cfg_ind const *param,
+static int f020s_f026_val_ind_cfg_ind_handler(ke_msg_id_t const msgid,
+                                               struct f020s_f026_val_ind_cfg_ind const *param,
                                                ke_task_id_t const dest_id,
                                                ke_task_id_t const src_id)
 {
-	uart_printf("f025->param->ind_cfg = %x\r\n",param->ind_cfg);
+	uart_printf("f026->param->ind_cfg = %x\r\n",param->ind_cfg);
 	if(param->ind_cfg == PRF_CLI_STOP_NTFIND)
 	{
 		//ke_timer_clear(F020S_F023_LEVEL_PERIOD_NTF,dest_id);
@@ -180,7 +180,7 @@ static int f024_val_upd_rsp_handler(ke_msg_id_t const msgid,
     return (KE_MSG_CONSUMED);
 }
 
-static int f025_val_upd_rsp_handler(ke_msg_id_t const msgid,
+static int f026_val_upd_rsp_handler(ke_msg_id_t const msgid,
                                       struct f020s_f0245_val_upd_rsp const *param,
                                       ke_task_id_t const dest_id,
                                       ke_task_id_t const src_id)
@@ -246,7 +246,7 @@ static int f022_writer_cmd_handler(ke_msg_id_t const msgid,
     }
     if(param->value[0] == 0x66)
     {
-        app_f025_send_ind(param->conidx,20,buf);
+        app_f026_send_ind(param->conidx,20,buf);
     }
 #if 0    
     if(param->value[0] == 0xAA)
@@ -293,9 +293,9 @@ const struct ke_msg_handler app_f020_msg_handler_list[] =
     // Note: first message is latest message checked by kernel so default is put on top.
     {KE_MSG_DEFAULT_HANDLER,        (ke_msg_func_t)app_f020_msg_dflt_handler},
     {F020S_F024_VALUE_NTF_CFG_IND,  (ke_msg_func_t)f020s_f024_val_ntf_cfg_ind_handler},
-    {F020S_F025_VALUE_IND_CFG_IND,  (ke_msg_func_t)f020s_f025_val_ind_cfg_ind_handler},
+    {F020S_F026_VALUE_IND_CFG_IND,  (ke_msg_func_t)f020s_f026_val_ind_cfg_ind_handler},
     {F020S_F024_VALUE_UPD_RSP,      (ke_msg_func_t)f024_val_upd_rsp_handler},
-    {F020S_F025_VALUE_UPD_RSP,      (ke_msg_func_t)f025_val_upd_rsp_handler},
+    {F020S_F026_VALUE_UPD_RSP,      (ke_msg_func_t)f026_val_upd_rsp_handler},
     {F020S_F022_WRITER_CMD_IND,		(ke_msg_func_t)f022_writer_cmd_handler},
     {F020S_F023_WRITER_REQ_IND,		(ke_msg_func_t)f023_writer_req_handler},
     

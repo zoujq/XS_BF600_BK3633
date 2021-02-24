@@ -44,12 +44,12 @@
 ".\obj\app_f020.o"
 ".\obj\f020s.o"
 ".\obj\f020s_task.o"
-".\obj\app_f040.o"
-".\obj\f040s.o"
-".\obj\f040s_task.o"
 ".\obj\app_f030.o"
 ".\obj\f030s.o"
 ".\obj\f030s_task.o"
+".\obj\app_f040.o"
+".\obj\f040s.o"
+".\obj\f040s_task.o"
 --library_type=microlib --nodebug --strict --scatter "..\..\src\system\peripheral_app_link.txt"
 --entry sys_Reset --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

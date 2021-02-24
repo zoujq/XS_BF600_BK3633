@@ -65,12 +65,12 @@ enum f020s_msg_id
     /// Inform APP that FFF1 Level Notification Configuration has been changed - use to update bond data
     F020S_F024_VALUE_NTF_CFG_IND,
 
-	/// F025 Level Value Update Request
-    F020S_F025_VALUE_UPD_REQ,
+	/// F026 Level Value Update Request
+    F020S_F026_VALUE_UPD_REQ,
     /// Inform APP if FFF1 Level value has been notified or not
-    F020S_F025_VALUE_UPD_RSP,
+    F020S_F026_VALUE_UPD_RSP,
 
-	F020S_F025_VALUE_IND_CFG_IND,
+	F020S_F026_VALUE_IND_CFG_IND,
 	
 
 
@@ -83,8 +83,8 @@ enum f020s_features
     F020_F02X_VLUAE_NTF_NOT_SUP,
     /// F024 Value Characteristic support notifications
     F020_F024_VAL_NTF_SUP,
-    /// F025 Value Characteristic support indication
-    F020_F025_VAL_IND_SUP,
+    /// F026 Value Characteristic support indication
+    F020_F026_VAL_IND_SUP,
 };
 
 
@@ -147,8 +147,8 @@ struct f020s_f024_val_ntf_cfg_ind
 };
 
 
-///Parameters of the @ref F020S_F025_VALUE_IND_CFG_IND message
-struct f020s_f025_val_ind_cfg_ind
+///Parameters of the @ref F020S_F026_VALUE_IND_CFG_IND message
+struct f020s_f026_val_ind_cfg_ind
 {
     /// connection index
     uint8_t  conidx;

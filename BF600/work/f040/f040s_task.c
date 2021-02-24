@@ -115,15 +115,15 @@ static int gattc_att_info_req_ind_handler(ke_msg_id_t const msgid,
             // CCC attribute length = 2
             cfm->length = 2;
         }
-		else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		{
-			// CCC attribute length = 2
-            cfm->length = 2;
-		}
-        else if(att_idx == F040S_IDX_F043_VAL_VAL)
-        {
-            cfm->length = F040_CHAR_DATA_LEN;
-        }
+		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
+		// {
+		// 	// CCC attribute length = 2
+  //           cfm->length = 2;
+		// }
+  //       else if(att_idx == F040S_IDX_F043_VAL_VAL)
+  //       {
+  //           cfm->length = F040_CHAR_DATA_LEN;
+  //       }
         // not expected request
         else
         {
@@ -182,60 +182,60 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
 						
             ke_msg_send(ind);			
         }		
-		else if ((att_idx == F040S_IDX_F045_VAL_IND_CFG)
-                && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_IND)))
-        {
-            // Conserve information in environment
-            if (ntf_cfg == PRF_CLI_START_IND)
-            {
-                // Ntf cfg bit set to 1
-                f040s_env->ind_cfg[conidx] = PRF_CLI_START_IND;
-            }
-            else
-            {
-                // Ntf cfg bit set to 0
-                f040s_env->ind_cfg[conidx] = PRF_CLI_STOP_NTFIND;
-            }
+		// else if ((att_idx == F040S_IDX_F045_VAL_IND_CFG)
+  //               && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_IND)))
+  //       {
+  //           // Conserve information in environment
+  //           if (ntf_cfg == PRF_CLI_START_IND)
+  //           {
+  //               // Ntf cfg bit set to 1
+  //               f040s_env->ind_cfg[conidx] = PRF_CLI_START_IND;
+  //           }
+  //           else
+  //           {
+  //               // Ntf cfg bit set to 0
+  //               f040s_env->ind_cfg[conidx] = PRF_CLI_STOP_NTFIND;
+  //           }
 
-            // Inform APP of configuration change
-            struct f040s_f045_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F040S_F045_VALUE_IND_CFG_IND,
-                    prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
-                    f040s_f045_val_ind_cfg_ind);
-            ind->conidx = conidx;
-            ind->ind_cfg = f040s_env->ind_cfg[conidx];
+  //           // Inform APP of configuration change
+  //           struct f040s_f045_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F040S_F045_VALUE_IND_CFG_IND,
+  //                   prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
+  //                   f040s_f045_val_ind_cfg_ind);
+  //           ind->conidx = conidx;
+  //           ind->ind_cfg = f040s_env->ind_cfg[conidx];
 						
-            ke_msg_send(ind);			
-        }
-		else if (att_idx == F040S_IDX_F042_VAL_VAL)
-		{
-			// Allocate the alert value change indication
-			struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F042_WRITER_CMD_IND,
-			        prf_dst_task_get(&(f040s_env->prf_env), conidx),
-			        dest_id, f040s_f0423_writer_ind);
+  //           ke_msg_send(ind);			
+  //       }
+		// else if (att_idx == F040S_IDX_F042_VAL_VAL)
+		// {
+		// 	// Allocate the alert value change indication
+		// 	struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F042_WRITER_CMD_IND,
+		// 	        prf_dst_task_get(&(f040s_env->prf_env), conidx),
+		// 	        dest_id, f040s_f0423_writer_ind);
 			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
+		// 	// Fill in the parameter structure	
+		// 	memcpy(ind->value,&param->value[0],param->length);
+		// 	ind->conidx = conidx;
+		// 	ind->length = param->length;
 			
-			// Send the message
-			ke_msg_send(ind);
-		}
-        else if (att_idx == F040S_IDX_F043_VAL_VAL)
-		{
-			// Allocate the alert value change indication
-			struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F043_WRITER_REQ_IND,
-			        prf_dst_task_get(&(f040s_env->prf_env), conidx),
-			        dest_id, f040s_f0423_writer_ind);
+		// 	// Send the message
+		// 	ke_msg_send(ind);
+		// }
+  //       else if (att_idx == F040S_IDX_F043_VAL_VAL)
+		// {
+		// 	// Allocate the alert value change indication
+		// 	struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F043_WRITER_REQ_IND,
+		// 	        prf_dst_task_get(&(f040s_env->prf_env), conidx),
+		// 	        dest_id, f040s_f0423_writer_ind);
 			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
+		// 	// Fill in the parameter structure	
+		// 	memcpy(ind->value,&param->value[0],param->length);
+		// 	ind->conidx = conidx;
+		// 	ind->length = param->length;
 			
-			// Send the message
-			ke_msg_send(ind);
-		}
+		// 	// Send the message
+		// 	ke_msg_send(ind);
+		// }
         else
         {
             status = PRF_APP_ERROR;
@@ -271,24 +271,25 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
     if (status == GAP_ERR_NO_ERROR)
     {
         // read notification information
-        if (att_idx == F040S_IDX_F041_VAL_VAL)
-        {
-            length = 10 * sizeof(uint8_t);
-        }
-        else if (att_idx == F040S_IDX_F041_USER_DESC)
-        {
-            length = f040s_env->f041_desc_len;
-            uart_printf("read F041_USER_DESC\r\n");
-        }
-        // read notification information
-        else if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+        // if (att_idx == F040S_IDX_F041_VAL_VAL)
+        // {
+        //     length = 10 * sizeof(uint8_t);
+        // }
+        // else if (att_idx == F040S_IDX_F041_USER_DESC)
+        // {
+        //     length = f040s_env->f041_desc_len;
+        //     uart_printf("read F041_USER_DESC\r\n");
+        // }
+        // // read notification information
+        // else 
+        if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
         {
             length = sizeof(uint16_t);
         }
-		else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		{
-			length = sizeof(uint16_t);
-		}
+		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
+		// {
+		// 	length = sizeof(uint16_t);
+		// }
 		
         else
         {
@@ -305,30 +306,31 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
     if (status == GAP_ERR_NO_ERROR)
     {
         // read notification information
-        if (att_idx == F040S_IDX_F041_VAL_VAL)
-        {
+        // if (att_idx == F040S_IDX_F041_VAL_VAL)
+        // {
             
-            memcpy(cfm->value,f040s_env->f041_val,10);
-            f040s_env->f041_val[0]++;
-            f040s_env->f041_val[9]++;
-        }
-        else if (att_idx == F040S_IDX_F041_USER_DESC)
-        {
-            memcpy(cfm->value,f040s_env->f041_desc,length);
-            uart_printf("USER_DESC:%s\r\n",f040s_env->f041_desc);
-        }
-        // retrieve notification config
-        else if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+        //     memcpy(cfm->value,f040s_env->f041_val,10);
+        //     f040s_env->f041_val[0]++;
+        //     f040s_env->f041_val[9]++;
+        // }
+        // else if (att_idx == F040S_IDX_F041_USER_DESC)
+        // {
+        //     memcpy(cfm->value,f040s_env->f041_desc,length);
+        //     uart_printf("USER_DESC:%s\r\n",f040s_env->f041_desc);
+        // }
+        // // retrieve notification config
+        // else 
+        if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
         {
             uint16_t ntf_cfg = f040s_env->ntf_cfg[conidx];
             co_write16p(cfm->value, ntf_cfg);
         }  
 		
-		else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		{
-			uint16_t ind_cfg = f040s_env->ind_cfg[conidx];
-            co_write16p(cfm->value, ind_cfg);
-		}
+		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
+		// {
+		// 	uint16_t ind_cfg = f040s_env->ind_cfg[conidx];
+  //           co_write16p(cfm->value, ind_cfg);
+		// }
         else
         {
             /* Not Possible */
@@ -357,15 +359,15 @@ static int gattc_cmp_evt_handler(ke_msg_id_t const msgid,  struct gattc_cmp_evt 
         ke_msg_send(rsp);
         
     }
-    else if(param->operation == GATTC_INDICATE)
-    {
-        struct f040s_f0445_val_upd_rsp *rsp = KE_MSG_ALLOC(F040S_F045_VALUE_UPD_RSP,
-                                             prf_dst_task_get(&(f040s_env->prf_env), conidx),
-                                             dest_id, f040s_f0445_val_upd_rsp);
-        rsp->conidx = conidx;
-        rsp->status = param->status;			
-        ke_msg_send(rsp);
-    }
+    // else if(param->operation == GATTC_INDICATE)
+    // {
+    //     struct f040s_f0445_val_upd_rsp *rsp = KE_MSG_ALLOC(F040S_F045_VALUE_UPD_RSP,
+    //                                          prf_dst_task_get(&(f040s_env->prf_env), conidx),
+    //                                          dest_id, f040s_f0445_val_upd_rsp);
+    //     rsp->conidx = conidx;
+    //     rsp->status = param->status;			
+    //     ke_msg_send(rsp);
+    // }
 	// go back in to idle mode
     ke_state_set(dest_id, ke_state_get(dest_id) & ~F040S_BUSY);
 	

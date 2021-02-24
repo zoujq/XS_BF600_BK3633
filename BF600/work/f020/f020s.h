@@ -42,16 +42,17 @@
  ****************************************************************************************
  */
 
-#define F020S_CFG_FLAG_MANDATORY_MASK       (0x3FFF)
+#define F020S_CFG_FLAG_MANDATORY_MASK       (0x7FFF)
 
 enum
 {		
-	ATT_USER_SERVER_F020 						= ATT_UUID_16(0xF020),	// service 
-	ATT_USER_SERVER_CHAR_F021                   = ATT_UUID_16(0xF021), // read		
-	ATT_USER_SERVER_CHAR_F022					= ATT_UUID_16(0xF022),// write cmd
-	ATT_USER_SERVER_CHAR_F023					= ATT_UUID_16(0xF023),// write req
-    ATT_USER_SERVER_CHAR_F024					= ATT_UUID_16(0xF024), // ntf
-    ATT_USER_SERVER_CHAR_F025					= ATT_UUID_16(0xF025), // ind		
+	ATT_USER_SERVER_F020 						= ATT_UUID_16(0x181C),	// service 
+	ATT_USER_SERVER_CHAR_F021                   = ATT_UUID_16(0x2a85), // read		
+	ATT_USER_SERVER_CHAR_F022					= ATT_UUID_16(0x2a8c),// write cmd
+	ATT_USER_SERVER_CHAR_F023					= ATT_UUID_16(0x2a8e),// write req
+    ATT_USER_SERVER_CHAR_F024					= ATT_UUID_16(0x2a99), // ntf
+    ATT_USER_SERVER_CHAR_F025                   = ATT_UUID_16(0x2a9a), // read
+    ATT_USER_SERVER_CHAR_F026					= ATT_UUID_16(0x2a9f), // ind		
 };
 
 /// F020S Service Attributes Indexes
@@ -61,8 +62,7 @@ enum
 
     F020S_IDX_F021_VAL_CHAR,
 	F020S_IDX_F021_VAL_VAL,
-    F020S_IDX_F021_USER_DESC,
-    
+
 	F020S_IDX_F022_VAL_CHAR,
 	F020S_IDX_F022_VAL_VAL,
 
@@ -73,9 +73,12 @@ enum
 	F020S_IDX_F024_VAL_VAL,
 	F020S_IDX_F024_VAL_NTF_CFG,
 
-	F020S_IDX_F025_VAL_CHAR,
-	F020S_IDX_F025_VAL_VAL,
-	F020S_IDX_F025_VAL_IND_CFG,
+    F020S_IDX_F025_VAL_CHAR,
+    F020S_IDX_F025_VAL_VAL,
+
+	F020S_IDX_F026_VAL_CHAR,
+	F020S_IDX_F026_VAL_VAL,
+	F020S_IDX_F026_VAL_IND_CFG,
 
 	F020S_IDX_NB,
 };
@@ -103,7 +106,7 @@ struct f020s_env_tag
     uint8_t f022_val[F020_CHAR_DATA_LEN];
     uint8_t f023_val[F020_CHAR_DATA_LEN];
     uint8_t f024_val[F020_CHAR_DATA_LEN];
-    uint8_t f025_val[F020_CHAR_DATA_LEN];
+    uint8_t f026_val[F020_CHAR_DATA_LEN];
     uint8_t f021_desc[F020_CHAR_DATA_LEN];
     uint8_t f021_desc_len;
     /// BASS task state
@@ -134,7 +137,7 @@ uint8_t  f020s_get_att_idx(uint16_t handle, uint8_t *att_idx);
 
 void f020s_notify_f024_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struct f020s_f0245_val_upd_req const *param);
 
-void f020s_indicate_f025_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struct f020s_f0245_val_upd_req const *param);
+void f020s_indicate_f026_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struct f020s_f0245_val_upd_req const *param);
 void f020s_task_init(struct ke_task_desc *task_desc);
 
 #endif /* #if (BLE_F020_SERVERs) */

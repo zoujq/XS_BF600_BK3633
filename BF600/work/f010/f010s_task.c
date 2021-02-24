@@ -110,20 +110,21 @@ static int gattc_att_info_req_ind_handler(ke_msg_id_t const msgid,
     if(status == GAP_ERR_NO_ERROR)
     {
         // check if it's a client configuration char
-        if(att_idx == F010S_IDX_F014_VAL_NTF_CFG)
-        {
-            // CCC attribute length = 2
-            cfm->length = 2;
-        }
-		else if(att_idx == F010S_IDX_F015_VAL_IND_CFG)
+  //       if(att_idx == F010S_IDX_F014_VAL_NTF_CFG)
+  //       {
+  //           // CCC attribute length = 2
+  //           cfm->length = 2;
+  //       }
+		// else 
+        if(att_idx == F010S_IDX_F015_VAL_IND_CFG)
 		{
 			// CCC attribute length = 2
             cfm->length = 2;
 		}
-        else if(att_idx == F010S_IDX_F013_VAL_VAL)
-        {
-            cfm->length = F010_CHAR_DATA_LEN;
-        }
+        // else if(att_idx == F010S_IDX_F013_VAL_VAL)
+        // {
+        //     cfm->length = F010_CHAR_DATA_LEN;
+        // }
         // not expected request
         else
         {
@@ -157,32 +158,33 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
         // Extract value before check
         uint16_t ntf_cfg = co_read16p(&param->value[0]);
 
-        // Only update configuration if value for stop or notification enable
-        if ((att_idx == F010S_IDX_F014_VAL_NTF_CFG)
-                && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
-        {
-            // Conserve information in environment
-            if (ntf_cfg == PRF_CLI_START_NTF)
-            {
-                // Ntf cfg bit set to 1
-                f010s_env->ntf_cfg[conidx] = PRF_CLI_START_NTF ;
-            }
-            else
-            {
-                // Ntf cfg bit set to 0
-                f010s_env->ntf_cfg[conidx] = PRF_CLI_STOP_NTFIND;
-            }
+  //       // Only update configuration if value for stop or notification enable
+  //       if ((att_idx == F010S_IDX_F014_VAL_NTF_CFG)
+  //               && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
+  //       {
+  //           // Conserve information in environment
+  //           if (ntf_cfg == PRF_CLI_START_NTF)
+  //           {
+  //               // Ntf cfg bit set to 1
+  //               f010s_env->ntf_cfg[conidx] = PRF_CLI_START_NTF ;
+  //           }
+  //           else
+  //           {
+  //               // Ntf cfg bit set to 0
+  //               f010s_env->ntf_cfg[conidx] = PRF_CLI_STOP_NTFIND;
+  //           }
 
-            // Inform APP of configuration change
-            struct f010s_f014_val_ntf_cfg_ind * ind = KE_MSG_ALLOC(F010S_F014_VALUE_NTF_CFG_IND,
-                    prf_dst_task_get(&(f010s_env->prf_env), conidx), dest_id,
-                    f010s_f014_val_ntf_cfg_ind);
-            ind->conidx = conidx;
-            ind->ntf_cfg = f010s_env->ntf_cfg[conidx];
+  //           // Inform APP of configuration change
+  //           struct f010s_f014_val_ntf_cfg_ind * ind = KE_MSG_ALLOC(F010S_F014_VALUE_NTF_CFG_IND,
+  //                   prf_dst_task_get(&(f010s_env->prf_env), conidx), dest_id,
+  //                   f010s_f014_val_ntf_cfg_ind);
+  //           ind->conidx = conidx;
+  //           ind->ntf_cfg = f010s_env->ntf_cfg[conidx];
 						
-            ke_msg_send(ind);			
-        }		
-		else if ((att_idx == F010S_IDX_F015_VAL_IND_CFG)
+  //           ke_msg_send(ind);			
+  //       }		
+		// else 
+        if ((att_idx == F010S_IDX_F015_VAL_IND_CFG)
                 && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_IND)))
         {
             // Conserve information in environment
@@ -206,36 +208,36 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
 						
             ke_msg_send(ind);			
         }
-		else if (att_idx == F010S_IDX_F012_VAL_VAL)
-		{
-			// Allocate the alert value change indication
-			struct f010s_f0123_writer_ind *ind = KE_MSG_ALLOC(F010S_F012_WRITER_CMD_IND,
-			        prf_dst_task_get(&(f010s_env->prf_env), conidx),
-			        dest_id, f010s_f0123_writer_ind);
+		// else if (att_idx == F010S_IDX_F012_VAL_VAL)
+		// {
+		// 	// Allocate the alert value change indication
+		// 	struct f010s_f0123_writer_ind *ind = KE_MSG_ALLOC(F010S_F012_WRITER_CMD_IND,
+		// 	        prf_dst_task_get(&(f010s_env->prf_env), conidx),
+		// 	        dest_id, f010s_f0123_writer_ind);
 			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
+		// 	// Fill in the parameter structure	
+		// 	memcpy(ind->value,&param->value[0],param->length);
+		// 	ind->conidx = conidx;
+		// 	ind->length = param->length;
 			
-			// Send the message
-			ke_msg_send(ind);
-		}
-        else if (att_idx == F010S_IDX_F013_VAL_VAL)
-		{
-			// Allocate the alert value change indication
-			struct f010s_f0123_writer_ind *ind = KE_MSG_ALLOC(F010S_F013_WRITER_REQ_IND,
-			        prf_dst_task_get(&(f010s_env->prf_env), conidx),
-			        dest_id, f010s_f0123_writer_ind);
+		// 	// Send the message
+		// 	ke_msg_send(ind);
+		// }
+  //       else if (att_idx == F010S_IDX_F013_VAL_VAL)
+		// {
+		// 	// Allocate the alert value change indication
+		// 	struct f010s_f0123_writer_ind *ind = KE_MSG_ALLOC(F010S_F013_WRITER_REQ_IND,
+		// 	        prf_dst_task_get(&(f010s_env->prf_env), conidx),
+		// 	        dest_id, f010s_f0123_writer_ind);
 			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
+		// 	// Fill in the parameter structure	
+		// 	memcpy(ind->value,&param->value[0],param->length);
+		// 	ind->conidx = conidx;
+		// 	ind->length = param->length;
 			
-			// Send the message
-			ke_msg_send(ind);
-		}
+		// 	// Send the message
+		// 	ke_msg_send(ind);
+		// }
         else
         {
             status = PRF_APP_ERROR;
@@ -275,16 +277,16 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         {
             length = 10 * sizeof(uint8_t);
         }
-        else if (att_idx == F010S_IDX_F011_USER_DESC)
-        {
-            length = f010s_env->f011_desc_len;
-            uart_printf("read F011_USER_DESC\r\n");
-        }
-        // read notification information
-        else if (att_idx == F010S_IDX_F014_VAL_NTF_CFG)
-        {
-            length = sizeof(uint16_t);
-        }
+//        else if (att_idx == F010S_IDX_F011_USER_DESC)
+//        {
+//            length = f010s_env->f011_desc_len;
+//            uart_printf("read F011_USER_DESC\r\n");
+//        }
+        // // read notification information
+        // else if (att_idx == F010S_IDX_F014_VAL_NTF_CFG)
+        // {
+        //     length = sizeof(uint16_t);
+        // }
 		else if(att_idx == F010S_IDX_F015_VAL_IND_CFG)
 		{
 			length = sizeof(uint16_t);
@@ -312,17 +314,17 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
             f010s_env->f011_val[0]++;
             f010s_env->f011_val[9]++;
         }
-        else if (att_idx == F010S_IDX_F011_USER_DESC)
-        {
-            memcpy(cfm->value,f010s_env->f011_desc,length);
-            uart_printf("USER_DESC:%s\r\n",f010s_env->f011_desc);
-        }
-        // retrieve notification config
-        else if (att_idx == F010S_IDX_F014_VAL_NTF_CFG)
-        {
-            uint16_t ntf_cfg = f010s_env->ntf_cfg[conidx];
-            co_write16p(cfm->value, ntf_cfg);
-        }  
+//        else if (att_idx == F010S_IDX_F011_USER_DESC)
+//        {
+//            memcpy(cfm->value,f010s_env->f011_desc,length);
+//            uart_printf("USER_DESC:%s\r\n",f010s_env->f011_desc);
+//        }
+        // // retrieve notification config
+        // else if (att_idx == F010S_IDX_F014_VAL_NTF_CFG)
+        // {
+        //     uint16_t ntf_cfg = f010s_env->ntf_cfg[conidx];
+        //     co_write16p(cfm->value, ntf_cfg);
+        // }  
 		
 		else if(att_idx == F010S_IDX_F015_VAL_IND_CFG)
 		{

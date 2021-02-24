@@ -39,9 +39,6 @@ const struct attm_desc f020_att_db[F020S_IDX_NB] =
 	[F020S_IDX_F021_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
     //  Characteristic Value
     [F020S_IDX_F021_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F021,PERM(RD, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN *sizeof(uint8_t)},
-
-    [F020S_IDX_F021_USER_DESC] =   {ATT_DESC_CHAR_USER_DESCRIPTION,PERM(RD, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN *sizeof(uint8_t)},
-
     
 	// f022 value Characteristic Declaration
 	[F020S_IDX_F022_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
@@ -61,13 +58,18 @@ const struct attm_desc f020_att_db[F020S_IDX_NB] =
 	// f021 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F020S_IDX_F024_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
-    	// f021 Level Characteristic Declaration
-	[F020S_IDX_F025_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+    // f022 value Characteristic Declaration
+    [F020S_IDX_F025_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
     [F020S_IDX_F025_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F025, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 
+    	// f021 Level Characteristic Declaration
+	[F020S_IDX_F026_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+    // f021 Level Characteristic Value
+    [F020S_IDX_F026_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F026, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+
 	// f021 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F020S_IDX_F025_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+	[F020S_IDX_F026_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
 	
 };/// Macro used to retrieve permission value from access and rights on attribute.
@@ -115,7 +117,7 @@ static uint8_t f020s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
 		{
 			uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F020S_IDX_F025_VAL_VAL, perm, 0);
+            attm_att_set_permission(shdl + F020S_IDX_F026_VAL_VAL, perm, 0);
 		}
     }
 	
@@ -206,7 +208,7 @@ void f020s_notify_f024_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struc
 }
 
 
-void f020s_indicate_f025_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struct f020s_f0245_val_upd_req const *param)
+void f020s_indicate_f026_val(uint8_t conidx,struct f020s_env_tag* f020s_env, struct f020s_f0245_val_upd_req const *param)
 {
     // Allocate the GATT notification message
     struct gattc_send_evt_cmd *val = KE_MSG_ALLOC_DYN(GATTC_SEND_EVT_CMD,
@@ -215,7 +217,7 @@ void f020s_indicate_f025_val(uint8_t conidx,struct f020s_env_tag* f020s_env, str
 
     // Fill in the parameter structure
     val->operation = GATTC_INDICATE;
-    val->handle = f020s_get_att_handle(F020S_IDX_F025_VAL_VAL);
+    val->handle = f020s_get_att_handle(F020S_IDX_F026_VAL_VAL);
     // pack measured value in database
     val->length = param->length;
 	memcpy(&val->value[0],&param->value[0],param->length);
@@ -250,7 +252,7 @@ uint16_t f020s_get_att_handle( uint8_t att_idx)
     handle = f020s_env->start_hdl;
 
     // increment index according to expected index
-    if(att_idx <= F020S_IDX_F025_VAL_IND_CFG)
+    if(att_idx <= F020S_IDX_F026_VAL_IND_CFG)
     {
         handle += att_idx;
     }
@@ -272,7 +274,7 @@ uint8_t f020s_get_att_idx(uint16_t handle, uint8_t *att_idx)
     // Browse list of services
     // handle must be greater than current index 
     // check if it's a mandatory index
-    if(handle <= (hdl_cursor1 + F020S_IDX_F025_VAL_IND_CFG))
+    if(handle <= (hdl_cursor1 + F020S_IDX_F026_VAL_IND_CFG))
     {
         *att_idx = handle -hdl_cursor1;
         status = GAP_ERR_NO_ERROR;

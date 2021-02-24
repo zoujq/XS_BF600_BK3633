@@ -36,38 +36,38 @@ const struct attm_desc f040_att_db[F040S_IDX_NB] =
     // F040 Service Declaration
     [F040S_IDX_SVC]            =   {ATT_DECL_PRIMARY_SERVICE, PERM(RD, ENABLE), 0, 0},
 
-	[F040S_IDX_F041_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
-    //  Characteristic Value
-    [F040S_IDX_F041_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F041,PERM(RD, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN *sizeof(uint8_t)},
+	// [F040S_IDX_F041_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
+ //    //  Characteristic Value
+ //    [F040S_IDX_F041_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F041,PERM(RD, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN *sizeof(uint8_t)},
 
-    [F040S_IDX_F041_USER_DESC] =   {ATT_DESC_CHAR_USER_DESCRIPTION,PERM(RD, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN *sizeof(uint8_t)},
+ //    [F040S_IDX_F041_USER_DESC] =   {ATT_DESC_CHAR_USER_DESCRIPTION,PERM(RD, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN *sizeof(uint8_t)},
 
     
-	// f042 value Characteristic Declaration
-	[F040S_IDX_F042_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f041 Level Characteristic Value
-    [F040S_IDX_F042_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F042, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
+	// // f042 value Characteristic Declaration
+	// [F040S_IDX_F042_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+ //    // f041 Level Characteristic Value
+ //    [F040S_IDX_F042_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F042, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
 
-    	// f042 value Characteristic Declaration
-	[F040S_IDX_F043_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f041 Level Characteristic Value
-    [F040S_IDX_F043_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F043, PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
+ //    	// f042 value Characteristic Declaration
+	// [F040S_IDX_F043_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+ //    // f041 Level Characteristic Value
+ //    [F040S_IDX_F043_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F043, PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
 	
 	// f041 Level Characteristic Declaration
 	[F040S_IDX_F044_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f041 Level Characteristic Value
-    [F040S_IDX_F044_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F044, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F040S_IDX_F044_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F044, PERM(NTF, ENABLE)|PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f041 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F040S_IDX_F044_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
-    	// f041 Level Characteristic Declaration
-	[F040S_IDX_F045_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f041 Level Characteristic Value
-    [F040S_IDX_F045_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F045, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
+ //    	// f041 Level Characteristic Declaration
+	// [F040S_IDX_F045_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+ //    // f041 Level Characteristic Value
+ //    [F040S_IDX_F045_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F045, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
 
-	// f041 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F040S_IDX_F045_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+	// // f041 Level Characteristic - Client Characteristic Configuration Descriptor
+	// [F040S_IDX_F045_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
 	
 };/// Macro used to retrieve permission value from access and rights on attribute.
@@ -101,23 +101,23 @@ static uint8_t f040s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
             (sec_lvl & (PERM_MASK_SVC_DIS | PERM_MASK_SVC_AUTH | PERM_MASK_SVC_EKS)));
 
 	//Set optional permissions
-    if (status == GAP_ERR_NO_ERROR)
-    {
-        //Set optional permissions
-       // if((params->features & 0x01) == F040_F044_VAL_NTF_SUP)
-        {
-            // Battery Level characteristic value permissions
-            uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
+  //   if (status == GAP_ERR_NO_ERROR)
+  //   {
+  //       //Set optional permissions
+  //      // if((params->features & 0x01) == F040_F044_VAL_NTF_SUP)
+  //       {
+  //           // Battery Level characteristic value permissions
+  //           uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F040S_IDX_F044_VAL_VAL, perm, 0);
-        }
-		//if((params->features & 0x02) == F040_F043_LVL_NTF_SUP)
-		{
-			uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
+  //           attm_att_set_permission(shdl + F040S_IDX_F044_VAL_VAL, perm, 0);
+  //       }
+		// //if((params->features & 0x02) == F040_F043_LVL_NTF_SUP)
+		// {
+		// 	uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F040S_IDX_F045_VAL_VAL, perm, 0);
-		}
-    }
+  //           attm_att_set_permission(shdl + F040S_IDX_F045_VAL_VAL, perm, 0);
+		// }
+  //   }
 	
     //-------------------- Update profile task information  ---------------------
     if (status == ATT_ERR_NO_ERROR)
@@ -215,7 +215,7 @@ void f040s_indicate_f045_val(uint8_t conidx,struct f040s_env_tag* f040s_env, str
 
     // Fill in the parameter structure
     val->operation = GATTC_INDICATE;
-    val->handle = f040s_get_att_handle(F040S_IDX_F045_VAL_VAL);
+//    val->handle = f040s_get_att_handle(F040S_IDX_F045_VAL_VAL);
     // pack measured value in database
     val->length = param->length;
 	memcpy(&val->value[0],&param->value[0],param->length);
@@ -250,15 +250,15 @@ uint16_t f040s_get_att_handle( uint8_t att_idx)
     handle = f040s_env->start_hdl;
 
     // increment index according to expected index
-    if(att_idx <= F040S_IDX_F045_VAL_IND_CFG)
-    {
-        handle += att_idx;
-    }
-	else
-    {
-        handle = ATT_INVALID_HDL;
-    }
-    
+//    if(att_idx <= F040S_IDX_F045_VAL_IND_CFG)
+//    {
+//        handle += att_idx;
+//    }
+//		else
+//    {
+//        handle = ATT_INVALID_HDL;
+//    }
+//    
 
     return handle;
 }
@@ -272,12 +272,12 @@ uint8_t f040s_get_att_idx(uint16_t handle, uint8_t *att_idx)
     // Browse list of services
     // handle must be greater than current index 
     // check if it's a mandatory index
-    if(handle <= (hdl_cursor1 + F040S_IDX_F045_VAL_IND_CFG))
-    {
-        *att_idx = handle -hdl_cursor1;
-        status = GAP_ERR_NO_ERROR;
-        
-    }
+//    if(handle <= (hdl_cursor1 + F040S_IDX_F045_VAL_IND_CFG))
+//    {
+//        *att_idx = handle -hdl_cursor1;
+//        status = GAP_ERR_NO_ERROR;
+//        
+//    }
     
     return (status);
 }
