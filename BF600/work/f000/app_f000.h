@@ -95,10 +95,10 @@ void app_f000_add_f000s(void);
 void app_f004_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
 /**
  ****************************************************************************************
- * @brief Send a f005  value
+ * @brief Send a f002  value
  ****************************************************************************************
  */
-void app_f005_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf);
+void app_f002_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf);
 
 
 #endif // APP_F000_H_

@@ -41,12 +41,12 @@ const struct attm_desc f010_att_db[F010S_IDX_NB] =
     [F010S_IDX_F011_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F011,PERM(RD, ENABLE), PERM(RI, ENABLE), F010_CHAR_DATA_LEN *sizeof(uint8_t)},
 
        	// f011 Level Characteristic Declaration
-	[F010S_IDX_F015_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+	[F010S_IDX_F012_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f011 Level Characteristic Value
-    [F010S_IDX_F015_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F015, PERM(IND, ENABLE), PERM(RI, ENABLE), F010_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F010S_IDX_F012_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F012, PERM(IND, ENABLE)|PERM(RD, ENABLE), PERM(RI, ENABLE), F010_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f011 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F010S_IDX_F015_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+	[F010S_IDX_F012_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
 	
 };/// Macro used to retrieve permission value from access and rights on attribute.
@@ -168,7 +168,7 @@ void f010s_notify_f014_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struc
 }
 
 
-void f010s_indicate_f015_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struct f010s_f0145_val_upd_req const *param)
+void f010s_indicate_f012_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struct f010s_f0145_val_upd_req const *param)
 {
     // Allocate the GATT notification message
     struct gattc_send_evt_cmd *val = KE_MSG_ALLOC_DYN(GATTC_SEND_EVT_CMD,
@@ -177,7 +177,7 @@ void f010s_indicate_f015_val(uint8_t conidx,struct f010s_env_tag* f010s_env, str
 
     // Fill in the parameter structure
     val->operation = GATTC_INDICATE;
-    val->handle = f010s_get_att_handle(F010S_IDX_F015_VAL_VAL);
+    val->handle = f010s_get_att_handle(F010S_IDX_F012_VAL_VAL);
     // pack measured value in database
     val->length = param->length;
 	memcpy(&val->value[0],&param->value[0],param->length);
@@ -212,7 +212,7 @@ uint16_t f010s_get_att_handle( uint8_t att_idx)
     handle = f010s_env->start_hdl;
 
     // increment index according to expected index
-    if(att_idx <= F010S_IDX_F015_VAL_IND_CFG)
+    if(att_idx <= F010S_IDX_F012_VAL_IND_CFG)
     {
         handle += att_idx;
     }
@@ -234,7 +234,7 @@ uint8_t f010s_get_att_idx(uint16_t handle, uint8_t *att_idx)
     // Browse list of services
     // handle must be greater than current index 
     // check if it's a mandatory index
-    if(handle <= (hdl_cursor1 + F010S_IDX_F015_VAL_IND_CFG))
+    if(handle <= (hdl_cursor1 + F010S_IDX_F012_VAL_IND_CFG))
     {
         *att_idx = handle -hdl_cursor1;
         status = GAP_ERR_NO_ERROR;

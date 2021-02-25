@@ -42,9 +42,10 @@
 /******************************************************/
 
 #define uart_printf              uart2_printf
+#define UART_PRINTF              uart_printf
 
 /// Default Device Name
-#define APP_DFLT_DEVICE_NAME            ("BK3633_BLE789")
+#define APP_DFLT_DEVICE_NAME            ("BF600")
 #define APP_DFLT_DEVICE_NAME_LEN        (sizeof(APP_DFLT_DEVICE_NAME))
 
 #define APP_SCNRSP_DATA         "\x09\xFF\x00\x60\x42\x4B\x2D\x42\x4C\x45"

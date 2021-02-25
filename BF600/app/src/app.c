@@ -569,7 +569,10 @@ void appm_init()
     #if (BLE_APP_OADS)
     app_oads_init();        
     #endif
-
+    {
+        extern void init_work();
+        init_work();
+    }
     // Reset the stack
     appm_send_gapm_reset_cmd();
 }

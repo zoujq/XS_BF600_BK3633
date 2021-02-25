@@ -29,7 +29,9 @@
 #define F000S_IDX_MAX     0x01
 ///Maximal number of F000 that can be added in the DB
 
-#define  F000_CHAR_DATA_LEN  30
+#define  F000_CHAR_DATA_LEN  1
+#define  F000_F001_CHAR_DATA_LEN  4
+#define  F000_F002_CHAR_DATA_LEN  15
 
 /*
  * TYPE DEFINITIONS
@@ -54,7 +56,7 @@ enum f000s_msg_id
 	F000S_CREATE_DB_REQ   = TASK_FIRST_MSG(TASK_ID_F000S),
 	
     F000S_F001_VALUE_READ_IND,
-    F000S_F002_WRITER_CMD_IND,
+    F000S_F007_WRITER_CMD_IND,
 	F000S_F003_WRITER_REQ_IND,
 
     
@@ -65,12 +67,12 @@ enum f000s_msg_id
     /// Inform APP that FFF1 Level Notification Configuration has been changed - use to update bond data
     F000S_F004_VALUE_NTF_CFG_IND,
 
-	/// F005 Level Value Update Request
-    F000S_F005_VALUE_UPD_REQ,
+	/// F002 Level Value Update Request
+    F000S_F002_VALUE_UPD_REQ,
     /// Inform APP if FFF1 Level value has been notified or not
-    F000S_F005_VALUE_UPD_RSP,
+    F000S_F002_VALUE_UPD_RSP,
 
-	F000S_F005_VALUE_IND_CFG_IND,
+	F000S_F002_VALUE_IND_CFG_IND,
 	
 
 
@@ -83,8 +85,8 @@ enum f000s_features
     F000_F00X_VLUAE_NTF_NOT_SUP,
     /// F004 Value Characteristic support notifications
     F000_F004_VAL_NTF_SUP,
-    /// F005 Value Characteristic support indication
-    F000_F005_VAL_IND_SUP,
+    /// F002 Value Characteristic support indication
+    F000_F002_VAL_IND_SUP,
 };
 
 
@@ -147,8 +149,8 @@ struct f000s_f004_val_ntf_cfg_ind
 };
 
 
-///Parameters of the @ref F000S_F005_VALUE_IND_CFG_IND message
-struct f000s_f005_val_ind_cfg_ind
+///Parameters of the @ref F000S_F002_VALUE_IND_CFG_IND message
+struct f000s_f002_val_ind_cfg_ind
 {
     /// connection index
     uint8_t  conidx;
@@ -156,8 +158,8 @@ struct f000s_f005_val_ind_cfg_ind
     uint16_t  ind_cfg;
 };
 
-/// Parameters of the @ref F000S_F002_WRITER_CMD_IND message
-struct f000s_f0023_writer_ind
+/// Parameters of the @ref F000S_F007_WRITER_CMD_IND message
+struct f000s_f0073_writer_ind
 {
   /// Connection index
     uint8_t conidx;

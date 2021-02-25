@@ -29,8 +29,9 @@
 #define F010S_IDX_MAX     0x01
 ///Maximal number of F010 that can be added in the DB
 
-#define  F010_CHAR_DATA_LEN  30
-
+#define  F010_CHAR_DATA_LEN  1
+#define  F010_F011_DATA_LEN  4
+#define  F010_F012_DATA_LEN  14
 /*
  * TYPE DEFINITIONS
  ****************************************************************************************
@@ -54,7 +55,7 @@ enum f010s_msg_id
 	F010S_CREATE_DB_REQ   = TASK_FIRST_MSG(TASK_ID_F010S),
 	
     F010S_F011_VALUE_READ_IND,
-    F010S_F012_WRITER_CMD_IND,
+    F010S_F017_WRITER_CMD_IND,
 	F010S_F013_WRITER_REQ_IND,
 
     
@@ -65,12 +66,12 @@ enum f010s_msg_id
     /// Inform APP that FFF1 Level Notification Configuration has been changed - use to update bond data
     F010S_F014_VALUE_NTF_CFG_IND,
 
-	/// F015 Level Value Update Request
-    F010S_F015_VALUE_UPD_REQ,
+	/// F012 Level Value Update Request
+    F010S_F012_VALUE_UPD_REQ,
     /// Inform APP if FFF1 Level value has been notified or not
-    F010S_F015_VALUE_UPD_RSP,
+    F010S_F012_VALUE_UPD_RSP,
 
-	F010S_F015_VALUE_IND_CFG_IND,
+	F010S_F012_VALUE_IND_CFG_IND,
 	
 
 
@@ -83,8 +84,8 @@ enum f010s_features
     F010_F01X_VLUAE_NTF_NOT_SUP,
     /// F014 Value Characteristic support notifications
     F010_F014_VAL_NTF_SUP,
-    /// F015 Value Characteristic support indication
-    F010_F015_VAL_IND_SUP,
+    /// F012 Value Characteristic support indication
+    F010_F012_VAL_IND_SUP,
 };
 
 
@@ -147,8 +148,8 @@ struct f010s_f014_val_ntf_cfg_ind
 };
 
 
-///Parameters of the @ref F010S_F015_VALUE_IND_CFG_IND message
-struct f010s_f015_val_ind_cfg_ind
+///Parameters of the @ref F010S_F012_VALUE_IND_CFG_IND message
+struct f010s_f012_val_ind_cfg_ind
 {
     /// connection index
     uint8_t  conidx;
@@ -156,8 +157,8 @@ struct f010s_f015_val_ind_cfg_ind
     uint16_t  ind_cfg;
 };
 
-/// Parameters of the @ref F010S_F012_WRITER_CMD_IND message
-struct f010s_f0123_writer_ind
+/// Parameters of the @ref F010S_F017_WRITER_CMD_IND message
+struct f010s_f0173_writer_ind
 {
   /// Connection index
     uint8_t conidx;

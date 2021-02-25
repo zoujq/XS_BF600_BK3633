@@ -102,12 +102,13 @@ struct f020s_env_tag
     /// FFF0 Services Start Handle
     uint16_t start_hdl;
     /// value of the F02x
-    uint8_t f021_val[F020_CHAR_DATA_LEN];
-    uint8_t f022_val[F020_CHAR_DATA_LEN];
-    uint8_t f023_val[F020_CHAR_DATA_LEN];
-    uint8_t f024_val[F020_CHAR_DATA_LEN];
-    uint8_t f026_val[F020_CHAR_DATA_LEN];
-    uint8_t f021_desc[F020_CHAR_DATA_LEN];
+    uint8_t f021_val[F020_F021_DATA_LEN];
+    uint8_t f022_val[F020_F022_DATA_LEN];
+    uint8_t f023_val[F020_F023_DATA_LEN];
+    uint8_t f024_val[F020_F024_DATA_LEN];
+    uint8_t f025_val[F020_F025_DATA_LEN];
+    uint8_t f026_val[F020_F026_DATA_LEN];
+    uint8_t f021_desc[F020_F021_DATA_LEN];
     uint8_t f021_desc_len;
     /// BASS task state
     ke_state_t state[F020S_IDX_MAX];

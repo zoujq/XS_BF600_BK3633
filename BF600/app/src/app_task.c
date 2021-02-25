@@ -659,6 +659,8 @@ static int gapc_connection_req_ind_handler(ke_msg_id_t const msgid,
                                            ke_task_id_t const dest_id,
                                            ke_task_id_t const src_id)
 {
+    extern set_ble_state(uint8_t s);
+    set_ble_state(0);
     app_env.conidx = KE_IDX_GET(src_id);
     uart_printf("%s \r\n",__func__);
     
@@ -739,7 +741,8 @@ static int gapc_connection_req_ind_handler(ke_msg_id_t const msgid,
 	    ke_timer_set(APP_ANCS_REQ_IND,TASK_APP,30); 
         #endif
         
-		ke_timer_set(APP_PARAM_UPDATE_REQ_IND,TASK_APP,350);	
+		ke_timer_set(APP_PARAM_UPDATE_REQ_IND,TASK_APP,350);
+        ke_timer_set(APP_XS_USER, TASK_APP, 50);	
         
     }
     else
@@ -913,6 +916,8 @@ static int gapc_disconnect_ind_handler(ke_msg_id_t const msgid,
                                       ke_task_id_t const dest_id,
                                       ke_task_id_t const src_id)
 {
+    extern set_ble_state(uint8_t s);
+    set_ble_state(1);
     uart_printf("gapc_disconnect_ind_handler,reason=%x\n",param->reason);
     // Go to the ready state
     ke_state_set(TASK_APP, APPM_READY);
@@ -1311,7 +1316,18 @@ static int gapc_le_phy_ind_handler(ke_msg_id_t const msgid,
     return (KE_MSG_CONSUMED);
 }
 
+static int app_xs_user(ke_msg_id_t const msgid,
+                       void const *param,
+                       ke_task_id_t const dest_id,
+                       ke_task_id_t const src_id)
+{
+    extern void xs_user_task();
+    ke_timer_set(APP_XS_USER, TASK_APP, 10);
+    xs_user_task();
 
+
+    return KE_MSG_CONSUMED;
+}
 
 /*
  * GLOBAL VARIABLES DEFINITION
@@ -1349,6 +1365,7 @@ KE_MSG_HANDLER_TAB(appm)
     {APP_PERIOD_TIMER,			(ke_msg_func_t)app_period_timer_handler},
     {APP_GATTC_EXC_MTU_CMD,		(ke_msg_func_t)app_mtu_exchange_req_handler},
     {GAPC_LE_PHY_IND,           (ke_msg_func_t)gapc_le_phy_ind_handler},
+    {APP_XS_USER,                   (ke_msg_func_t)app_xs_user},
 };
 
 /* Defines the place holder for the states of all the task instances. */

@@ -48,8 +48,8 @@ struct app_f030_env_tag
     /// Connection handle
     uint8_t conidx;
     /// Current Battery Level
-    uint8_t f032_lvl;
-	uint8_t f034_lvl;
+    uint8_t f031_lvl;
+	uint8_t f033_lvl;
 };
 /*
  * GLOBAL VARIABLES DECLARATIONS
@@ -92,13 +92,13 @@ void app_f030_add_f030s(void);
  * @brief Enable the f030 Service
  ****************************************************************************************
  */
-void app_f031_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
+void app_f032_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
 /**
  ****************************************************************************************
- * @brief Send a f033  value
+ * @brief Send a f034  value
  ****************************************************************************************
  */
-void app_f033_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf);
+void app_f034_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
 
 
 #endif // APP_F030_H_

@@ -47,18 +47,17 @@
 enum
 {		
 	ATT_USER_SERVER_F040 						= ATT_UUID_16(0x1805),	// service 
-    ATT_USER_SERVER_CHAR_F044					= ATT_UUID_16(0x2a2b), // ntf
-	
+    ATT_USER_SERVER_CHAR_F041					= ATT_UUID_16(0x2a2b), // ind		
 };
 
 /// F040S Service Attributes Indexes
 enum
 {
 	F040S_IDX_SVC,
-    
-	F040S_IDX_F044_VAL_CHAR,
-	F040S_IDX_F044_VAL_VAL,
-	F040S_IDX_F044_VAL_NTF_CFG,
+
+	F040S_IDX_F041_VAL_CHAR,
+	F040S_IDX_F041_VAL_VAL,
+	F040S_IDX_F041_VAL_NTF_CFG,
 
 	F040S_IDX_NB,
 };
@@ -82,13 +81,13 @@ struct f040s_env_tag
     /// FFF0 Services Start Handle
     uint16_t start_hdl;
     /// value of the F04x
-    uint8_t f041_val[F040_CHAR_DATA_LEN];
+    uint8_t f047_val[F040_CHAR_DATA_LEN];
     uint8_t f042_val[F040_CHAR_DATA_LEN];
     uint8_t f043_val[F040_CHAR_DATA_LEN];
     uint8_t f044_val[F040_CHAR_DATA_LEN];
-    uint8_t f045_val[F040_CHAR_DATA_LEN];
-    uint8_t f041_desc[F040_CHAR_DATA_LEN];
-    uint8_t f041_desc_len;
+    uint8_t f041_val[F040_F041_DATA_LEN];
+    uint8_t f047_desc[F040_CHAR_DATA_LEN];
+    uint8_t f047_desc_len;
     /// BASS task state
     ke_state_t state[F040S_IDX_MAX];
     /// Notification configuration of peer devices.
@@ -117,7 +116,7 @@ uint8_t  f040s_get_att_idx(uint16_t handle, uint8_t *att_idx);
 
 void f040s_notify_f044_val(uint8_t conidx,struct f040s_env_tag* f040s_env, struct f040s_f0445_val_upd_req const *param);
 
-void f040s_indicate_f045_val(uint8_t conidx,struct f040s_env_tag* f040s_env, struct f040s_f0445_val_upd_req const *param);
+void f040s_indicate_f041_val(uint8_t conidx,struct f040s_env_tag* f040s_env, struct f040s_f0445_val_upd_req const *param);
 void f040s_task_init(struct ke_task_desc *task_desc);
 
 #endif /* #if (BLE_F040_SERVERs) */

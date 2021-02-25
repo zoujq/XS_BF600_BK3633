@@ -26,21 +26,21 @@ Project File Date:  02/24/2021
 Build target 'Target1'
 After Build - User command #1: fromelf --bin --output .\output\app\bk3633_app.bin .\obj\bk3633_app.axf
 After Build - User command #2: .\output\translate.bat
-E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V05_1A09\BK3633_DesignKit_V05_1A09\SDK\projects\BF600>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x1F00 -l 0x25b00 -v 0x0001a -rom_v 0x0009 -e 00000000 00000000 00000000 00000000 
+E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V05_1A09\BK3633_DesignKit_V05_1A09\SDK\projects\BF600>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x1F00 -l 0x25b00 -v 0x0001b -rom_v 0x0009 -e 00000000 00000000 00000000 00000000 
 cmd_bin_oad.stack_file_addr :0x1f00
-binary version hex:0x1a; dec:26
+binary version hex:0x1b; dec:27
 Arm Image Binary will be converted to OAD format binary file.....
 cmd_bin_oad.stack_file_addr=1f00
 boot_bin_len=147c
 add stack bin start
         Encrypt Seccessfully!
-        File Size: 0x32c26
-oad_stack_app_bin_len=30c00
-oad_app_bin_len=ac40
-12 7e 68 0f 1a 00 10 2b 42 42 42 42 ff ff 09 00 /**< @CREATE_FILE_SUCCESS */
+        File Size: 0x33b8e
+oad_stack_app_bin_len=31b00
+oad_app_bin_len=bb40
+0a 30 01 d0 1b 00 d0 2e 42 42 42 42 ff ff 09 00 /**< @CREATE_FILE_SUCCESS */
 /**< @Download flash file:.\output\app\bk3633_app_merge_crc.bin
-/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0x2ac638de
-/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0x0f687e12
+/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0xf5a9e0bc
+/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0xd001300a
 /**< @author <gang.cheng@bekencorp.com> */
 /**< @version v0.3 */
 ".\obj\bk3633_app.axf" - 0 Error(s), 0 Warning(s).

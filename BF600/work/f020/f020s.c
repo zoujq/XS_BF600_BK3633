@@ -38,22 +38,22 @@ const struct attm_desc f020_att_db[F020S_IDX_NB] =
 
 	[F020S_IDX_F021_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
     //  Characteristic Value
-    [F020S_IDX_F021_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F021,PERM(RD, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN *sizeof(uint8_t)},
+    [F020S_IDX_F021_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F021,PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN *sizeof(uint8_t)},
     
 	// f022 value Characteristic Declaration
 	[F020S_IDX_F022_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
-    [F020S_IDX_F022_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F022, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F020S_IDX_F022_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F022, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 
     	// f022 value Characteristic Declaration
 	[F020S_IDX_F023_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
-    [F020S_IDX_F023_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F023, PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F020S_IDX_F023_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F023, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 	
 	// f021 Level Characteristic Declaration
 	[F020S_IDX_F024_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
-    [F020S_IDX_F024_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F024, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F020S_IDX_F024_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F024, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE)|PERM(NTF, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f021 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F020S_IDX_F024_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
@@ -61,12 +61,12 @@ const struct attm_desc f020_att_db[F020S_IDX_NB] =
     // f022 value Characteristic Declaration
     [F020S_IDX_F025_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
-    [F020S_IDX_F025_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F025, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F020S_IDX_F025_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F025, PERM(RD, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 
     	// f021 Level Characteristic Declaration
 	[F020S_IDX_F026_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f021 Level Characteristic Value
-    [F020S_IDX_F026_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F026, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F020S_IDX_F026_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F026, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE)|PERM(IND, ENABLE), PERM(RI, ENABLE), F020_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f021 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F020S_IDX_F026_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
@@ -103,23 +103,23 @@ static uint8_t f020s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
             (sec_lvl & (PERM_MASK_SVC_DIS | PERM_MASK_SVC_AUTH | PERM_MASK_SVC_EKS)));
 
 	//Set optional permissions
-    if (status == GAP_ERR_NO_ERROR)
-    {
-        //Set optional permissions
-       // if((params->features & 0x01) == F020_F024_VAL_NTF_SUP)
-        {
-            // Battery Level characteristic value permissions
-            uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
+  //   if (status == GAP_ERR_NO_ERROR)
+  //   {
+  //       //Set optional permissions
+  //      // if((params->features & 0x01) == F020_F024_VAL_NTF_SUP)
+  //       {
+  //           // Battery Level characteristic value permissions
+  //           uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F020S_IDX_F024_VAL_VAL, perm, 0);
-        }
-		//if((params->features & 0x02) == F020_F023_LVL_NTF_SUP)
-		{
-			uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
+  //           attm_att_set_permission(shdl + F020S_IDX_F024_VAL_VAL, perm, 0);
+  //       }
+		// //if((params->features & 0x02) == F020_F023_LVL_NTF_SUP)
+		// {
+		// 	uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F020S_IDX_F026_VAL_VAL, perm, 0);
-		}
-    }
+  //           attm_att_set_permission(shdl + F020S_IDX_F026_VAL_VAL, perm, 0);
+		// }
+  //   }
 	
     //-------------------- Update profile task information  ---------------------
     if (status == ATT_ERR_NO_ERROR)

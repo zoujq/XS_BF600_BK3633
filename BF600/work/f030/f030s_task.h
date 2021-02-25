@@ -29,7 +29,12 @@
 #define F030S_IDX_MAX     0x01
 ///Maximal number of F030 that can be added in the DB
 
-#define  F030_CHAR_DATA_LEN  628
+#define  F030_CHAR_DATA_LEN  30 
+#define  F030_F032_DATA_LEN  8 
+#define  F030_F031_DATA_LEN  12 
+#define  F030_F034_DATA_LEN  1 
+#define  F030_F033_DATA_LEN  1 
+#define  F030_F035_DATA_LEN  4 
 
 /*
  * TYPE DEFINITIONS
@@ -53,24 +58,24 @@ enum f030s_msg_id
     /// Start the FFF0 Server - at connection used to restore bond data
 	F030S_CREATE_DB_REQ   = TASK_FIRST_MSG(TASK_ID_F030S),
 	
-    F030S_F032_VALUE_READ_IND,
+    F030S_F031_VALUE_READ_IND,
     F030S_F035_WRITER_CMD_IND,
-	F030S_F034_WRITER_REQ_IND,
+	F030S_F033_WRITER_REQ_IND,
 
     
     /// FFF1 char Value Update Request
-    F030S_F031_VALUE_UPD_REQ,
-    /// Inform APP the F031 value has been send to stack
-    F030S_F031_VALUE_UPD_RSP,
+    F030S_F032_VALUE_UPD_REQ,
+    /// Inform APP the F032 value has been send to stack
+    F030S_F032_VALUE_UPD_RSP,
     /// Inform APP that FFF1 Level Notification Configuration has been changed - use to update bond data
-    F030S_F031_VALUE_NTF_CFG_IND,
+    F030S_F032_VALUE_NTF_CFG_IND,
 
-	/// F033 Level Value Update Request
-    F030S_F033_VALUE_UPD_REQ,
+	/// F034 Level Value Update Request
+    F030S_F034_VALUE_UPD_REQ,
     /// Inform APP if FFF1 Level value has been notified or not
-    F030S_F033_VALUE_UPD_RSP,
+    F030S_F034_VALUE_UPD_RSP,
 
-	F030S_F033_VALUE_IND_CFG_IND,
+	F030S_F034_VALUE_IND_CFG_IND,
 	
 
 
@@ -81,10 +86,10 @@ enum f030s_features
 {
     /// F03X  Characteristic doesn't support notifications
     F030_F03X_VLUAE_NTF_NOT_SUP,
-    /// F031 Value Characteristic support notifications
-    F030_F031_VAL_NTF_SUP,
-    /// F033 Value Characteristic support indication
-    F030_F033_VAL_IND_SUP,
+    /// F032 Value Characteristic support notifications
+    F030_F032_VAL_NTF_SUP,
+    /// F034 Value Characteristic support indication
+    F030_F034_VAL_IND_SUP,
 };
 
 
@@ -101,8 +106,8 @@ struct f030s_db_cfg
     /// Features of each F030 instance
     uint8_t features;
     
-    uint16_t f032_desc_len;
-    uint8_t f032_desc[F030_CHAR_DATA_LEN];
+    uint16_t f031_desc_len;
+    uint8_t f031_desc[F030_CHAR_DATA_LEN];
 };
 
 /// Parameters of the @ref F030S_CREATE_DB_REQ message
@@ -117,7 +122,7 @@ struct f030s_enable_req
 
 
 ///Parameters of the @ref F030S_F03x_VALUE_UPD_REQ message
-struct f030s_f0315_val_upd_req
+struct f030s_f0325_val_upd_req
 {
     ///  instance
     uint8_t conidx;
@@ -128,8 +133,8 @@ struct f030s_f0315_val_upd_req
 };
 
 
-///Parameters of the @ref F030S_F031_VALUE_UPD_RSP message
-struct f030s_f0315_val_upd_rsp
+///Parameters of the @ref F030S_F032_VALUE_UPD_RSP message
+struct f030s_f0325_val_upd_rsp
 {
     /// connection index
     uint8_t  conidx;
@@ -137,8 +142,8 @@ struct f030s_f0315_val_upd_rsp
     uint8_t status;
 };
 
-///Parameters of the @ref F030S_F031_VALUE_NTF_CFG_IND message
-struct f030s_f031_val_ntf_cfg_ind
+///Parameters of the @ref F030S_F032_VALUE_NTF_CFG_IND message
+struct f030s_f032_val_ntf_cfg_ind
 {
     /// connection index
     uint8_t  conidx;
@@ -147,8 +152,8 @@ struct f030s_f031_val_ntf_cfg_ind
 };
 
 
-///Parameters of the @ref F030S_F033_VALUE_IND_CFG_IND message
-struct f030s_f033_val_ind_cfg_ind
+///Parameters of the @ref F030S_F034_VALUE_IND_CFG_IND message
+struct f030s_f034_val_ind_cfg_ind
 {
     /// connection index
     uint8_t  conidx;

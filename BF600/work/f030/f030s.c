@@ -35,35 +35,35 @@ const struct attm_desc f030_att_db[F030S_IDX_NB] =
     // F030 Service Declaration
     [F030S_IDX_SVC]            =   {ATT_DECL_PRIMARY_SERVICE, PERM(RD, ENABLE), 0, 0},
 
-	[F030S_IDX_F032_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
+	[F030S_IDX_F031_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0}, 
     //  Characteristic Value
-    [F030S_IDX_F032_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F032,PERM(RD, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN *sizeof(uint8_t)},
+    [F030S_IDX_F031_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F031,PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE) , PERM(RI, ENABLE), F030_CHAR_DATA_LEN *sizeof(uint8_t)},
   
 	// f035 value Characteristic Declaration
 	[F030S_IDX_F035_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f032 Level Characteristic Value
-    [F030S_IDX_F035_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F035, PERM(WRITE_COMMAND, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
+    // f031 Level Characteristic Value
+    [F030S_IDX_F035_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F035, PERM(RD, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
 
     	// f035 value Characteristic Declaration
-	[F030S_IDX_F034_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f032 Level Characteristic Value
-    [F030S_IDX_F034_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F034, PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
-	
-	// f032 Level Characteristic Declaration
-	[F030S_IDX_F031_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f032 Level Characteristic Value
-    [F030S_IDX_F031_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F031, PERM(NTF, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
-
-	// f032 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F030S_IDX_F031_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
-    
-    	// f032 Level Characteristic Declaration
 	[F030S_IDX_F033_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
-    // f032 Level Characteristic Value
-    [F030S_IDX_F033_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F033, PERM(IND, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
+    // f031 Level Characteristic Value
+    [F030S_IDX_F033_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F033,PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
+	
+	// f031 Level Characteristic Declaration
+	[F030S_IDX_F032_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+    // f031 Level Characteristic Value
+    [F030S_IDX_F032_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F032, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE)|PERM(NTF, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
 
-	// f032 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F030S_IDX_F033_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+	// f031 Level Characteristic - Client Characteristic Configuration Descriptor
+	[F030S_IDX_F032_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+    
+    	// f031 Level Characteristic Declaration
+	[F030S_IDX_F034_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
+    // f031 Level Characteristic Value
+    [F030S_IDX_F034_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F034, PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE)|PERM(NTF, ENABLE), PERM(RI, ENABLE), F030_CHAR_DATA_LEN * sizeof(uint8_t)},
+
+	// f031 Level Characteristic - Client Characteristic Configuration Descriptor
+	[F030S_IDX_F034_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
 	
 };/// Macro used to retrieve permission value from access and rights on attribute.
@@ -86,8 +86,8 @@ static uint8_t f030s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
     // Save database configuration
     f030s_env->features |= (params->features) ;
     
-    f030s_env->f032_desc_len = params->f032_desc_len;
-    memcpy(f030s_env->f032_desc,params->f032_desc,params->f032_desc_len);
+    f030s_env->f031_desc_len = params->f031_desc_len;
+    memcpy(f030s_env->f031_desc,params->f031_desc,params->f031_desc_len);
     shdl = *start_hdl;
 
     //Create F030 in the DB
@@ -96,24 +96,24 @@ static uint8_t f030s_init (struct prf_task_env* env, uint16_t* start_hdl, uint16
             F030S_IDX_NB, NULL, env->task, &f030_att_db[0],
             (sec_lvl & (PERM_MASK_SVC_DIS | PERM_MASK_SVC_AUTH | PERM_MASK_SVC_EKS)));
 
-	//Set optional permissions
-    if (status == GAP_ERR_NO_ERROR)
-    {
-        //Set optional permissions
-       // if((params->features & 0x01) == F030_F031_VAL_NTF_SUP)
-        {
-            // Battery Level characteristic value permissions
-            uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
+	// //Set optional permissions
+ //    if (status == GAP_ERR_NO_ERROR)
+ //    {
+ //        //Set optional permissions
+ //       // if((params->features & 0x01) == F030_F032_VAL_NTF_SUP)
+ //        {
+ //            // Battery Level characteristic value permissions
+ //            uint16_t perm = PERM(NTF, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F030S_IDX_F031_VAL_VAL, perm, 0);
-        }
-		//if((params->features & 0x02) == F030_F034_LVL_NTF_SUP)
-		{
-			uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
+ //            attm_att_set_permission(shdl + F030S_IDX_F032_VAL_VAL, perm, 0);
+ //        }
+	// 	//if((params->features & 0x02) == F030_F033_LVL_NTF_SUP)
+	// 	{
+	// 		uint16_t perm = PERM(IND, ENABLE);//PERM(RD, ENABLE) | 
 
-            attm_att_set_permission(shdl + F030S_IDX_F033_VAL_VAL, perm, 0);
-		}
-    }
+ //            attm_att_set_permission(shdl + F030S_IDX_F034_VAL_VAL, perm, 0);
+	// 	}
+ //    }
 	
     //-------------------- Update profile task information  ---------------------
     if (status == ATT_ERR_NO_ERROR)
@@ -183,7 +183,7 @@ static void f030s_cleanup(struct prf_task_env* env, uint8_t conidx, uint8_t reas
     f030s_env->ntf_cfg[conidx] = 0;
 }
 
-void f030s_notify_f031_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0315_val_upd_req const *param)
+void f030s_notify_f032_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0325_val_upd_req const *param)
 {
     // Allocate the GATT notification message
     struct gattc_send_evt_cmd *val = KE_MSG_ALLOC_DYN(GATTC_SEND_EVT_CMD,
@@ -192,7 +192,7 @@ void f030s_notify_f031_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struc
 
     // Fill in the parameter structure
     val->operation = GATTC_NOTIFY;
-    val->handle = f030s_get_att_handle(F030S_IDX_F031_VAL_VAL);
+    val->handle = f030s_get_att_handle(F030S_IDX_F032_VAL_VAL);
 
     // pack measured value in database
     val->length = param->length;
@@ -202,7 +202,7 @@ void f030s_notify_f031_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struc
 }
 
 
-void f030s_indicate_f033_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0315_val_upd_req const *param)
+void f030s_notify_f034_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0325_val_upd_req const *param)
 {
     // Allocate the GATT notification message
     struct gattc_send_evt_cmd *val = KE_MSG_ALLOC_DYN(GATTC_SEND_EVT_CMD,
@@ -210,8 +210,8 @@ void f030s_indicate_f033_val(uint8_t conidx,struct f030s_env_tag* f030s_env, str
             gattc_send_evt_cmd, sizeof(uint8_t)* (param->length));
 
     // Fill in the parameter structure
-    val->operation = GATTC_INDICATE;
-    val->handle = f030s_get_att_handle(F030S_IDX_F033_VAL_VAL);
+    val->operation = GATTC_NOTIFY;
+    val->handle = f030s_get_att_handle(F030S_IDX_F034_VAL_VAL);
     // pack measured value in database
     val->length = param->length;
 	memcpy(&val->value[0],&param->value[0],param->length);
@@ -246,7 +246,7 @@ uint16_t f030s_get_att_handle( uint8_t att_idx)
     handle = f030s_env->start_hdl;
 
     // increment index according to expected index
-    if(att_idx <= F030S_IDX_F033_VAL_IND_CFG)
+    if(att_idx <= F030S_IDX_F034_VAL_NTF_CFG)
     {
         handle += att_idx;
     }
@@ -268,7 +268,7 @@ uint8_t f030s_get_att_idx(uint16_t handle, uint8_t *att_idx)
     // Browse list of services
     // handle must be greater than current index 
     // check if it's a mandatory index
-    if(handle <= (hdl_cursor1 + F030S_IDX_F033_VAL_IND_CFG))
+    if(handle <= (hdl_cursor1 + F030S_IDX_F034_VAL_NTF_CFG))
     {
         *att_idx = handle -hdl_cursor1;
         status = GAP_ERR_NO_ERROR;

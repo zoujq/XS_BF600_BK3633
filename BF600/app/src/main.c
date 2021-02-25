@@ -290,8 +290,8 @@ int main(void)
             sys_mode_init(DUT_FCC_MODE);
     }
     
-    uart_init(115200);
-    uart2_init(1000000);
+    uart_init(9600);
+    uart2_init(115200);
 
     gpio_init(); 
 

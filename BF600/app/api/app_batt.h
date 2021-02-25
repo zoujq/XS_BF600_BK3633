@@ -31,6 +31,7 @@
  */
 
 #include "rwip_config.h"     // SW configuration
+#include "rwapp_config.h"
 
 #if (BLE_APP_BATT)
 

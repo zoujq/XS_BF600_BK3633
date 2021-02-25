@@ -90,9 +90,9 @@ void app_f030_add_f030s(void)
     // Set parameters
     db_cfg = (struct f030s_db_cfg* ) req->param;
    
-    db_cfg->f032_desc_len = strlen("f032_only_read");
+    db_cfg->f031_desc_len = strlen("f031_only_read");
    
-    memcpy(db_cfg->f032_desc,"f032_only_read",strlen("f032_only_read"));
+    memcpy(db_cfg->f031_desc,"f031_only_read",strlen("f031_only_read"));
 	 
     // Sending of notifications is supported
     // Send the message
@@ -100,13 +100,13 @@ void app_f030_add_f030s(void)
 }
 
 
-void app_f031_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
+void app_f032_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
     // Allocate the message
-    struct f030s_f0315_val_upd_req * req = KE_MSG_ALLOC(F030S_F031_VALUE_UPD_REQ,
+    struct f030s_f0325_val_upd_req * req = KE_MSG_ALLOC(F030S_F032_VALUE_UPD_REQ,
                                                         prf_get_task_from_id(TASK_ID_F030S),
                                                         KE_BUILD_ID(TASK_APP, conidx),
-                                                        f030s_f0315_val_upd_req);
+                                                        f030s_f0325_val_upd_req);
     // Fill in the parameter structure	
     req->length = len;
 	memcpy(req->value, buf, len);
@@ -115,13 +115,13 @@ void app_f031_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
     ke_msg_send(req);
 }
 
-void app_f033_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf)
+void app_f034_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf)
 {
     // Allocate the message
-    struct f030s_f0315_val_upd_req * req = KE_MSG_ALLOC(F030S_F033_VALUE_UPD_REQ,
+    struct f030s_f0325_val_upd_req * req = KE_MSG_ALLOC(F030S_F034_VALUE_UPD_REQ,
                                                         prf_get_task_from_id(TASK_ID_F030S),
                                                         KE_BUILD_ID(TASK_APP, conidx),
-                                                        f030s_f0315_val_upd_req);
+                                                        f030s_f0325_val_upd_req);
     // Fill in the parameter structure	
     req->length = len;
 	memcpy(req->value, buf, len);
@@ -132,41 +132,41 @@ void app_f033_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf)
 
 
 
-static int f030s_f031_val_ntf_cfg_ind_handler(ke_msg_id_t const msgid,
-                                               struct f030s_f031_val_ntf_cfg_ind const *param,
+static int f030s_f032_val_ntf_cfg_ind_handler(ke_msg_id_t const msgid,
+                                               struct f030s_f032_val_ntf_cfg_ind const *param,
                                                ke_task_id_t const dest_id,
                                                ke_task_id_t const src_id)
 {
-	uart_printf("f031->param->ntf_cfg = %x\r\n",param->ntf_cfg);
+	uart_printf("f032->param->ntf_cfg = %x\r\n",param->ntf_cfg);
 	if(param->ntf_cfg == PRF_CLI_STOP_NTFIND)
 	{
-		//ke_timer_clear(F030S_F032_LEVEL_PERIOD_NTF,dest_id);
+		//ke_timer_clear(F030S_F031_LEVEL_PERIOD_NTF,dest_id);
 	}else
 	{
-		//ke_timer_set(F030S_F032_LEVEL_PERIOD_NTF,dest_id , 100);
+		//ke_timer_set(F030S_F031_LEVEL_PERIOD_NTF,dest_id , 100);
 	}
     
     return (KE_MSG_CONSUMED);
 }
 
-static int f030s_f033_val_ind_cfg_ind_handler(ke_msg_id_t const msgid,
-                                               struct f030s_f033_val_ind_cfg_ind const *param,
+static int f030s_f034_val_ind_cfg_ind_handler(ke_msg_id_t const msgid,
+                                               struct f030s_f034_val_ind_cfg_ind const *param,
                                                ke_task_id_t const dest_id,
                                                ke_task_id_t const src_id)
 {
-	uart_printf("f033->param->ind_cfg = %x\r\n",param->ind_cfg);
+	uart_printf("f034->param->ind_cfg = %x\r\n",param->ind_cfg);
 	if(param->ind_cfg == PRF_CLI_STOP_NTFIND)
 	{
-		//ke_timer_clear(F030S_F034_LEVEL_PERIOD_NTF,dest_id);
+		//ke_timer_clear(F030S_F033_LEVEL_PERIOD_NTF,dest_id);
 	}else
 	{
-		//ke_timer_set(F030S_F034_LEVEL_PERIOD_NTF,dest_id , 100);
+		//ke_timer_set(F030S_F033_LEVEL_PERIOD_NTF,dest_id , 100);
 	}
     
     return (KE_MSG_CONSUMED);
 }
-static int f031_val_upd_rsp_handler(ke_msg_id_t const msgid,
-                                      struct f030s_f0315_val_upd_rsp const *param,
+static int f032_val_upd_rsp_handler(ke_msg_id_t const msgid,
+                                      struct f030s_f0325_val_upd_rsp const *param,
                                       ke_task_id_t const dest_id,
                                       ke_task_id_t const src_id)
 {
@@ -180,8 +180,8 @@ static int f031_val_upd_rsp_handler(ke_msg_id_t const msgid,
     return (KE_MSG_CONSUMED);
 }
 
-static int f033_val_upd_rsp_handler(ke_msg_id_t const msgid,
-                                      struct f030s_f0315_val_upd_rsp const *param,
+static int f034_val_upd_rsp_handler(ke_msg_id_t const msgid,
+                                      struct f030s_f0325_val_upd_rsp const *param,
                                       ke_task_id_t const dest_id,
                                       ke_task_id_t const src_id)
 {
@@ -242,11 +242,11 @@ static int f035_writer_cmd_handler(ke_msg_id_t const msgid,
     
     if(param->value[0] == 0x55)
     {
-        app_f031_send_ntf(param->conidx,20,buf);
+        app_f032_send_ntf(param->conidx,20,buf);
     }
     if(param->value[0] == 0x66)
     {
-        app_f033_send_ind(param->conidx,20,buf);
+        app_f034_send_ntf(param->conidx,20,buf);
     }
 #if 0    
     if(param->value[0] == 0xAA)
@@ -263,13 +263,13 @@ static int f035_writer_cmd_handler(ke_msg_id_t const msgid,
     return (KE_MSG_CONSUMED);
 }
 
-static int f034_writer_req_handler(ke_msg_id_t const msgid,
+static int f033_writer_req_handler(ke_msg_id_t const msgid,
                                      struct f030s_f0353_writer_ind *param,
                                      ke_task_id_t const dest_id,
                                      ke_task_id_t const src_id)
 {
     // Drop the message
-	uart_printf("F034 conidx:%d,length:%d,param->value = 0x ",param->conidx,param->length);
+	uart_printf("F033 conidx:%d,length:%d,param->value = 0x ",param->conidx,param->length);
 	
 	for(uint16_t i = 0;i < param->length;i++)
 	{
@@ -292,12 +292,12 @@ const struct ke_msg_handler app_f030_msg_handler_list[] =
 {
     // Note: first message is latest message checked by kernel so default is put on top.
     {KE_MSG_DEFAULT_HANDLER,        (ke_msg_func_t)app_f030_msg_dflt_handler},
-    {F030S_F031_VALUE_NTF_CFG_IND,  (ke_msg_func_t)f030s_f031_val_ntf_cfg_ind_handler},
-    {F030S_F033_VALUE_IND_CFG_IND,  (ke_msg_func_t)f030s_f033_val_ind_cfg_ind_handler},
-    {F030S_F031_VALUE_UPD_RSP,      (ke_msg_func_t)f031_val_upd_rsp_handler},
-    {F030S_F033_VALUE_UPD_RSP,      (ke_msg_func_t)f033_val_upd_rsp_handler},
+    {F030S_F032_VALUE_NTF_CFG_IND,  (ke_msg_func_t)f030s_f032_val_ntf_cfg_ind_handler},
+    {F030S_F034_VALUE_IND_CFG_IND,  (ke_msg_func_t)f030s_f034_val_ind_cfg_ind_handler},
+    {F030S_F032_VALUE_UPD_RSP,      (ke_msg_func_t)f032_val_upd_rsp_handler},
+    {F030S_F034_VALUE_UPD_RSP,      (ke_msg_func_t)f034_val_upd_rsp_handler},
     {F030S_F035_WRITER_CMD_IND,		(ke_msg_func_t)f035_writer_cmd_handler},
-    {F030S_F034_WRITER_REQ_IND,		(ke_msg_func_t)f034_writer_req_handler},
+    {F030S_F033_WRITER_REQ_IND,		(ke_msg_func_t)f033_writer_req_handler},
     
 };
 

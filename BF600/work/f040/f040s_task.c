@@ -62,7 +62,7 @@ static int f040s_f044_val_upd_req_handler(ke_msg_id_t const msgid,
     return (msg_status);
   }
 
-static int f040s_f045_val_upd_req_handler(ke_msg_id_t const msgid,
+static int f040s_f041_val_upd_req_handler(ke_msg_id_t const msgid,
                                             struct f040s_f0445_val_upd_req const *param,
                                             ke_task_id_t const dest_id,
                                             ke_task_id_t const src_id)
@@ -80,7 +80,7 @@ static int f040s_f045_val_upd_req_handler(ke_msg_id_t const msgid,
         {
             // put task in a busy state
             ke_state_set(dest_id, F040S_BUSY);						
-            f040s_indicate_f045_val(conidx,f040s_env, param);
+            f040s_indicate_f041_val(conidx,f040s_env, param);
             ke_state_set(dest_id, F040S_IDLE);
         }
         
@@ -109,21 +109,15 @@ static int gattc_att_info_req_ind_handler(ke_msg_id_t const msgid,
 
     if(status == GAP_ERR_NO_ERROR)
     {
-        // check if it's a client configuration char
-        if(att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+				if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+				{
+					// CCC attribute length = 2
+						cfm->length = 2;
+				}
+        else if(att_idx == F040S_IDX_F041_VAL_VAL)
         {
-            // CCC attribute length = 2
-            cfm->length = 2;
+            cfm->length = F040_CHAR_DATA_LEN;
         }
-		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		// {
-		// 	// CCC attribute length = 2
-  //           cfm->length = 2;
-		// }
-  //       else if(att_idx == F040S_IDX_F043_VAL_VAL)
-  //       {
-  //           cfm->length = F040_CHAR_DATA_LEN;
-  //       }
         // not expected request
         else
         {
@@ -158,84 +152,60 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
         uint16_t ntf_cfg = co_read16p(&param->value[0]);
 
         // Only update configuration if value for stop or notification enable
-        if ((att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+  //       if ((att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+  //               && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
+  //       {
+  //           // Conserve information in environment
+  //           if (ntf_cfg == PRF_CLI_START_NTF)
+  //           {
+  //               // Ntf cfg bit set to 1
+  //               f040s_env->ntf_cfg[conidx] = PRF_CLI_START_NTF ;
+  //           }
+  //           else
+  //           {
+  //               // Ntf cfg bit set to 0
+  //               f040s_env->ntf_cfg[conidx] = PRF_CLI_STOP_NTFIND;
+  //           }
+
+  //           // Inform APP of configuration change
+  //           struct f040s_f044_val_ntf_cfg_ind * ind = KE_MSG_ALLOC(F040S_F044_VALUE_NTF_CFG_IND,
+  //                   prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
+  //                   f040s_f044_val_ntf_cfg_ind);
+  //           ind->conidx = conidx;
+  //           ind->ntf_cfg = f040s_env->ntf_cfg[conidx];
+						
+  //           ke_msg_send(ind);			
+  //       }		
+		// else 
+        if ((att_idx == F040S_IDX_F041_VAL_NTF_CFG)
                 && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
         {
             // Conserve information in environment
             if (ntf_cfg == PRF_CLI_START_NTF)
             {
                 // Ntf cfg bit set to 1
-                f040s_env->ntf_cfg[conidx] = PRF_CLI_START_NTF ;
+                f040s_env->ind_cfg[conidx] = PRF_CLI_START_NTF;
             }
             else
             {
                 // Ntf cfg bit set to 0
-                f040s_env->ntf_cfg[conidx] = PRF_CLI_STOP_NTFIND;
+                f040s_env->ind_cfg[conidx] = PRF_CLI_STOP_NTFIND;
             }
 
             // Inform APP of configuration change
-            struct f040s_f044_val_ntf_cfg_ind * ind = KE_MSG_ALLOC(F040S_F044_VALUE_NTF_CFG_IND,
+            struct f040s_f041_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F040S_F041_VALUE_IND_CFG_IND,
                     prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
-                    f040s_f044_val_ntf_cfg_ind);
+                    f040s_f041_val_ind_cfg_ind);
             ind->conidx = conidx;
-            ind->ntf_cfg = f040s_env->ntf_cfg[conidx];
+            ind->ind_cfg = f040s_env->ind_cfg[conidx];
 						
             ke_msg_send(ind);			
-        }		
-		// else if ((att_idx == F040S_IDX_F045_VAL_IND_CFG)
-  //               && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_IND)))
-  //       {
-  //           // Conserve information in environment
-  //           if (ntf_cfg == PRF_CLI_START_IND)
-  //           {
-  //               // Ntf cfg bit set to 1
-  //               f040s_env->ind_cfg[conidx] = PRF_CLI_START_IND;
-  //           }
-  //           else
-  //           {
-  //               // Ntf cfg bit set to 0
-  //               f040s_env->ind_cfg[conidx] = PRF_CLI_STOP_NTFIND;
-  //           }
-
-  //           // Inform APP of configuration change
-  //           struct f040s_f045_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F040S_F045_VALUE_IND_CFG_IND,
-  //                   prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
-  //                   f040s_f045_val_ind_cfg_ind);
-  //           ind->conidx = conidx;
-  //           ind->ind_cfg = f040s_env->ind_cfg[conidx];
-						
-  //           ke_msg_send(ind);			
-  //       }
-		// else if (att_idx == F040S_IDX_F042_VAL_VAL)
-		// {
-		// 	// Allocate the alert value change indication
-		// 	struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F042_WRITER_CMD_IND,
-		// 	        prf_dst_task_get(&(f040s_env->prf_env), conidx),
-		// 	        dest_id, f040s_f0423_writer_ind);
-			
-		// 	// Fill in the parameter structure	
-		// 	memcpy(ind->value,&param->value[0],param->length);
-		// 	ind->conidx = conidx;
-		// 	ind->length = param->length;
-			
-		// 	// Send the message
-		// 	ke_msg_send(ind);
-		// }
-  //       else if (att_idx == F040S_IDX_F043_VAL_VAL)
-		// {
-		// 	// Allocate the alert value change indication
-		// 	struct f040s_f0423_writer_ind *ind = KE_MSG_ALLOC(F040S_F043_WRITER_REQ_IND,
-		// 	        prf_dst_task_get(&(f040s_env->prf_env), conidx),
-		// 	        dest_id, f040s_f0423_writer_ind);
-			
-		// 	// Fill in the parameter structure	
-		// 	memcpy(ind->value,&param->value[0],param->length);
-		// 	ind->conidx = conidx;
-		// 	ind->length = param->length;
-			
-		// 	// Send the message
-		// 	ke_msg_send(ind);
-		// }
+        }
+		else if (att_idx == F040S_IDX_F041_VAL_VAL)
+		{
+            extern void f041_0x2a2b_cb(uint8_t* buf);
+            f041_0x2a2b_cb(&param->value[0]);
+		}
         else
         {
             status = PRF_APP_ERROR;
@@ -271,25 +241,14 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
     if (status == GAP_ERR_NO_ERROR)
     {
         // read notification information
-        // if (att_idx == F040S_IDX_F041_VAL_VAL)
-        // {
-        //     length = 10 * sizeof(uint8_t);
-        // }
-        // else if (att_idx == F040S_IDX_F041_USER_DESC)
-        // {
-        //     length = f040s_env->f041_desc_len;
-        //     uart_printf("read F041_USER_DESC\r\n");
-        // }
-        // // read notification information
-        // else 
-        if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+        if (att_idx == F040S_IDX_F041_VAL_VAL)
         {
-            length = sizeof(uint16_t);
+            length = F040_F041_DATA_LEN;
         }
-		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		// {
-		// 	length = sizeof(uint16_t);
-		// }
+		else if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+		{
+			length = sizeof(uint16_t);
+		}
 		
         else
         {
@@ -306,31 +265,15 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
     if (status == GAP_ERR_NO_ERROR)
     {
         // read notification information
-        // if (att_idx == F040S_IDX_F041_VAL_VAL)
-        // {
-            
-        //     memcpy(cfm->value,f040s_env->f041_val,10);
-        //     f040s_env->f041_val[0]++;
-        //     f040s_env->f041_val[9]++;
-        // }
-        // else if (att_idx == F040S_IDX_F041_USER_DESC)
-        // {
-        //     memcpy(cfm->value,f040s_env->f041_desc,length);
-        //     uart_printf("USER_DESC:%s\r\n",f040s_env->f041_desc);
-        // }
-        // // retrieve notification config
-        // else 
-        if (att_idx == F040S_IDX_F044_VAL_NTF_CFG)
+        if (att_idx == F040S_IDX_F041_VAL_VAL)
         {
-            uint16_t ntf_cfg = f040s_env->ntf_cfg[conidx];
-            co_write16p(cfm->value, ntf_cfg);
-        }  
-		
-		// else if(att_idx == F040S_IDX_F045_VAL_IND_CFG)
-		// {
-		// 	uint16_t ind_cfg = f040s_env->ind_cfg[conidx];
-  //           co_write16p(cfm->value, ind_cfg);
-		// }
+            memcpy(cfm->value,f040s_env->f041_val,length);
+        }
+		else if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+		{
+			uint16_t ind_cfg = f040s_env->ind_cfg[conidx];
+            co_write16p(cfm->value, ind_cfg);
+		}
         else
         {
             /* Not Possible */
@@ -359,15 +302,15 @@ static int gattc_cmp_evt_handler(ke_msg_id_t const msgid,  struct gattc_cmp_evt 
         ke_msg_send(rsp);
         
     }
-    // else if(param->operation == GATTC_INDICATE)
-    // {
-    //     struct f040s_f0445_val_upd_rsp *rsp = KE_MSG_ALLOC(F040S_F045_VALUE_UPD_RSP,
-    //                                          prf_dst_task_get(&(f040s_env->prf_env), conidx),
-    //                                          dest_id, f040s_f0445_val_upd_rsp);
-    //     rsp->conidx = conidx;
-    //     rsp->status = param->status;			
-    //     ke_msg_send(rsp);
-    // }
+    else if(param->operation == GATTC_INDICATE)
+    {
+        struct f040s_f0445_val_upd_rsp *rsp = KE_MSG_ALLOC(F040S_F041_VALUE_UPD_RSP,
+                                             prf_dst_task_get(&(f040s_env->prf_env), conidx),
+                                             dest_id, f040s_f0445_val_upd_rsp);
+        rsp->conidx = conidx;
+        rsp->status = param->status;			
+        ke_msg_send(rsp);
+    }
 	// go back in to idle mode
     ke_state_set(dest_id, ke_state_get(dest_id) & ~F040S_BUSY);
 	
@@ -378,7 +321,7 @@ static int gattc_cmp_evt_handler(ke_msg_id_t const msgid,  struct gattc_cmp_evt 
 KE_MSG_HANDLER_TAB(f040s)
 {
     {F040S_F044_VALUE_UPD_REQ,      (ke_msg_func_t) f040s_f044_val_upd_req_handler},
-	{F040S_F045_VALUE_UPD_REQ,      (ke_msg_func_t) f040s_f045_val_upd_req_handler},
+	{F040S_F041_VALUE_UPD_REQ,      (ke_msg_func_t) f040s_f041_val_upd_req_handler},
     {GATTC_ATT_INFO_REQ_IND,        (ke_msg_func_t) gattc_att_info_req_ind_handler},
     {GATTC_WRITE_REQ_IND,           (ke_msg_func_t) gattc_write_req_ind_handler},
     {GATTC_READ_REQ_IND,            (ke_msg_func_t) gattc_read_req_ind_handler},

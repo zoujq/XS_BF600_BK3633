@@ -48,7 +48,7 @@ enum
 {		
 	ATT_USER_SERVER_F010 						= ATT_UUID_16(0x181B),	// service 
 	ATT_USER_SERVER_CHAR_F011                   = ATT_UUID_16(0x2a9b), // read		
-    ATT_USER_SERVER_CHAR_F015					= ATT_UUID_16(0x2a9c), // ind		
+    ATT_USER_SERVER_CHAR_F012					= ATT_UUID_16(0x2a9c), // ind		
 };
 
 /// F010S Service Attributes Indexes
@@ -59,9 +59,9 @@ enum
     F010S_IDX_F011_VAL_CHAR,
 	F010S_IDX_F011_VAL_VAL,
 
-	F010S_IDX_F015_VAL_CHAR,
-	F010S_IDX_F015_VAL_VAL,
-	F010S_IDX_F015_VAL_IND_CFG,
+	F010S_IDX_F012_VAL_CHAR,
+	F010S_IDX_F012_VAL_VAL,
+	F010S_IDX_F012_VAL_IND_CFG,
 
 	F010S_IDX_NB,
 };
@@ -85,11 +85,11 @@ struct f010s_env_tag
     /// FFF0 Services Start Handle
     uint16_t start_hdl;
     /// value of the F01x
-    uint8_t f011_val[F010_CHAR_DATA_LEN];
-    uint8_t f012_val[F010_CHAR_DATA_LEN];
+    uint8_t f011_val[F010_F011_DATA_LEN];
+    uint8_t f017_val[F010_CHAR_DATA_LEN];
     uint8_t f013_val[F010_CHAR_DATA_LEN];
     uint8_t f014_val[F010_CHAR_DATA_LEN];
-    uint8_t f015_val[F010_CHAR_DATA_LEN];
+    uint8_t f012_val[F010_F012_DATA_LEN];
     uint8_t f011_desc[F010_CHAR_DATA_LEN];
     uint8_t f011_desc_len;
     /// BASS task state
@@ -120,7 +120,7 @@ uint8_t  f010s_get_att_idx(uint16_t handle, uint8_t *att_idx);
 
 void f010s_notify_f014_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struct f010s_f0145_val_upd_req const *param);
 
-void f010s_indicate_f015_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struct f010s_f0145_val_upd_req const *param);
+void f010s_indicate_f012_val(uint8_t conidx,struct f010s_env_tag* f010s_env, struct f010s_f0145_val_upd_req const *param);
 void f010s_task_init(struct ke_task_desc *task_desc);
 
 #endif /* #if (BLE_F010_SERVERs) */

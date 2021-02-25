@@ -28,8 +28,13 @@
 ///Maximum number of FFF0 Server task instances
 #define F020S_IDX_MAX     0x01
 ///Maximal number of F020 that can be added in the DB
-
 #define  F020_CHAR_DATA_LEN  30
+#define  F020_F021_DATA_LEN  4
+#define  F020_F022_DATA_LEN  1
+#define  F020_F023_DATA_LEN  1
+#define  F020_F024_DATA_LEN  4
+#define  F020_F025_DATA_LEN  1
+#define  F020_F026_DATA_LEN  30
 
 /*
  * TYPE DEFINITIONS
@@ -102,7 +107,7 @@ struct f020s_db_cfg
     uint8_t features;
     
     uint16_t f021_desc_len;
-    uint8_t f021_desc[F020_CHAR_DATA_LEN];
+    uint8_t f021_desc[30];
 };
 
 /// Parameters of the @ref F020S_CREATE_DB_REQ message
@@ -124,7 +129,7 @@ struct f020s_f0245_val_upd_req
 	
 	uint16_t length;
     /// char value
-    uint8_t value[F020_CHAR_DATA_LEN];
+    uint8_t value[30];
 };
 
 
@@ -163,7 +168,7 @@ struct f020s_f0223_writer_ind
     uint8_t conidx;
     uint16_t length;
     ///  value
-    uint8_t value[F020_CHAR_DATA_LEN];
+    uint8_t value[30];
 
 };
 

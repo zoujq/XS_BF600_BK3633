@@ -47,11 +47,11 @@
 enum
 {		
 	ATT_USER_SERVER_F030 						= ATT_UUID_16(0xFFF0),	// service 
-	ATT_USER_SERVER_CHAR_F032                   = ATT_UUID_16(0xfff2), // read		
+	ATT_USER_SERVER_CHAR_F031                   = ATT_UUID_16(0xfff1), // read		
 	ATT_USER_SERVER_CHAR_F035					= ATT_UUID_16(0xfff5),// write cmd
-	ATT_USER_SERVER_CHAR_F034					= ATT_UUID_16(0xfff4),// write req
-    ATT_USER_SERVER_CHAR_F031					= ATT_UUID_16(0xfff1), // ntf
-    ATT_USER_SERVER_CHAR_F033					= ATT_UUID_16(0xfff3), // ind		
+	ATT_USER_SERVER_CHAR_F033					= ATT_UUID_16(0xfff3),// write req
+    ATT_USER_SERVER_CHAR_F032					= ATT_UUID_16(0xfff2), // ntf
+    ATT_USER_SERVER_CHAR_F034					= ATT_UUID_16(0xfff4), // ind		
 };
 
 /// F030S Service Attributes Indexes
@@ -59,22 +59,22 @@ enum
 {
 	F030S_IDX_SVC,
 
-    F030S_IDX_F032_VAL_CHAR,
-	F030S_IDX_F032_VAL_VAL,
+    F030S_IDX_F031_VAL_CHAR,
+	F030S_IDX_F031_VAL_VAL,
     
 	F030S_IDX_F035_VAL_CHAR,
 	F030S_IDX_F035_VAL_VAL,
 
-    F030S_IDX_F034_VAL_CHAR,
-	F030S_IDX_F034_VAL_VAL,
-    
-	F030S_IDX_F031_VAL_CHAR,
-	F030S_IDX_F031_VAL_VAL,
-	F030S_IDX_F031_VAL_NTF_CFG,
-
-	F030S_IDX_F033_VAL_CHAR,
+    F030S_IDX_F033_VAL_CHAR,
 	F030S_IDX_F033_VAL_VAL,
-	F030S_IDX_F033_VAL_IND_CFG,
+    
+	F030S_IDX_F032_VAL_CHAR,
+	F030S_IDX_F032_VAL_VAL,
+	F030S_IDX_F032_VAL_NTF_CFG,
+
+	F030S_IDX_F034_VAL_CHAR,
+	F030S_IDX_F034_VAL_VAL,
+	F030S_IDX_F034_VAL_NTF_CFG,
 
 	F030S_IDX_NB,
 };
@@ -98,13 +98,13 @@ struct f030s_env_tag
     /// FFF0 Services Start Handle
     uint16_t start_hdl;
     /// value of the F03x
-    uint8_t f032_val[F030_CHAR_DATA_LEN];
-    uint8_t f035_val[F030_CHAR_DATA_LEN];
-    uint8_t f034_val[F030_CHAR_DATA_LEN];
-    uint8_t f031_val[F030_CHAR_DATA_LEN];
-    uint8_t f033_val[F030_CHAR_DATA_LEN];
-    uint8_t f032_desc[F030_CHAR_DATA_LEN];
-    uint8_t f032_desc_len;
+    uint8_t f031_val[F030_F031_DATA_LEN];
+    uint8_t f035_val[F030_F035_DATA_LEN];
+    uint8_t f033_val[F030_F033_DATA_LEN];
+    uint8_t f032_val[F030_F032_DATA_LEN];
+    uint8_t f034_val[F030_F034_DATA_LEN];
+    uint8_t f031_desc[F030_CHAR_DATA_LEN];
+    uint8_t f031_desc_len;
     /// BASS task state
     ke_state_t state[F030S_IDX_MAX];
     /// Notification configuration of peer devices.
@@ -131,9 +131,9 @@ uint16_t f030s_get_att_handle(uint8_t att_idx);
 
 uint8_t  f030s_get_att_idx(uint16_t handle, uint8_t *att_idx);
 
-void f030s_notify_f031_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0315_val_upd_req const *param);
+void f030s_notify_f032_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0325_val_upd_req const *param);
 
-void f030s_indicate_f033_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0315_val_upd_req const *param);
+void f030s_notify_f034_val(uint8_t conidx,struct f030s_env_tag* f030s_env, struct f030s_f0325_val_upd_req const *param);
 void f030s_task_init(struct ke_task_desc *task_desc);
 
 #endif /* #if (BLE_F030_SERVERs) */

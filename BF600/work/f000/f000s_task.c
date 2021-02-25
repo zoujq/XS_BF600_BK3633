@@ -62,7 +62,7 @@ static int f000s_f004_val_upd_req_handler(ke_msg_id_t const msgid,
     return (msg_status);
   }
 
-static int f000s_f005_val_upd_req_handler(ke_msg_id_t const msgid,
+static int f000s_f002_val_upd_req_handler(ke_msg_id_t const msgid,
                                             struct f000s_f0045_val_upd_req const *param,
                                             ke_task_id_t const dest_id,
                                             ke_task_id_t const src_id)
@@ -80,7 +80,7 @@ static int f000s_f005_val_upd_req_handler(ke_msg_id_t const msgid,
         {
             // put task in a busy state
             ke_state_set(dest_id, F000S_BUSY);						
-            f000s_indicate_f005_val(conidx,f000s_env, param);
+            f000s_indicate_f002_val(conidx,f000s_env, param);
             ke_state_set(dest_id, F000S_IDLE);
         }
         
@@ -116,7 +116,7 @@ static int gattc_att_info_req_ind_handler(ke_msg_id_t const msgid,
   //           cfm->length = 2;
   //       }
 		// else 
-        if(att_idx == F000S_IDX_F005_VAL_IND_CFG)
+        if(att_idx == F000S_IDX_F002_VAL_IND_CFG)
 		{
 			// CCC attribute length = 2
             cfm->length = 2;
@@ -183,7 +183,7 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
 						
         //     ke_msg_send(ind);			
         // }		
-		if ((att_idx == F000S_IDX_F005_VAL_IND_CFG)
+		if ((att_idx == F000S_IDX_F002_VAL_IND_CFG)
                 && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_IND)))
         {
             // Conserve information in environment
@@ -199,20 +199,20 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
             }
 
             // Inform APP of configuration change
-            struct f000s_f005_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F000S_F005_VALUE_IND_CFG_IND,
+            struct f000s_f002_val_ind_cfg_ind * ind = KE_MSG_ALLOC(F000S_F002_VALUE_IND_CFG_IND,
                     prf_dst_task_get(&(f000s_env->prf_env), conidx), dest_id,
-                    f000s_f005_val_ind_cfg_ind);
+                    f000s_f002_val_ind_cfg_ind);
             ind->conidx = conidx;
             ind->ind_cfg = f000s_env->ind_cfg[conidx];
 						
             ke_msg_send(ind);			
         }
-		// else if (att_idx == F000S_IDX_F002_VAL_VAL)
+		// else if (att_idx == F000S_IDX_F007_VAL_VAL)
 		// {
 		// 	// Allocate the alert value change indication
-		// 	struct f000s_f0023_writer_ind *ind = KE_MSG_ALLOC(F000S_F002_WRITER_CMD_IND,
+		// 	struct f000s_f0073_writer_ind *ind = KE_MSG_ALLOC(F000S_F007_WRITER_CMD_IND,
 		// 	        prf_dst_task_get(&(f000s_env->prf_env), conidx),
-		// 	        dest_id, f000s_f0023_writer_ind);
+		// 	        dest_id, f000s_f0073_writer_ind);
 			
 		// 	// Fill in the parameter structure	
 		// 	memcpy(ind->value,&param->value[0],param->length);
@@ -225,9 +225,9 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
   //       else if (att_idx == F000S_IDX_F003_VAL_VAL)
 		// {
 		// 	// Allocate the alert value change indication
-		// 	struct f000s_f0023_writer_ind *ind = KE_MSG_ALLOC(F000S_F003_WRITER_REQ_IND,
+		// 	struct f000s_f0073_writer_ind *ind = KE_MSG_ALLOC(F000S_F003_WRITER_REQ_IND,
 		// 	        prf_dst_task_get(&(f000s_env->prf_env), conidx),
-		// 	        dest_id, f000s_f0023_writer_ind);
+		// 	        dest_id, f000s_f0073_writer_ind);
 			
 		// 	// Fill in the parameter structure	
 		// 	memcpy(ind->value,&param->value[0],param->length);
@@ -274,7 +274,7 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F000S_IDX_F001_VAL_VAL)
         {
-            length = 10 * sizeof(uint8_t);
+            length = F000_F001_CHAR_DATA_LEN * sizeof(uint8_t);
         }
 //        else if (att_idx == F000S_IDX_F001_USER_DESC)
 //        {
@@ -286,7 +286,7 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
 //        {
 //            length = sizeof(uint16_t);
 //        }
-		else if(att_idx == F000S_IDX_F005_VAL_IND_CFG)
+		else if(att_idx == F000S_IDX_F002_VAL_IND_CFG)
 		{
 			length = sizeof(uint16_t);
 		}
@@ -308,10 +308,7 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F000S_IDX_F001_VAL_VAL)
         {
-            
-            memcpy(cfm->value,f000s_env->f001_val,10);
-            f000s_env->f001_val[0]++;
-            f000s_env->f001_val[9]++;
+            memcpy(cfm->value,f000s_env->f001_val,F000_F001_CHAR_DATA_LEN);
         }
 //        else if (att_idx == F000S_IDX_F001_USER_DESC)
 //        {
@@ -325,7 +322,7 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
 //            co_write16p(cfm->value, ntf_cfg);
 //        }  
 		
-		else if(att_idx == F000S_IDX_F005_VAL_IND_CFG)
+		else if(att_idx == F000S_IDX_F002_VAL_IND_CFG)
 		{
 			uint16_t ind_cfg = f000s_env->ind_cfg[conidx];
             co_write16p(cfm->value, ind_cfg);
@@ -360,7 +357,7 @@ static int gattc_cmp_evt_handler(ke_msg_id_t const msgid,  struct gattc_cmp_evt 
     }
     else if(param->operation == GATTC_INDICATE)
     {
-        struct f000s_f0045_val_upd_rsp *rsp = KE_MSG_ALLOC(F000S_F005_VALUE_UPD_RSP,
+        struct f000s_f0045_val_upd_rsp *rsp = KE_MSG_ALLOC(F000S_F002_VALUE_UPD_RSP,
                                              prf_dst_task_get(&(f000s_env->prf_env), conidx),
                                              dest_id, f000s_f0045_val_upd_rsp);
         rsp->conidx = conidx;
@@ -377,7 +374,7 @@ static int gattc_cmp_evt_handler(ke_msg_id_t const msgid,  struct gattc_cmp_evt 
 KE_MSG_HANDLER_TAB(f000s)
 {
     {F000S_F004_VALUE_UPD_REQ,      (ke_msg_func_t) f000s_f004_val_upd_req_handler},
-	{F000S_F005_VALUE_UPD_REQ,      (ke_msg_func_t) f000s_f005_val_upd_req_handler},
+	{F000S_F002_VALUE_UPD_REQ,      (ke_msg_func_t) f000s_f002_val_upd_req_handler},
     {GATTC_ATT_INFO_REQ_IND,        (ke_msg_func_t) gattc_att_info_req_ind_handler},
     {GATTC_WRITE_REQ_IND,           (ke_msg_func_t) gattc_write_req_ind_handler},
     {GATTC_READ_REQ_IND,            (ke_msg_func_t) gattc_read_req_ind_handler},

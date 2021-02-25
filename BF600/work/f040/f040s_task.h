@@ -29,8 +29,8 @@
 #define F040S_IDX_MAX     0x01
 ///Maximal number of F040 that can be added in the DB
 
-#define  F040_CHAR_DATA_LEN  628
-
+#define  F040_CHAR_DATA_LEN  1
+#define  F040_F041_DATA_LEN  10
 /*
  * TYPE DEFINITIONS
  ****************************************************************************************
@@ -53,7 +53,7 @@ enum f040s_msg_id
     /// Start the FFF0 Server - at connection used to restore bond data
 	F040S_CREATE_DB_REQ   = TASK_FIRST_MSG(TASK_ID_F040S),
 	
-    F040S_F041_VALUE_READ_IND,
+    F040S_F047_VALUE_READ_IND,
     F040S_F042_WRITER_CMD_IND,
 	F040S_F043_WRITER_REQ_IND,
 
@@ -65,12 +65,12 @@ enum f040s_msg_id
     /// Inform APP that FFF1 Level Notification Configuration has been changed - use to update bond data
     F040S_F044_VALUE_NTF_CFG_IND,
 
-	/// F045 Level Value Update Request
-    F040S_F045_VALUE_UPD_REQ,
+	/// F041 Level Value Update Request
+    F040S_F041_VALUE_UPD_REQ,
     /// Inform APP if FFF1 Level value has been notified or not
-    F040S_F045_VALUE_UPD_RSP,
+    F040S_F041_VALUE_UPD_RSP,
 
-	F040S_F045_VALUE_IND_CFG_IND,
+	F040S_F041_VALUE_IND_CFG_IND,
 	
 
 
@@ -83,8 +83,8 @@ enum f040s_features
     F040_F04X_VLUAE_NTF_NOT_SUP,
     /// F044 Value Characteristic support notifications
     F040_F044_VAL_NTF_SUP,
-    /// F045 Value Characteristic support indication
-    F040_F045_VAL_IND_SUP,
+    /// F041 Value Characteristic support indication
+    F040_F041_VAL_IND_SUP,
 };
 
 
@@ -101,8 +101,8 @@ struct f040s_db_cfg
     /// Features of each F040 instance
     uint8_t features;
     
-    uint16_t f041_desc_len;
-    uint8_t f041_desc[F040_CHAR_DATA_LEN];
+    uint16_t f047_desc_len;
+    uint8_t f047_desc[F040_CHAR_DATA_LEN];
 };
 
 /// Parameters of the @ref F040S_CREATE_DB_REQ message
@@ -147,8 +147,8 @@ struct f040s_f044_val_ntf_cfg_ind
 };
 
 
-///Parameters of the @ref F040S_F045_VALUE_IND_CFG_IND message
-struct f040s_f045_val_ind_cfg_ind
+///Parameters of the @ref F040S_F041_VALUE_IND_CFG_IND message
+struct f040s_f041_val_ind_cfg_ind
 {
     /// connection index
     uint8_t  conidx;

@@ -206,36 +206,31 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
 						
             ke_msg_send(ind);			
         }
-		else if (att_idx == F020S_IDX_F022_VAL_VAL)
+		else if (att_idx == F020S_IDX_F021_VAL_VAL)
 		{
-			// Allocate the alert value change indication
-			struct f020s_f0223_writer_ind *ind = KE_MSG_ALLOC(F020S_F022_WRITER_CMD_IND,
-			        prf_dst_task_get(&(f020s_env->prf_env), conidx),
-			        dest_id, f020s_f0223_writer_ind);
-			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
-			
-			// Send the message
-			ke_msg_send(ind);
+            extern void f021_0x2a85_cb(uint8_t* buf);
+            f021_0x2a85_cb(&param->value[0]);	
 		}
+        else if (att_idx == F020S_IDX_F022_VAL_VAL)
+        {
+            extern void f022_0x2a8c_cb(uint8_t* buf);
+            f022_0x2a8c_cb(&param->value[0]);   
+        }
         else if (att_idx == F020S_IDX_F023_VAL_VAL)
-		{
-			// Allocate the alert value change indication
-			struct f020s_f0223_writer_ind *ind = KE_MSG_ALLOC(F020S_F023_WRITER_REQ_IND,
-			        prf_dst_task_get(&(f020s_env->prf_env), conidx),
-			        dest_id, f020s_f0223_writer_ind);
-			
-			// Fill in the parameter structure	
-			memcpy(ind->value,&param->value[0],param->length);
-			ind->conidx = conidx;
-			ind->length = param->length;
-			
-			// Send the message
-			ke_msg_send(ind);
-		}
+        {
+            extern void f023_0x2a8e_cb(uint8_t* buf);
+            f023_0x2a8e_cb(&param->value[0]);   
+        }
+        else if (att_idx == F020S_IDX_F024_VAL_VAL)
+        {
+            extern void f024_0x2a99_cb(uint8_t* buf);
+            f024_0x2a99_cb(&param->value[0]);   
+        }
+        else if (att_idx == F020S_IDX_F026_VAL_VAL)
+        {
+            extern void f026_0x2a9f_cb(uint8_t* buf);
+            f026_0x2a9f_cb(&param->value[0]);   
+        }
         else
         {
             status = PRF_APP_ERROR;
@@ -273,14 +268,28 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F020S_IDX_F021_VAL_VAL)
         {
-            length = 10 * sizeof(uint8_t);
+            length = F020_F021_DATA_LEN ;
         }
-        // else if (att_idx == F020S_IDX_F021_USER_DESC)
-        // {
-        //     length = f020s_env->f021_desc_len;
-        //     uart_printf("read F021_USER_DESC\r\n");
-        // }
-        // read notification information
+        else if (att_idx == F020S_IDX_F022_VAL_VAL)
+        {
+            length = F020_F022_DATA_LEN ;
+        }
+        else if (att_idx == F020S_IDX_F023_VAL_VAL)
+        {
+            length = F020_F023_DATA_LEN ;
+        }
+        else if (att_idx == F020S_IDX_F024_VAL_VAL)
+        {
+            length = F020_F024_DATA_LEN ;
+        }
+        else if (att_idx == F020S_IDX_F025_VAL_VAL)
+        {
+            length = F020_F025_DATA_LEN ;
+        }
+        else if (att_idx == F020S_IDX_F026_VAL_VAL)
+        {
+            length = F020_F026_DATA_LEN ;
+        }
         else if (att_idx == F020S_IDX_F024_VAL_NTF_CFG)
         {
             length = sizeof(uint16_t);
@@ -307,16 +316,28 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F020S_IDX_F021_VAL_VAL)
         {
-            
-            memcpy(cfm->value,f020s_env->f021_val,10);
-            f020s_env->f021_val[0]++;
-            f020s_env->f021_val[9]++;
+            memcpy(cfm->value,f020s_env->f021_val,length);
         }
-        // else if (att_idx == F020S_IDX_F021_USER_DESC)
-        // {
-        //     memcpy(cfm->value,f020s_env->f021_desc,length);
-        //     uart_printf("USER_DESC:%s\r\n",f020s_env->f021_desc);
-        // }
+        else if (att_idx == F020S_IDX_F022_VAL_VAL)
+        {
+            memcpy(cfm->value,f020s_env->f022_val,length);
+        }
+        else if (att_idx == F020S_IDX_F023_VAL_VAL)
+        {
+            memcpy(cfm->value,f020s_env->f023_val,length);
+        }
+        else if (att_idx == F020S_IDX_F024_VAL_VAL)
+        {
+            memcpy(cfm->value,f020s_env->f024_val,length);
+        }
+        else if (att_idx == F020S_IDX_F025_VAL_VAL)
+        {
+            memcpy(cfm->value,f020s_env->f025_val,length);
+        }
+        else if (att_idx == F020S_IDX_F026_VAL_VAL)
+        {
+            memcpy(cfm->value,f020s_env->f026_val,length);
+        }
         // retrieve notification config
         else if (att_idx == F020S_IDX_F024_VAL_NTF_CFG)
         {

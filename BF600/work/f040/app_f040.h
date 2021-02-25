@@ -48,7 +48,7 @@ struct app_f040_env_tag
     /// Connection handle
     uint8_t conidx;
     /// Current Battery Level
-    uint8_t f041_lvl;
+    uint8_t f047_lvl;
 	uint8_t f043_lvl;
 };
 /*
@@ -95,10 +95,10 @@ void app_f040_add_f040s(void);
 void app_f044_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
 /**
  ****************************************************************************************
- * @brief Send a f045  value
+ * @brief Send a f041  value
  ****************************************************************************************
  */
-void app_f045_send_ind(uint8_t conidx,uint16_t len,uint8_t* buf);
+void app_f041_send_ntf(uint8_t conidx,uint16_t len,uint8_t* buf);
 
 
 #endif // APP_F040_H_
