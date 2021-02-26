@@ -30,8 +30,8 @@
 ///Maximal number of F030 that can be added in the DB
 
 #define  F030_CHAR_DATA_LEN  30 
-#define  F030_F032_DATA_LEN  8 
-#define  F030_F031_DATA_LEN  12 
+#define  F030_F032_DATA_LEN  12 
+#define  F030_F031_DATA_LEN  8 
 #define  F030_F034_DATA_LEN  1 
 #define  F030_F033_DATA_LEN  1 
 #define  F030_F035_DATA_LEN  4 

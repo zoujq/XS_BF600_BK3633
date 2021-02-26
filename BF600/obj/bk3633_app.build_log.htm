@@ -19,32 +19,54 @@ CPU DLL:         SARM.DLL V5.30.0.0
 Dialog DLL:      DARMP3.DLL 
 <h2>Project:</h2>
 E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V05_1A09\BK3633_DesignKit_V05_1A09\SDK\projects\BF600\prj3633.uvproj
-Project File Date:  02/24/2021
+Project File Date:  02/25/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'D:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'Target1'
+compiling work.c...
+work\work.c(135): warning:  #1295-D: Deprecated declaration send_user_list - give arg types
+  void send_user_list();
+work\work.c(136): warning:  #1295-D: Deprecated declaration get_scale_user - give arg types
+  void get_scale_user();
+work\work.c(137): warning:  #1295-D: Deprecated declaration check_select_user - give arg types
+  void check_select_user();
+work\work.c(138): warning:  #1295-D: Deprecated declaration set_select_user_info_to_ble_chara - give arg types
+  void set_select_user_info_to_ble_chara();
+work\work.c(145): warning:  #1295-D: Deprecated declaration ji_huo_scale_and_send - give arg types
+  void ji_huo_scale_and_send();
+work\work.c(153): warning:  #1295-D: Deprecated declaration init_select_user_info - give arg types
+  void init_select_user_info();
+work\work.c(156): warning:  #1295-D: Deprecated declaration update_time - give arg types
+  void update_time();//1s
+work\work.c(744): warning:  #177-D: variable "index"  was declared but never referenced
+  	static uint8_t index = 0;
+work\work.c(1323): warning:  #1-D: last line of file ends without a newline
+  }
+work\work.c: 9 warnings, 0 errors
+linking...
+Program Size: Code=41056 RO-data=4048 RW-data=212 ZI-data=19424  
 After Build - User command #1: fromelf --bin --output .\output\app\bk3633_app.bin .\obj\bk3633_app.axf
 After Build - User command #2: .\output\translate.bat
-E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V05_1A09\BK3633_DesignKit_V05_1A09\SDK\projects\BF600>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x1F00 -l 0x25b00 -v 0x0001b -rom_v 0x0009 -e 00000000 00000000 00000000 00000000 
+E:\ZOUJQ\1000-Project\1008-IF1914B\BK3633_DesignKit_V05_1A09\BK3633_DesignKit_V05_1A09\SDK\projects\BF600>.\output\BinConvert  -oad .\output\boot\bk3633_boot.bin  .\output\stack\bk3633_stack.bin  .\output\app\bk3633_app.bin -m 0x1F00 -l 0x25b00 -v 0x0001D -rom_v 0x0009 -e 00000000 00000000 00000000 00000000 
 cmd_bin_oad.stack_file_addr :0x1f00
-binary version hex:0x1b; dec:27
+binary version hex:0x1d; dec:29
 Arm Image Binary will be converted to OAD format binary file.....
 cmd_bin_oad.stack_file_addr=1f00
 boot_bin_len=147c
 add stack bin start
         Encrypt Seccessfully!
-        File Size: 0x33b8e
-oad_stack_app_bin_len=31b00
-oad_app_bin_len=bb40
-0a 30 01 d0 1b 00 d0 2e 42 42 42 42 ff ff 09 00 /**< @CREATE_FILE_SUCCESS */
+        File Size: 0x33d6a
+oad_stack_app_bin_len=31d00
+oad_app_bin_len=bd40
+76 7b 3d 4a 1d 00 50 2f 42 42 42 42 ff ff 09 00 /**< @CREATE_FILE_SUCCESS */
 /**< @Download flash file:.\output\app\bk3633_app_merge_crc.bin
-/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0xf5a9e0bc
-/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0xd001300a
+/**< @OAD file :.\output\app\bk3633_app_stack_oad.bin,CRC = 0x914d472a
+/**< @OAD file :.\output\app\bk3633_app_oad.bin,CRC = 0x4a3d7b76
 /**< @author <gang.cheng@bekencorp.com> */
 /**< @version v0.3 */
-".\obj\bk3633_app.axf" - 0 Error(s), 0 Warning(s).
-Build Time Elapsed:  00:00:03
+".\obj\bk3633_app.axf" - 0 Error(s), 9 Warning(s).
+Build Time Elapsed:  00:00:05
 </pre>
 </body>
 </html>

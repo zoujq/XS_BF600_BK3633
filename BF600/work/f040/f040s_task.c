@@ -109,14 +109,15 @@ static int gattc_att_info_req_ind_handler(ke_msg_id_t const msgid,
 
     if(status == GAP_ERR_NO_ERROR)
     {
-				if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
-				{
-					// CCC attribute length = 2
+        // check if it's a client configuration char
+        if(att_idx == F040S_IDX_F041_VAL_IND_CFG)
+		{
+			// CCC attribute length = 2
 						cfm->length = 2;
-				}
+		}
         else if(att_idx == F040S_IDX_F041_VAL_VAL)
         {
-            cfm->length = F040_CHAR_DATA_LEN;
+            cfm->length = F040_F041_DATA_LEN;
         }
         // not expected request
         else
@@ -152,32 +153,7 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
         uint16_t ntf_cfg = co_read16p(&param->value[0]);
 
         // Only update configuration if value for stop or notification enable
-  //       if ((att_idx == F040S_IDX_F044_VAL_NTF_CFG)
-  //               && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
-  //       {
-  //           // Conserve information in environment
-  //           if (ntf_cfg == PRF_CLI_START_NTF)
-  //           {
-  //               // Ntf cfg bit set to 1
-  //               f040s_env->ntf_cfg[conidx] = PRF_CLI_START_NTF ;
-  //           }
-  //           else
-  //           {
-  //               // Ntf cfg bit set to 0
-  //               f040s_env->ntf_cfg[conidx] = PRF_CLI_STOP_NTFIND;
-  //           }
-
-  //           // Inform APP of configuration change
-  //           struct f040s_f044_val_ntf_cfg_ind * ind = KE_MSG_ALLOC(F040S_F044_VALUE_NTF_CFG_IND,
-  //                   prf_dst_task_get(&(f040s_env->prf_env), conidx), dest_id,
-  //                   f040s_f044_val_ntf_cfg_ind);
-  //           ind->conidx = conidx;
-  //           ind->ntf_cfg = f040s_env->ntf_cfg[conidx];
-						
-  //           ke_msg_send(ind);			
-  //       }		
-		// else 
-        if ((att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+        if ((att_idx == F040S_IDX_F041_VAL_IND_CFG)
                 && ((ntf_cfg == PRF_CLI_STOP_NTFIND) || (ntf_cfg == PRF_CLI_START_NTF)))
         {
             // Conserve information in environment
@@ -203,7 +179,7 @@ static int gattc_write_req_ind_handler(ke_msg_id_t const msgid, struct gattc_wri
         }
 		else if (att_idx == F040S_IDX_F041_VAL_VAL)
 		{
-            extern void f041_0x2a2b_cb(uint8_t* buf);
+			extern void f041_0x2a2b_cb(uint8_t* buf);
             f041_0x2a2b_cb(&param->value[0]);
 		}
         else
@@ -245,7 +221,7 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         {
             length = F040_F041_DATA_LEN;
         }
-		else if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+		else if(att_idx == F040S_IDX_F041_VAL_IND_CFG)
 		{
 			length = sizeof(uint16_t);
 		}
@@ -266,10 +242,10 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
     {
         // read notification information
         if (att_idx == F040S_IDX_F041_VAL_VAL)
-        {
+        {    
             memcpy(cfm->value,f040s_env->f041_val,length);
         }
-		else if(att_idx == F040S_IDX_F041_VAL_NTF_CFG)
+		else if(att_idx == F040S_IDX_F041_VAL_IND_CFG)
 		{
 			uint16_t ind_cfg = f040s_env->ind_cfg[conidx];
             co_write16p(cfm->value, ind_cfg);

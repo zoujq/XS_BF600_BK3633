@@ -16,6 +16,7 @@
 .\obj\work.o: .\config\rwprf_config.h
 .\obj\work.o: .\config\rwapp_config.h
 .\obj\work.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\obj\work.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\time.h
 .\obj\work.o: ..\..\src\plf\rwip\api\rwip.h
 .\obj\work.o: ..\..\src\modules\ke\api\ke_msg.h
 .\obj\work.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h

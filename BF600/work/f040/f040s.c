@@ -36,13 +36,14 @@ const struct attm_desc f040_att_db[F040S_IDX_NB] =
     // F040 Service Declaration
     [F040S_IDX_SVC]            =   {ATT_DECL_PRIMARY_SERVICE, PERM(RD, ENABLE), 0, 0},
 
+	
     	// f047 Level Characteristic Declaration
 	[F040S_IDX_F041_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f047 Level Characteristic Value
-    [F040S_IDX_F041_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F041, PERM(NTF, ENABLE)|PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F040S_IDX_F041_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F041,PERM(RD, ENABLE)| PERM(WRITE_REQ, ENABLE)|PERM(NTF, ENABLE),PERM(RI, ENABLE), F040_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f047 Level Characteristic - Client Characteristic Configuration Descriptor
-	[F040S_IDX_F041_VAL_NTF_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
+	[F040S_IDX_F041_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},
     
 	
 };/// Macro used to retrieve permission value from access and rights on attribute.
@@ -225,7 +226,7 @@ uint16_t f040s_get_att_handle( uint8_t att_idx)
     handle = f040s_env->start_hdl;
 
     // increment index according to expected index
-    if(att_idx <= F040S_IDX_F041_VAL_NTF_CFG)
+    if(att_idx <= F040S_IDX_F041_VAL_IND_CFG)
     {
         handle += att_idx;
     }
@@ -247,7 +248,7 @@ uint8_t f040s_get_att_idx(uint16_t handle, uint8_t *att_idx)
     // Browse list of services
     // handle must be greater than current index 
     // check if it's a mandatory index
-    if(handle <= (hdl_cursor1 + F040S_IDX_F041_VAL_NTF_CFG))
+    if(handle <= (hdl_cursor1 + F040S_IDX_F041_VAL_IND_CFG))
     {
         *att_idx = handle -hdl_cursor1;
         status = GAP_ERR_NO_ERROR;

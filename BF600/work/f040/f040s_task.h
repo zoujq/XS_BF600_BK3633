@@ -29,8 +29,8 @@
 #define F040S_IDX_MAX     0x01
 ///Maximal number of F040 that can be added in the DB
 
-#define  F040_CHAR_DATA_LEN  1
-#define  F040_F041_DATA_LEN  10
+#define  F040_CHAR_DATA_LEN  12
+#define  F040_F041_DATA_LEN  12
 /*
  * TYPE DEFINITIONS
  ****************************************************************************************
