@@ -29,9 +29,9 @@
 #define F010S_IDX_MAX     0x01
 ///Maximal number of F010 that can be added in the DB
 
-#define  F010_CHAR_DATA_LEN  1
+#define  F010_CHAR_DATA_LEN  15
 #define  F010_F011_DATA_LEN  4
-#define  F010_F012_DATA_LEN  14
+#define  F010_F012_DATA_LEN  15
 /*
  * TYPE DEFINITIONS
  ****************************************************************************************

@@ -154,7 +154,7 @@ void init_select_user_info();
 void delay_1s_to_loop_regist(int t);
 void set_time(int y, int m, int d, int h, int mi, int s);
 void update_time();//1s
-
+void work_test(uint8_t *buf);
 
 
 uint8_t g_user_num = 0;
@@ -197,7 +197,7 @@ void xs_user_task()
 		inited = 1;
 	}
 
-	if (t++ > 9)
+	if (t++ > 8)
 	{
 		t = 0;
 		update_time();
@@ -321,6 +321,7 @@ void xs_uart_received_isr(uint8_t *buf, uint8_t len)
 	UART_PRINTF("uart0_rx:");
 	printf_hex(buf, len);
 	UART_PRINTF("\r\n");
+	// work_test(buf);
 	if (ignore_repetition(buf))
 	{
 		return;
@@ -1256,68 +1257,48 @@ void delay_1s_get_user_info(int t)
 void set_time(int y, int m, int d, int h, int mi, int s)
 {
 
-	// struct tm tm0 = {0};
+	struct tm tm0 = {0};
 
-	// tm0.tm_year = y - 2000;
-	// tm0.tm_mon = m;
-	// tm0.tm_mday = d;
-	// tm0.tm_hour = h;
-	// tm0.tm_min = mi;
-	// tm0.tm_sec = s;
+	tm0.tm_year = (y>1900?y:2021) - 1900;
+	tm0.tm_mon = m;
+	tm0.tm_mday = d;
+	tm0.tm_hour = h;
+	tm0.tm_min = mi;
+	tm0.tm_sec = s;
 
-	// g_time_stamp = mktime(&tm0);
+	g_time_stamp = mktime(&tm0);
 }
 
 void update_time()//1s
 {
 
-	// static int inited=0;
+	struct tm *tm1=0;
 
-	// struct tm *tm1=0;
+	g_time_stamp++;
 
-	// if(inited==0)
-	// {
-	// 	struct tm tm0={0};
-	// 	inited=1;
-
-	// 	tm0.tm_year=30;
-	// 	tm0.tm_mon=2;
-	// 	tm0.tm_mday=3;
-	// 	tm0.tm_hour=4;
-	// 	tm0.tm_min=5;
-	// 	tm0.tm_sec=6;
-
-	// 	g_time_stamp=mktime(&tm0);
-	// 	g_time_stamp=0;
-	// }
-
-	// g_time_stamp++;
-
-	// tm1=gmtime(&g_time_stamp);
-
+	tm1=localtime(&g_time_stamp);
+	
+	g_time[0]=(tm1->tm_year+1900)&0xff;
+	g_time[1]=0x07;
+	g_time[2]=tm1->tm_mon;
+	g_time[3]=tm1->tm_mday;
+	g_time[4]=tm1->tm_hour;
+	g_time[5]=tm1->tm_min;
+	g_time[6]=tm1->tm_sec;
+	set_f041_0x2a2b_rd_ntf(g_time);
 	// UART_PRINTF("%d-%d-%d  %d:%d:%d  %d",
-	// 		tm1->tm_year,tm1->tm_mon,tm1->tm_mday,tm1->tm_hour,tm1->tm_min,tm1->tm_sec,g_time_stamp
-	// 		);
+	// 		tm1->tm_year,tm1->tm_mon,tm1->tm_mday,
+	// 		tm1->tm_hour,tm1->tm_min,tm1->tm_sec,g_time_stamp);
 
+}
 
-	// // utc_get_time(&tm);
+void work_test(uint8_t *buf)
+{
+	if(buf[0]=='0')
+	{
+		uint8_t buff[15]={1,2,3};
 
-	// g_time[0]=(tm.year+2000)&0xff;
-	// g_time[1]=0x07;
-	// g_time[2]=tm.month;
-	// g_time[3]=tm.day;
-	// g_time[4]=tm.hour;
-	// g_time[5]=tm.minutes;
-	// g_time[6]=tm.seconds;
-	// set_f041_0x2a2b_rd_ntf(g_time);
-
-	// UART_PRINTF("%d-%d-%d  %d:%d:%d",
-	// 		g_time[0],
-	// 		g_time[2],
-	// 		g_time[3],
-	// 		g_time[4],
-	// 		g_time[5],
-	// 		g_time[6]
-	// 		);
-
+		set_f002_0x2a9d_ind(buff);
+		set_f012_0x2a9c_ind(buff);
+	}
 }

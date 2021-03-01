@@ -29,11 +29,11 @@
 #define F020S_IDX_MAX     0x01
 ///Maximal number of F020 that can be added in the DB
 #define  F020_CHAR_DATA_LEN  30
-#define  F020_F021_DATA_LEN  4
-#define  F020_F022_DATA_LEN  1
-#define  F020_F023_DATA_LEN  1
-#define  F020_F024_DATA_LEN  4
-#define  F020_F025_DATA_LEN  1
+#define  F020_F021_DATA_LEN  6
+#define  F020_F022_DATA_LEN  2
+#define  F020_F023_DATA_LEN  2
+#define  F020_F024_DATA_LEN  6
+#define  F020_F025_DATA_LEN  2
 #define  F020_F026_DATA_LEN  30
 
 /*

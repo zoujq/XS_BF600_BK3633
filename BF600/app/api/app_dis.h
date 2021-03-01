@@ -41,32 +41,32 @@
  */
 
 /// Manufacturer Name Value
-#define APP_DIS_MANUFACTURER_NAME       ("RivieraWaves SAS")
-#define APP_DIS_MANUFACTURER_NAME_LEN   (16)
+#define APP_DIS_MANUFACTURER_NAME       ("Beurer GmbH")
+#define APP_DIS_MANUFACTURER_NAME_LEN   (11)
 
 /// Model Number String Value
-#define APP_DIS_MODEL_NB_STR            ("RW-BLE-1.0")
-#define APP_DIS_MODEL_NB_STR_LEN        (10)
+#define APP_DIS_MODEL_NB_STR            ("BF600")
+#define APP_DIS_MODEL_NB_STR_LEN        (5)
 
 /// Serial Number
-#define APP_DIS_SERIAL_NB_STR           ("1.0.0.0-LE")
-#define APP_DIS_SERIAL_NB_STR_LEN       (10)
+#define APP_DIS_SERIAL_NB_STR           ("S1.00")
+#define APP_DIS_SERIAL_NB_STR_LEN       (5)
 
 /// Firmware Revision
-#define APP_DIS_FIRM_REV_STR            ("6.1.2")
-#define APP_DIS_FIRM_REV_STR_LEN        (5)
+#define APP_DIS_FIRM_REV_STR            ("6.1")
+#define APP_DIS_FIRM_REV_STR_LEN        (3)
 
 /// System ID Value - LSB -> MSB
-#define APP_DIS_SYSTEM_ID               ("\x12\x34\x56\xFF\xFE\x9A\xBC\xDE")
-#define APP_DIS_SYSTEM_ID_LEN           (8)
+#define APP_DIS_SYSTEM_ID               ("\x10\x00\x00\x11\x25\x76")
+#define APP_DIS_SYSTEM_ID_LEN           (6)
 
 /// Hardware Revision String
-#define APP_DIS_HARD_REV_STR           ("1.0.0")
-#define APP_DIS_HARD_REV_STR_LEN       (5)
+#define APP_DIS_HARD_REV_STR           ("2.0")
+#define APP_DIS_HARD_REV_STR_LEN       (3)
 
 /// Software Revision String
-#define APP_DIS_SW_REV_STR              ("6.3.0")
-#define APP_DIS_SW_REV_STR_LEN          (5)
+#define APP_DIS_SW_REV_STR              ("2.0")
+#define APP_DIS_SW_REV_STR_LEN          (3)
 
 /// IEEE
 #define APP_DIS_IEEE                    ("\xFF\xEE\xDD\xCC\xBB\xAA")
