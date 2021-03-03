@@ -275,13 +275,12 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F010S_IDX_F011_VAL_VAL)
         {
-            length = F010_F011_DATA_LEN * sizeof(uint8_t);
+            length = F010_F011_DATA_LEN ;
         }
-//        else if (att_idx == F010S_IDX_F011_USER_DESC)
-//        {
-//            length = f010s_env->f011_desc_len;
-//            uart_printf("read F011_USER_DESC\r\n");
-//        }
+        else if (att_idx == F010S_IDX_F012_VAL_VAL)
+        {
+            length = F010_F012_DATA_LEN ;
+        }
         // // read notification information
         // else if (att_idx == F010S_IDX_F014_VAL_NTF_CFG)
         // {
@@ -309,7 +308,11 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F010S_IDX_F011_VAL_VAL)
         {
-            memcpy(cfm->value,f010s_env->f011_val,10);
+            memcpy(cfm->value,f010s_env->f011_val,length);
+        }
+        else if (att_idx == F010S_IDX_F012_VAL_VAL)
+        {
+            memcpy(cfm->value,f010s_env->f012_val,length);
         }
 //        else if (att_idx == F010S_IDX_F011_USER_DESC)
 //        {

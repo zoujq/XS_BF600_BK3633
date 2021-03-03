@@ -43,7 +43,7 @@ const struct attm_desc f000_att_db[F000S_IDX_NB] =
     // f001 Level Characteristic Declaration
 	[F000S_IDX_F002_VAL_CHAR]  =   {ATT_DECL_CHARACTERISTIC, PERM(RD, ENABLE), 0, 0},
     // f001 Level Characteristic Value
-    [F000S_IDX_F002_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F002, PERM(IND, ENABLE)|PERM(RD, ENABLE), PERM(RI, ENABLE), F000_F002_CHAR_DATA_LEN * sizeof(uint8_t)},
+    [F000S_IDX_F002_VAL_VAL]   =   {ATT_USER_SERVER_CHAR_F002, PERM(IND, ENABLE), PERM(RI, ENABLE), F000_F002_CHAR_DATA_LEN * sizeof(uint8_t)},
 
 	// f001 Level Characteristic - Client Characteristic Configuration Descriptor
 	[F000S_IDX_F002_VAL_IND_CFG] = {ATT_DESC_CLIENT_CHAR_CFG,  PERM(RD, ENABLE)|PERM(WRITE_REQ, ENABLE), 0, 0},

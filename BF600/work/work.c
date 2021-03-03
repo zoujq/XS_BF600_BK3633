@@ -155,6 +155,7 @@ void delay_1s_to_loop_regist(int t);
 void set_time(int y, int m, int d, int h, int mi, int s);
 void update_time();//1s
 void work_test(uint8_t *buf);
+void re_set_time();
 
 
 uint8_t g_user_num = 0;
@@ -184,7 +185,7 @@ uint8_t g_regist_10_buff[8] = {0};
 uint8_t g_seting_time = 0;
 
 uint32_t g_time_stamp = 0;
-
+uint8_t  g_ba_counter=0;
 //ble state
 #define BLE_STATE_PIN 0x04
 
@@ -222,7 +223,7 @@ void init_work()
 
 	UART_PRINTF("init_ble_state:1\n");
 
-	set_time(21, 1, 11, 10, 39, 5);
+	set_time(21, 2, 2, 2, 2, 2);
 
 }
 
@@ -233,15 +234,17 @@ void set_ble_state(uint8_t s)
 
 	g_ble_state = s;
 	g_user_registing = 0;
+	g_ba_counter=0;
 	init_select_user_info();
 
+	UART_PRINTF("icu_get_sleep_mode:%d\n",icu_get_sleep_mode());
 	if (s == 0)
 	{
-		icu_set_sleep_mode(1);
+		icu_set_sleep_mode(0);
 	}
 	else
 	{
-		icu_set_sleep_mode(0);
+		icu_set_sleep_mode(2);
 	}
 
 
@@ -290,6 +293,7 @@ void clear_uart_received_buf()
 uint8_t ignore_repetition(uint8_t *b)
 {
 	static uint8_t last_buf[8] = {0};
+	
 
 	if (last_buf[0] == b[0] &&
 	        last_buf[1] == b[1] &&
@@ -300,6 +304,16 @@ uint8_t ignore_repetition(uint8_t *b)
 	        last_buf[6] == b[6] &&
 	        last_buf[7] == b[7] )
 	{
+		if(last_buf[6]==0xBA)
+		{
+			g_ba_counter++;
+			if(g_ba_counter>30)
+			{
+				re_set_time();
+				g_ba_counter=0;
+			}
+		}
+
 		return 1;
 	}
 	else
@@ -312,8 +326,19 @@ uint8_t ignore_repetition(uint8_t *b)
 		last_buf[5] = b[5];
 		last_buf[6] = b[6];
 		last_buf[7] = b[7];
-
 		return 0;
+	}
+}
+uint8_t check_cmd_sum(uint8_t *buf)
+{
+	uint8_t sum=buf[2]+buf[3]+buf[4]+buf[5]+buf[6];
+	if(sum==buf[7])
+	{
+		return 1;
+	}
+	else
+	{
+		return 1;
 	}
 }
 void xs_uart_received_isr(uint8_t *buf, uint8_t len)
@@ -326,7 +351,7 @@ void xs_uart_received_isr(uint8_t *buf, uint8_t len)
 	{
 		return;
 	}
-	if (buf[0] == 0xFF && buf[1] == 0xA5)
+	if (buf[0] == 0xFF && buf[1] == 0xA5 && check_cmd_sum(buf))
 	{
 		g_scale_state = 1;
 		if (buf[6] == 0xBA)
@@ -370,8 +395,6 @@ void xs_uart_received_isr(uint8_t *buf, uint8_t len)
 			g_time[5] = buf[3];
 			g_time[6] = buf[4];
 			set_time(g_time[0] | (g_time[1] << 8), g_time[2], g_time[3], g_time[4], g_time[5], g_time[6]);
-
-			set_f041_0x2a2b_rd_ntf(g_time);
 		}
 		else if (buf[6] == 0xBD)
 		{
@@ -540,11 +563,14 @@ void set_f001_0x2a9e_rd(uint8_t* buf)
 {
 	struct f000s_env_tag* f000s_env = PRF_ENV_GET(F000S, f000s);
 	memcpy(f000s_env->f001_val, buf, F000_F001_CHAR_DATA_LEN);
-	UART_PRINTF("set_F001_0x2a9e_rd\r\n");
+	UART_PRINTF("set_f001_0x2a9e_rd\r\n");
 }
 void set_f002_0x2a9d_ind(uint8_t* buf)
 {
 	extern void app_f002_send_ind(uint8_t conidx, uint16_t len, uint8_t* buf);
+
+	struct f000s_env_tag* f000s_env = PRF_ENV_GET(F000S, f000s);
+	memcpy(f000s_env->f002_val, buf, F000_F002_CHAR_DATA_LEN);
 
 	app_f002_send_ind(0, F000_F002_CHAR_DATA_LEN, buf);
 	UART_PRINTF("set_f002_0x2a9d_ind\r\n");
@@ -561,6 +587,9 @@ void set_f011_0x2a9b_rd(uint8_t* buf)
 void set_f012_0x2a9c_ind(uint8_t* buf)
 {
 	extern void app_f012_send_ind(uint8_t conidx, uint16_t len, uint8_t* buf);
+
+	struct f010s_env_tag* f010s_env = PRF_ENV_GET(F010S, f010s);
+	memcpy(f010s_env->f012_val, buf, F010_F012_DATA_LEN);
 
 	app_f012_send_ind(0, F010_F012_DATA_LEN, buf);
 	UART_PRINTF("set_f012_0x2a9c_ind\r\n");
@@ -648,6 +677,7 @@ void set_f026_0x2a9f_rd(uint8_t* buf)
 void f026_0x2a9f_cb(uint8_t* buf)
 {
 	UART_PRINTF("f026_0x2a9f_cb\r\n");
+	printf_hex(buf,4);
 	//creat user 0x01 00 00
 	uint8_t buff[8] = {0};
 	if (buf[0] == 0x01)
@@ -1072,16 +1102,24 @@ void delay_1s_update_user_info(int t)
 		t1--;
 		if (t1 == 0)
 		{
-			uint8_t buff[8];
-			buff[0] = 0xA5;
-			buff[1] = 0x10;
-			buff[2] = ((g_user_list[10] == 1 ? 0 : 1) << 7) | g_user_list[1];
-			buff[3] = g_user_list[13];
-			buff[4] = g_user_list[12];
-			buff[5] = g_user_list[9];
-			buff[6] = g_user_list[11];
-			buff[7] = buff[1] + buff[2] + buff[3] + buff[4] + buff[5] + buff[6];
-			xs_uart_send_data(buff, 8);
+			if(g_user_list[13] ==0xff && g_user_list[12]==0xff)
+			{
+				return;
+			}
+			else
+			{
+				uint8_t buff[8];
+				buff[0] = 0xA5;
+				buff[1] = 0x10;
+				buff[2] = ((g_user_list[10] == 1 ? 0 : 1) << 7) | g_user_list[1];
+				buff[3] = g_user_list[13];
+				buff[4] = g_user_list[12];
+				buff[5] = g_user_list[9];
+				buff[6] = g_user_list[11];
+				buff[7] = buff[1] + buff[2] + buff[3] + buff[4] + buff[5] + buff[6];
+				xs_uart_send_data(buff, 8);
+			}
+			
 		}
 	}
 
@@ -1256,7 +1294,7 @@ void delay_1s_get_user_info(int t)
 
 void set_time(int y, int m, int d, int h, int mi, int s)
 {
-
+	uint32_t time_stamp = 0;
 	struct tm tm0 = {0};
 
 	tm0.tm_year = (y>1900?y:2021) - 1900;
@@ -1266,9 +1304,39 @@ void set_time(int y, int m, int d, int h, int mi, int s)
 	tm0.tm_min = mi;
 	tm0.tm_sec = s;
 
-	g_time_stamp = mktime(&tm0);
+	time_stamp = mktime(&tm0);
+
+	if(time_stamp>1609652405)
+	{
+		g_time_stamp = time_stamp;
+	}
+	
 }
 
+void re_set_time()
+{
+	uint8_t buff[8] = {0};
+
+	buff[0] = 0xA5;
+	buff[1] = 0x30;
+	buff[2] = g_time[0];
+	buff[3] = g_time[2];
+	buff[4] = g_time[3];
+	buff[5] = 0;
+	buff[6] = 0;
+	buff[7] = buff[1] + buff[2] + buff[3] + buff[4] + buff[5] + buff[6];
+	xs_uart_send_data(buff, 8); //send date
+
+	g_curr_time[0] = 0xA5;
+	g_curr_time[1] = 0x31;
+	g_curr_time[2] = g_time[4];
+	g_curr_time[3] = g_time[5];
+	g_curr_time[4] = g_time[6];
+	g_curr_time[5] = 0;
+	g_curr_time[6] = 0;
+	g_curr_time[7] = g_curr_time[1] + g_curr_time[2] + g_curr_time[3] + g_curr_time[4] + g_curr_time[5] + g_curr_time[6];	
+	
+}
 void update_time()//1s
 {
 

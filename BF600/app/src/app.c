@@ -344,6 +344,13 @@ static void appm_build_adv_data(uint16_t max_length, uint16_t *p_length, uint8_t
     p_buf += APP_ADV_DATA_APPEARANCE_LEN;
     #endif //(BLE_APP_HID)
 
+    {
+        uint8_t buff_serveic[4]={0x03,0x02,0x1D,0x18};
+        memcpy(p_buf , buff_serveic, 4);
+        *p_length +=4;
+        p_buf+=4;
+    }
+
     // Sanity check
     ASSERT_ERR(rem_len >= max_length);
 
@@ -365,6 +372,7 @@ static void appm_build_adv_data(uint16_t max_length, uint16_t *p_length, uint8_t
         // Update advertising data length
         *p_length += (dev_name_length + 2);
     }
+
 }
 #endif //(!BLE_APP_AM0)
 

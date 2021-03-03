@@ -26,7 +26,7 @@
 //DRIVER CONFIG
 #define UART0_DRIVER				1
 #define UART2_DRIVER				1
-#define GPIO_DRIVER					0
+#define GPIO_DRIVER					1
 #define ADC_DRIVER					0
 #define I2C_DRIVER					0
 #define PWM_DRIVER					0
@@ -56,9 +56,9 @@
 /// Advertising channel map - 37, 38, 39
 #define APP_ADV_CHMAP           (0x07)
 /// Advertising minimum interval - 40ms (64*0.625ms)
-#define APP_ADV_INT_MIN         (160 )
+#define APP_ADV_INT_MIN         (1600 )
 /// Advertising maximum interval - 40ms (64*0.625ms)
-#define APP_ADV_INT_MAX         (160)
+#define APP_ADV_INT_MAX         (1600)
 /// Fast advertising interval
 #define APP_ADV_FAST_INT        (32)
 

@@ -276,6 +276,10 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         {
             length = F000_F001_CHAR_DATA_LEN * sizeof(uint8_t);
         }
+        else if (att_idx == F000S_IDX_F002_VAL_VAL)
+        {
+            length = F000_F002_CHAR_DATA_LEN ;
+        }
 //        else if (att_idx == F000S_IDX_F001_USER_DESC)
 //        {
 //            length = f000s_env->f001_desc_len;
@@ -308,7 +312,11 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F000S_IDX_F001_VAL_VAL)
         {
-            memcpy(cfm->value,f000s_env->f001_val,F000_F001_CHAR_DATA_LEN);
+            memcpy(cfm->value,f000s_env->f001_val,length);
+        }
+        else if (att_idx == F000S_IDX_F002_VAL_VAL)
+        {
+             memcpy(cfm->value,f000s_env->f002_val,length);
         }
 //        else if (att_idx == F000S_IDX_F001_USER_DESC)
 //        {

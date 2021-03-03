@@ -213,11 +213,11 @@ void set_ble_state(uint8_t s)
 
 	if(s==0)
 	{
-		icu_set_sleep_mode(1);
+		// icu_set_sleep_mode(1);
 	}
 	else
 	{
-		icu_set_sleep_mode(0);
+		// icu_set_sleep_mode(0);
 	}
 	
 

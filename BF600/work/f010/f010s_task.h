@@ -31,7 +31,7 @@
 
 #define  F010_CHAR_DATA_LEN  15
 #define  F010_F011_DATA_LEN  4
-#define  F010_F012_DATA_LEN  15
+#define  F010_F012_DATA_LEN  14
 /*
  * TYPE DEFINITIONS
  ****************************************************************************************

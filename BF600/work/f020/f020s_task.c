@@ -316,26 +316,32 @@ static int gattc_read_req_ind_handler(ke_msg_id_t const msgid, struct gattc_read
         // read notification information
         if (att_idx == F020S_IDX_F021_VAL_VAL)
         {
+            uart_printf("read f021\n\r");
             memcpy(cfm->value,f020s_env->f021_val,length);
         }
         else if (att_idx == F020S_IDX_F022_VAL_VAL)
         {
+            uart_printf("read f022\n\r");
             memcpy(cfm->value,f020s_env->f022_val,length);
         }
         else if (att_idx == F020S_IDX_F023_VAL_VAL)
         {
+            uart_printf("read f023\n\r");
             memcpy(cfm->value,f020s_env->f023_val,length);
         }
         else if (att_idx == F020S_IDX_F024_VAL_VAL)
         {
+            uart_printf("read f024\n\r");
             memcpy(cfm->value,f020s_env->f024_val,length);
         }
         else if (att_idx == F020S_IDX_F025_VAL_VAL)
         {
+            uart_printf("read f025\n\r");
             memcpy(cfm->value,f020s_env->f025_val,length);
         }
         else if (att_idx == F020S_IDX_F026_VAL_VAL)
         {
+            uart_printf("read f026\n\r");
             memcpy(cfm->value,f020s_env->f026_val,length);
         }
         // retrieve notification config
